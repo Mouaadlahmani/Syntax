@@ -1,4 +1,8 @@
-# CodeCraft
+# Syntax
+
+#Contexte :
+Dans le monde numérique d'aujourd'hui, les compétences en programmation sont de plus en plus recherchées. Les professionnels, étudiants, et passionnés de technologie cherchent constamment des moyens efficaces pour apprendre et améliorer leurs compétences en programmation. Cependant, il existe plusieurs défis associés à l'apprentissage du code et à la validation des compétences.
+
 
  # Diagramme de classe
 

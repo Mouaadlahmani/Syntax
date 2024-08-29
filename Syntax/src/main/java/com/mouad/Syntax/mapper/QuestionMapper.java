@@ -1,7 +1,7 @@
-package com.mouad.CodeCraft.mapper;
+package com.mouad.Syntax.mapper;
 
-import com.mouad.CodeCraft.dto.QuestionDto;
-import com.mouad.CodeCraft.model.Question;
+import com.mouad.Syntax.dto.QuestionDto;
+import com.mouad.Syntax.model.Question;
 import org.mapstruct.Mapper;
 
 import java.util.List;

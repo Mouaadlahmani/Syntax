@@ -1,0 +1,32 @@
+package com.mouad.Syntax.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Cours {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String titre;
+    private String description;
+
+    @OneToMany(mappedBy = "courses")
+    @JsonIgnore
+    private List<Certificat> certificat;
+
+    @OneToMany(mappedBy = "courses")
+    @JsonIgnore
+    private List<Lecon> Lecons;
+
+    @OneToMany(mappedBy = "courses")
+    @JsonIgnore
+    private List<Quiz> quizzes;
+}

@@ -29,6 +29,11 @@ public class QuestionController {
         return questionService.questionById(id);
     }
 
+    @GetMapping("cours/{id}")
+    List<QuestionDto> questionsCours(@PathVariable Long id){
+        return questionService.findByCours(id);
+    }
+
     @PutMapping("edit/{id}")
     QuestionDto editReponse(@PathVariable Long id, @RequestBody QuestionDto questionDto){
         return questionService.editQuestion(id, questionDto);

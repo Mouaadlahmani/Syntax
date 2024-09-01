@@ -26,7 +26,7 @@ public class Cours {
     @JsonIgnore
     private List<Lecon> Lecons;
 
-    @OneToMany(mappedBy = "courses")
+    @OneToMany(mappedBy = "cours")
     @JsonIgnore
-    private List<Quiz> quizzes;
+    private List<Question> questions;
 }

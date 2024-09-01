@@ -16,15 +16,19 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String question;
-
-    @OneToMany(mappedBy = "question")
-    @JsonIgnore
-    private List<Reponse> reponses;
+    private String questionTitle;
+    private String option1;
+    private String option2;
+    private String option3;
+    private String rightAnswer;
+    private String difficultyLevel;
 
     @ManyToOne
-    @JoinColumn(name = "questions")
-    private Quiz quiz;
+    @JoinColumn(name = "cours")
+    private Cours cours;
 
+    @ManyToMany(mappedBy = "questions")
+    @JsonIgnore
+    private List<Quiz> quizzes;
 
 }

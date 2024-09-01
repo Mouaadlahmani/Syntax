@@ -2,7 +2,9 @@ package com.mouad.Syntax.service.impl;
 
 import com.mouad.Syntax.dto.QuestionDto;
 import com.mouad.Syntax.mapper.QuestionMapper;
+import com.mouad.Syntax.model.Cours;
 import com.mouad.Syntax.model.Question;
+import com.mouad.Syntax.repository.CoursRepository;
 import com.mouad.Syntax.repository.QuestionRepository;
 import com.mouad.Syntax.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     QuestionRepository questionRepository;
+    @Autowired
+    CoursRepository coursRepository;
     @Autowired
     QuestionMapper questionMapper;
 
@@ -43,14 +47,28 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
+    public List<QuestionDto> findByCours(Long id) {
+        Cours cours = coursRepository.findById(id).orElseThrow();
+        List<Question> questions = questionRepository.findByCours(cours);
+        return questions.stream()
+                .map(questionMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public QuestionDto editQuestion(Long id, QuestionDto questionDto) {
         Optional<Question> optionalQuestion = questionRepository.findById(id);
         if (optionalQuestion.isPresent()) {
             Question question = optionalQuestion.get();
             question.setId(id);
-            question.setQuiz(questionDto.getQuiz());
-            question.setQuestion(questionDto.getQuestion());
-            question.setReponses(questionDto.getReponses());
+            question.setQuizzes(questionDto.getQuizzes());
+            question.setQuestionTitle(questionDto.getQuestionTitle());
+            question.setOption1(questionDto.getOption1());
+            question.setOption2(question.getOption2());
+            question.setOption3(question.getOption3());
+            question.setDifficultyLevel(questionDto.getDifficultyLevel());
+            question.setCours(questionDto.getCours());
+            question.setRightAnswer(questionDto.getRightAnswer());
 
             Question saved = questionRepository.save(question);
             return questionMapper.toDto(saved);

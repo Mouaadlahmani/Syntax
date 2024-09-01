@@ -18,11 +18,13 @@ public class Quiz {
     private Long id;
     private String titre;
 
-    @OneToMany(mappedBy = "quiz")
+    @ManyToMany
+    @JoinTable(
+            name = "quiz_question",
+            joinColumns = @JoinColumn(name = "quiz_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id")
+    )
     @JsonIgnore
     private List<Question> questions;
 
-    @ManyToOne
-    @JoinColumn(name = "quizzes")
-    private Cours courses;
 }

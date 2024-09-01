@@ -1,6 +1,6 @@
 package com.mouad.Syntax.dto;
 
-import com.mouad.Syntax.model.Cours;
+
 import com.mouad.Syntax.model.Question;
 import lombok.Data;
 
@@ -11,5 +11,4 @@ public class QuizDto {
     private Long id;
     private String titre;
     private List<Question> questions;
-    private Cours courses;
 }

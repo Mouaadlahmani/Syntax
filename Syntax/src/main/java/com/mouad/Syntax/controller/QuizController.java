@@ -1,7 +1,9 @@
 package com.mouad.Syntax.controller;
 
 import com.mouad.Syntax.dto.QuizDto;
+import com.mouad.Syntax.model.QuestionWrapper;
 import com.mouad.Syntax.model.Quiz;
+import com.mouad.Syntax.model.Reponse;
 import com.mouad.Syntax.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +19,13 @@ public class QuizController {
     QuizService quizService;
 
     @PostMapping("add")
-    public QuizDto addQuiz(@RequestBody QuizDto quizDto) {
-        return quizService.ajouterQuiz(quizDto);
+    public QuizDto addQuiz(@RequestParam String category, @RequestParam int numQ, @RequestParam String title) {
+        return quizService.ajouterQuiz(category, numQ, title);
+    }
+
+    @PostMapping("submit/{id}")
+    public int submitQuiz(@PathVariable Long id, @RequestBody List<Reponse> responses){
+        return quizService.calculateResult(id, responses);
     }
 
     @GetMapping("all")
@@ -26,15 +33,20 @@ public class QuizController {
         return quizService.getAllQuizzes();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("num/{id}")
     public Optional<QuizDto> getQuizById(@PathVariable Long id) {
         return quizService.getQuiz(id);
     }
 
-    @PutMapping("edit/{id}")
-    public QuizDto editQuiz(@PathVariable Long id, @RequestBody QuizDto quizDto) {
-        return quizService.modifyQuiz(id, quizDto);
+    @GetMapping("{id}")
+    public List<QuestionWrapper> getQuizWithQuestions(@PathVariable Long id) {
+        return quizService.getQuizWithQuestions(id);
     }
+
+//    @PutMapping("edit/{id}")
+//    public QuizDto editQuiz(@PathVariable Long id, @RequestBody QuizDto quizDto) {
+//        return quizService.modifyQuiz(id, quizDto);
+//    }
 
     @DeleteMapping
     public void deleteQuiz(@PathVariable Long id) {

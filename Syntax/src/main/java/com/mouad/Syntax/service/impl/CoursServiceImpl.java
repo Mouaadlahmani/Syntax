@@ -51,7 +51,7 @@ public class CoursServiceImpl implements CoursService {
             editedCours.setDescription(coursDto.getDescription());
             editedCours.setLecons(coursDto.getLecons());
             editedCours.setCertificat(coursDto.getCertificat());
-            editedCours.setQuizzes(editedCours.getQuizzes());
+            editedCours.setQuestions(editedCours.getQuestions());
             Cours saved = coursRepository.save(editedCours);
             return coursMapper.toDto(saved);
         }

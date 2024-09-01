@@ -2,8 +2,8 @@ package com.mouad.Syntax.service;
 
 
 import com.mouad.Syntax.dto.QuizDto;
-import com.mouad.Syntax.model.QuestionWrapper;
-import com.mouad.Syntax.model.Reponse;
+import com.mouad.Syntax.dto.QuestionWrapper;
+import com.mouad.Syntax.dto.Reponse;
 
 import java.util.List;
 import java.util.Optional;

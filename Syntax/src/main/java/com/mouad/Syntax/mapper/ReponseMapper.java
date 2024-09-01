@@ -3,7 +3,7 @@ package com.mouad.Syntax.mapper;
 
 
 import com.mouad.Syntax.dto.ReponseDto;
-import com.mouad.Syntax.model.Reponse;
+import com.mouad.Syntax.dto.Reponse;
 import org.mapstruct.Mapper;
 
 import java.util.List;

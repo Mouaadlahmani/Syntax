@@ -1,0 +1,43 @@
+<header>
+  <nav>
+    <div class="logo">
+      <a routerLink="">
+        <img src="assets/images/Syntax.png" alt="Syntax Logo">
+      </a>
+    </div>
+    <ul>
+    </ul>
+  </nav>
+</header>
+<div class="container">
+  <div class="form-wrapper">
+    <div class="form-container">
+      <h2>Sign Up</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <div class="name-fields">
+            <div class="name-field">
+              <label for="prenom">First Name</label>
+              <input [(ngModel)]="utilisateur.prenom" type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="name-field">
+              <label for="nom">Family Name</label>
+              <input [(ngModel)]="utilisateur.nom" type="text" id="nom" name="nom" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input [(ngModel)]="utilisateur.email" type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input [(ngModel)]="utilisateur.password" type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+      <p>Already have an account? <a [routerLink]="['/sign-in']">Sign In</a></p>
+    </div>
+  </div>
+</div>
+

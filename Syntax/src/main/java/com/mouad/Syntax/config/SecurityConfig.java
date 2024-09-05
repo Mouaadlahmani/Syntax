@@ -25,10 +25,11 @@ public class SecurityConfig {
                 .csrf( csrf -> csrf.disable()) // desactivation du CSRF pour tous les requetes http(GET-POST-PUT....)
                 // Configuration des autorisations des requêtes HTTP
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/auth/authenticate", "/api/auth/register/utilisateur", "/api/auth/register/admin").permitAll()
+                        .requestMatchers("/api/auth/authenticate", "/api/auth/register/utilisateur", "/api/auth/register/admin", "/api/cours/all").permitAll()
                         .requestMatchers("/api/admin/all").hasAuthority("ADMIN")
                         .anyRequest()
                         .authenticated()
+
                 )
                 // Gestion des sessions
                 .sessionManagement(session -> session

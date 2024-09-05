@@ -1,0 +1,25 @@
+<header>
+  <nav>
+    <div class="logo">
+      <a routerLink="">
+        <img src="assets/images/Syntax.png" routerLink="" alt="Syntax Logo">
+      </a>
+    </div>
+    <ul>
+    </ul>
+  </nav>
+</header>
+<div class="container">
+  <h2>Courses</h2>
+  <div class="cards">
+    <div class="card" style="width: 17rem;" *ngFor="let cours of courses">
+      <div class="card-body">
+        <label of="fullName">Titre</label>
+        <h5 name="fullName" class="card-title">{{ cours.titre }}</h5>
+        <label of="Id">Description</label>
+        <p name="Id" class="card-text">{{cours.description}}</p>
+        <label of="Email">Email</label>
+      </div>
+    </div>
+  </div>
+</div>

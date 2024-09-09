@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Modier Panne</h3>
+  <div class="formulaire">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-goup">
+        <label>Titre</label>
+        <input type="text" class="form-control" [(ngModel)]="cours.titre" name="titre" id="titre">
+      </div>
+      <div class="form-goup">
+        <label>Description</label>
+        <input type="text" class="form-control" [(ngModel)]="cours.description" name="description" id="description">
+      </div>
+      <button class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>

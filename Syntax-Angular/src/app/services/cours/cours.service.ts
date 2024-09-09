@@ -20,5 +20,15 @@ export class CoursService {
     return this.httpClient.get<Cours[]>(this.url+'all');
   }
 
+  getCoursById(id:number):Observable<Cours>{
+    return this.httpClient.get<Cours>(`${this.url}${id}`)
+  }
+
+  modifyCours(id:number, cours: Cours):Observable<Object>{
+    return this.httpClient.put(`${this.url}edit/${id}`, cours);
+  }
+  deleteCours(id:number):Observable<Cours>{
+    return this.httpClient.delete<Cours>(`${this.url}delete/${id}`)
+  }
 
 }

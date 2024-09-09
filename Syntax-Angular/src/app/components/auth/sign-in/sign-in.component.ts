@@ -33,7 +33,7 @@ export class SignInComponent implements OnInit{
         const userId = response.user.id;
         const userRole = response.user.role;
 
-        localStorage.setItem('jwt', jwtToken);
+        localStorage.setItem('token', jwtToken);
         localStorage.setItem('userId', userId.toString())
         localStorage.setItem('userRole', userRole);
 

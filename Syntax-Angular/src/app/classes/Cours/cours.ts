@@ -6,7 +6,7 @@ export class Cours {
   id!: number;
   titre!: string;
   description!: string;
-  certificat!: Certificat[];
-  Lecons!: Lecon[];
-  quizzes!: Quiz[];
+  certificat: Certificat[]=[];
+  lecons: Lecon[]=[];
+  quizzes: Quiz[]=[];
 }

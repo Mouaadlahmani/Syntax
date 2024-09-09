@@ -2,7 +2,7 @@
   <nav>
     <div class="logo">
       <a routerLink="">
-        <img src="assets/images/Syntax.png" routerLink="" alt="Syntax Logo">
+        <img src="assets/images/Syntax.png" alt="Syntax Logo">
       </a>
     </div>
     <ul>
@@ -11,14 +11,16 @@
 </header>
 <div class="container">
   <h2>Courses</h2>
+  <a routerLink="add" style="width: 20%" class="btn btn-success">Ajouter Cours</a>
   <div class="cards">
     <div class="card" style="width: 17rem;" *ngFor="let cours of courses">
       <div class="card-body">
         <label of="fullName">Titre</label>
-        <h5 name="fullName" class="card-title">{{ cours.titre }}</h5>
+        <h5 (click)="coursDetails(cours.id)" name="fullName" class="card-title">{{ cours.titre }}</h5>
         <label of="Id">Description</label>
         <p name="Id" class="card-text">{{cours.description}}</p>
-        <label of="Email">Email</label>
+        <a (click)="modifyCours(cours.id)" style="width: 20%" class="btn btn-success">Modify</a>
+        <a (click)="deleteCours(cours.id)" style="width: 20%" class="btn btn-success">Delete</a>
       </div>
     </div>
   </div>

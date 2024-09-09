@@ -10,6 +10,7 @@ import {Cours} from "../../../classes/Cours/cours";
 })
 export class CoursListComponent implements OnInit{
 
+  id!:number
   courses!: Cours[];
 
   constructor(private service: CoursService,
@@ -27,6 +28,22 @@ export class CoursListComponent implements OnInit{
         this.courses= data;
       }
     )
+  }
+
+  modifyCours(id:number){
+    this.router.navigate(['/courses/modify',id])
+  }
+
+  deleteCours(id:number){
+    this.service.deleteCours(id).subscribe(
+      data=>{
+        this.getCours()
+      }
+    );
+  }
+
+  coursDetails(id:number){
+    this.router.navigate(['courses/cours', id])
   }
 
 }

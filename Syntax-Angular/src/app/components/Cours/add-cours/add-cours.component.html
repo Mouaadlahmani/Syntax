@@ -1,0 +1,31 @@
+<header>
+  <nav>
+    <div class="logo">
+      <a routerLink="">
+        <img routerLink="" src="assets/images/Syntax.png" alt="Syntax Logo">
+      </a>
+    </div>
+    <ul>
+    </ul>
+  </nav>
+</header>
+<div class="container">
+  <h3>Ajouter Cours</h3>
+  <div class="formulaire">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-goup">
+        <label>Titre</label>
+        <input placeholder="Titre" type="text" class="form-control" [(ngModel)]="cours.titre" name="fullName" id="fullName">
+      </div>
+
+      <div class="form-goup">
+        <label>Description</label>
+        <input placeholder="Description" style="width: 26rem" type="email" class="form-control" [(ngModel)]="cours.description" name="email" id="email">
+      </div>
+
+      <button class="btn">Submit</button>
+
+    </form>
+  </div>
+</div>
+<router-outlet></router-outlet>

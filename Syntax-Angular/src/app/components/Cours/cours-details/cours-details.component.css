@@ -1,0 +1,65 @@
+/* General container styling */
+.container {
+  margin-top: 20px;
+}
+
+/* Sidebar for lessons */
+.sidebar {
+  border-right: 2px solid #e0e0e0;
+  padding-right: 20px;
+}
+
+.sidebar h4 {
+  margin-bottom: 15px;
+}
+
+.list-group-item {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Highlight the active (selected) lesson */
+.list-group-item.active {
+  background-color: #1f316f;
+  color: white;
+  font-weight: bold;
+}
+
+/* Hover effect for lesson items */
+.list-group-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Content area */
+.content-area {
+  padding-left: 30px;
+}
+
+.content-area h4 {
+  margin-top: 0;
+}
+
+.content-area p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .content-area {
+    padding-left: 0;
+  }
+}

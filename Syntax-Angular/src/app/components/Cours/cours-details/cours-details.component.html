@@ -15,10 +15,14 @@
     </div>
 
     <div class="col-md-8 content-area">
-      <div *ngIf="selectedLecon">
-        <h4>{{ selectedLecon.titre }}</h4>
+      <ng-container *ngIf="selectedLecon; else noLessons">
+        <h3>{{ selectedLecon.titre }}</h3>
         <p>{{ selectedLecon.contenu }}</p>
-      </div>
+      </ng-container>
+
+      <ng-template #noLessons>
+        <p>No lessons available for this course.</p>
+      </ng-template>
     </div>
   </div>
 </div>

@@ -1,0 +1,51 @@
+<div class="container">
+  <h3>Ajouter Question</h3>
+  <div class="formulaire">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Titre</label>
+        <input placeholder="Titre" type="text" class="form-control" [(ngModel)]="question.questionTitle" name="questionTitle" id="questionTitle">
+      </div>
+
+      <div class="form-group">
+        <label>Option 1</label>
+        <input placeholder="Option 1" type="text" class="form-control" [(ngModel)]="question.option1" name="option1" id="option1">
+      </div>
+
+      <div class="form-group">
+        <label>Option 2</label>
+        <input placeholder="Option 2" type="text" class="form-control" [(ngModel)]="question.option2" name="option2" id="option2">
+      </div>
+
+      <div class="form-group">
+        <label>Option 3</label>
+        <input placeholder="Option 3" type="text" class="form-control" [(ngModel)]="question.option3" name="option3" id="option3">
+      </div>
+
+      <div class="form-group">
+        <label>Réponse correcte</label>
+        <input placeholder="Réponse correcte" type="text" class="form-control" [(ngModel)]="question.rightAnswer" name="rightAnswer" id="rightAnswer">
+      </div>
+
+      <div class="form-group">
+        <label>Niveau de difficulté</label>
+        <input placeholder="Niveau de difficulté" type="text" class="form-control" [(ngModel)]="question.difficultyLevel" name="difficultyLevel" id="difficultyLevel">
+      </div>
+
+      <!-- Assuming you may want to link these, but they are not currently used -->
+      <!-- <div class="form-group">
+        <label>Cours</label>
+        <input placeholder="Cours" type="text" class="form-control" [(ngModel)]="question.cours" name="cours" id="cours">
+      </div>
+
+      <div class="form-group">
+        <label>Quiz</label>
+        <input placeholder="Quiz" type="text" class="form-control" [(ngModel)]="question.quizzes" name="quizzes" id="quizzes">
+      </div> -->
+
+      <button class="btn btn-primary">Submit</button>
+
+    </form>
+  </div>
+</div>
+<router-outlet></router-outlet>

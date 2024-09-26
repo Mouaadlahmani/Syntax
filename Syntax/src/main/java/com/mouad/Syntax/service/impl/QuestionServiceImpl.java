@@ -26,8 +26,10 @@ public class QuestionServiceImpl implements QuestionService {
 
 
     @Override
-    public QuestionDto addQuestion(QuestionDto questionDto) {
+    public QuestionDto addQuestion(Long id, QuestionDto questionDto) {
         Question question = questionMapper.toEntity(questionDto);
+        Cours cours = coursRepository.findById(id).orElseThrow();
+        question.setCours(cours);
         Question saved = questionRepository.save(question);
         return questionMapper.toDto(saved);
     }

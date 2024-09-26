@@ -9,7 +9,7 @@ import {Utilisateur} from "../../classes/Utilisateur/utilisateur";
 })
 export class AuthService {
 
-  private url = "http://localhost:8080/api/auth/";
+  private url = "http://localhost:8081/api/auth/";
 
   constructor(private httpClient: HttpClient) { }
 

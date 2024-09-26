@@ -22,11 +22,11 @@ public class Cours {
     @JsonIgnore
     private List<Certificat> certificat;
 
-    @OneToMany(mappedBy = "courses")
+    @OneToMany(mappedBy = "courses" , cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Lecon> Lecons;
 
-    @OneToMany(mappedBy = "cours")
+    @OneToMany(mappedBy = "cours", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Question> questions;
 }

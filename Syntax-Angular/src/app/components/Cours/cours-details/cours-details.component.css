@@ -1,71 +1,47 @@
-/* General container styling */
 .container {
-  margin-top: 20px;
-}
-
-/* Flexbox row styling */
-.row {
   display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* Sidebar for lessons */
-.sidebar {
-  border-right: 2px solid #e0e0e0;
-  padding-right: 20px;
-  background-color: #f9f9f9;
-}
-
-.sidebar h4 {
-  margin-bottom: 15px;
-}
-
-.list-group-item {
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
-  padding: 10px 15px;
-  border: none;
-  border-bottom: 1px solid #e0e0e0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between; /* Ensures content and buttons are spaced properly */
 }
 
-/* Highlight the active (selected) lesson */
-.list-group-item.active {
-  background-color: #1f316f;
-  color: white;
-  font-weight: bold;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover effect for lesson items */
-.list-group-item:hover {
-  background-color: #f0f0f0;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: #f3f4f6;
+  border-top: 1px solid #e5e7eb;
+  border-radius: 0 0 0.375rem 0.375rem; /* Rounded corners at the bottom */
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%; /* Space between the button and content cards */
 }
 
-/* Content area */
-.content-area {
-  padding-left: 20px;
-}
-
-.content-area h3 {
-  margin-top: 0;
-}
-
-.content-area p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
+/* Media Queries */
+@media (min-width: 768px) {
+  .card {
+    width: 45%;
   }
+}
 
-  .sidebar {
-    border-right: none;
-    padding-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .content-area {
-    padding-left: 0;
+@media (min-width: 1024px) {
+  .card {
+    width: 30%;
   }
 }

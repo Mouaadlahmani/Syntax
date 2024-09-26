@@ -22,7 +22,7 @@ export class SignUpComponent implements OnInit{
   addUser(){
     this.service.register(this.utilisateur).subscribe(
       data=>{
-        console.log(data);
+        this.router.navigate(['sign-in']);
       }
     )
   }

@@ -26,9 +26,9 @@ public class SecurityConfig {
                 // Configuration des autorisations des requêtes HTTP
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/auth/authenticate", "/api/auth/register/utilisateur", "/api/auth/register/admin", "/api/cours/all").permitAll()
-                        .requestMatchers("/api/admin/all").hasAuthority("ADMIN")
-                        .anyRequest()
-                        .authenticated()
+//                        .requestMatchers("/api/admin/all","/api/cours/add").hasAuthority("ADMIN")
+                        .anyRequest().permitAll()
+
 
                 )
                 // Gestion des sessions

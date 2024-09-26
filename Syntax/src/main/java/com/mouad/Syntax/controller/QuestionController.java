@@ -15,9 +15,9 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    @PostMapping("create")
-    QuestionDto create(@RequestBody QuestionDto questionDto){
-        return questionService.addQuestion(questionDto);
+    @PostMapping("create/{id}")
+    QuestionDto create(@PathVariable Long id, @RequestBody QuestionDto questionDto){
+        return questionService.addQuestion(id, questionDto);
     }
 
     @GetMapping("all")

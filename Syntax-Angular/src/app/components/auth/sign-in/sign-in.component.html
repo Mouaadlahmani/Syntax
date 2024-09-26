@@ -1,30 +1,34 @@
 <header>
-  <nav>
-    <div class="logo">
+  <mat-toolbar color="primary">
+    <span class="logo">
       <a routerLink="">
         <img src="assets/images/Syntax.png" alt="Syntax Logo">
       </a>
-    </div>
-    <ul>
-    </ul>
-  </nav>
+    </span>
+    <span class="spacer"></span>
+  </mat-toolbar>
 </header>
+
 <div class="container">
   <div class="form-wrapper">
-    <div class="form-container">
-      <h2>Sign In</h2>
-      <form [formGroup]="loginForm" (ngSubmit)=submitForm()>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input formControlName="email" type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input formControlName="password" type="password" id="password" name="password" required>
-        </div>
-        <button type="submit" class="btn">Sign In</button>
-      </form>
-      <p>Don't have an account? <a [routerLink]="['/sign-up']">Sign Up</a></p>
-    </div>
+    <mat-card class="form-container">
+      <mat-card-title>Sign In</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+          <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" id="email" name="email" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" id="password" name="password" required>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit" class="btn">Sign In</button>
+        </form>
+        <p>Don't have an account? <a mat-button [routerLink]="['/sign-up']">Sign Up</a></p>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

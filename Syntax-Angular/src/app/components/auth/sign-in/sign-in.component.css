@@ -20,38 +20,18 @@ header {
   padding: 0.5rem 1rem;
 }
 
-nav {
+mat-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 60px;
 }
-
 
 .logo img {
-  max-width: 140px; /* Increased logo size */
+  max-width: 140px;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 1rem;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #d3c0e1;
+.spacer {
+  flex: 1 1 auto;
 }
 
 .container {
@@ -78,7 +58,7 @@ nav ul li a:hover {
   text-align: center;
 }
 
-.form-container h2 {
+mat-card-title {
   color: #6B3FA0;
   margin-bottom: 1rem;
   font-size: 1.5rem;
@@ -89,23 +69,8 @@ nav ul li a:hover {
   text-align: left;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  color: #333;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-}
-
-.form-group input {
+mat-form-field {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  color: #333;
 }
 
 .btn {

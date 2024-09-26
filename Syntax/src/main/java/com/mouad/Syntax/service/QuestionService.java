@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface QuestionService {
-    QuestionDto addQuestion(QuestionDto questionDto);
+    QuestionDto addQuestion(Long id, QuestionDto questionDto);
     List<QuestionDto> getAll();
     Optional<QuestionDto> questionById(Long id);
      List<QuestionDto> findByCours(Long id);

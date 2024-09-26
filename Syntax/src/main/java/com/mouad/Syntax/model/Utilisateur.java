@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class Utilisateur extends Personne{
 
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL)
     @JsonIgnore
     List<Certificat> certificats;
 }

@@ -1,0 +1,21 @@
+<div class="container">
+  <h3>Ajouter Cours</h3>
+  <div class="formulaire">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Titre</mat-label>
+          <input matInput placeholder="Titre" type="text" [(ngModel)]="contenu.titre" name="Titre" id="Titre">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Contenu</mat-label>
+          <textarea matInput placeholder="Contenu" [(ngModel)]="contenu.contenu" name="contenu" id="contenu"></textarea>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary">Submit</button>
+    </form>
+  </div>
+</div>
+<router-outlet></router-outlet>

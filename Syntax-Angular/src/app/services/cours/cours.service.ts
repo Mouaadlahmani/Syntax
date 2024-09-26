@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class CoursService {
 
-  private url = "http://localhost:8080/api/cours/";
+  private url = "http://localhost:8081/api/cours/";
 
   constructor(private httpClient: HttpClient) { }
 

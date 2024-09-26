@@ -2,7 +2,9 @@ package com.mouad.Syntax.service.impl;
 
 import com.mouad.Syntax.dto.LeconDto;
 import com.mouad.Syntax.mapper.LeconMapper;
+import com.mouad.Syntax.model.Cours;
 import com.mouad.Syntax.model.Lecon;
+import com.mouad.Syntax.repository.CoursRepository;
 import com.mouad.Syntax.repository.LeconRepository;
 import com.mouad.Syntax.service.LeconService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +19,19 @@ public class LeconServiceImpl implements LeconService {
 
     @Autowired
     LeconRepository leconRepository;
-
+    @Autowired
+    CoursRepository coursRepository;
     @Autowired
     LeconMapper leconMapper;
 
 
     @Override
-    public LeconDto ajouterLecon(LeconDto leconDto) {
+    public LeconDto ajouterLecon(Long id, LeconDto leconDto) {
+        Cours cours = coursRepository.findById(id).orElseThrow(
+                ()-> new RuntimeException("Cours Not Found")
+        );
         Lecon lecon = leconMapper.toEntity(leconDto);
+        lecon.setCourses(cours);
         Lecon saved = leconRepository.save(lecon);
         return leconMapper.toDto(saved);
     }

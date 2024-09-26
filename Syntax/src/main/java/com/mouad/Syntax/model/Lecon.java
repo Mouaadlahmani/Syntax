@@ -1,8 +1,11 @@
 package com.mouad.Syntax.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -13,7 +16,10 @@ public class Lecon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titre;
-    private String contenu;
+
+    @OneToMany(mappedBy = "lecon", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Contenu> contenu;
 
     @ManyToOne
     @JoinColumn(name = "coursLecons")

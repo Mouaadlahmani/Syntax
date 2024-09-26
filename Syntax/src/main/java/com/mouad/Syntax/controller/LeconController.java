@@ -15,9 +15,9 @@ public class LeconController {
     @Autowired
     LeconService leconService;
 
-    @PostMapping("add")
-    public LeconDto ajouterLecon(@RequestBody LeconDto leconDto){
-        return leconService.ajouterLecon(leconDto);
+    @PostMapping("add/{id}")
+    public LeconDto ajouterLecon(@PathVariable Long id, @RequestBody LeconDto leconDto){
+        return leconService.ajouterLecon(id,leconDto);
     }
 
     @GetMapping("all")

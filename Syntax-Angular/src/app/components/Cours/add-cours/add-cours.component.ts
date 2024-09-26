@@ -23,6 +23,7 @@ export class AddCoursComponent implements OnInit{
     this.service.addCours(this.cours).subscribe(
       data=>{
         console.log(data);
+        this.service.getCourses();
       },
       error => {
         console.error('Error adding course', error);

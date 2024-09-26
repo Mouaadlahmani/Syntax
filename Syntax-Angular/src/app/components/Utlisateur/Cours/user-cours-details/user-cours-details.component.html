@@ -1,0 +1,26 @@
+<div class="container">
+  <aside class="sidebar">
+    <h4>Leçons</h4>
+    <ul>
+      <li *ngFor="let lecon of cours.lecons"
+          (click)="selectLecon(lecon)"
+          [class.active]="lecon === selectedLecon">
+        {{ lecon.titre }}
+      </li>
+    </ul>
+  </aside>
+  <div class="main-content">
+    <div class="content-box">
+      <h3 class="course-title">{{ cours.titre }}</h3>
+      <div class="content-area">
+        <div *ngIf="selectedLecon; else noLessons">
+          <h3>{{ selectedLecon.titre }}</h3>
+          <p>{{ selectedLecon.contenu }}</p>
+        </div>
+        <ng-template #noLessons>
+          <p>No lessons available for this course.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

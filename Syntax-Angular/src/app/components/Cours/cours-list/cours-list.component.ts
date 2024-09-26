@@ -18,7 +18,7 @@ export class CoursListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.getCours()
+    this.getCours();
   }
 
   getCours(){
@@ -37,13 +37,17 @@ export class CoursListComponent implements OnInit{
   deleteCours(id:number){
     this.service.deleteCours(id).subscribe(
       data=>{
-        this.getCours()
+        this.router.navigate(['courses']);
       }
     );
   }
 
   coursDetails(id:number){
     this.router.navigate(['courses/cours', id])
+  }
+
+  addCours(){
+    this.router.navigate(['courses/add'])
   }
 
 }

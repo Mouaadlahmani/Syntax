@@ -1,0 +1,27 @@
+<div class="container">
+  <div style="width: 75%; margin-top: 2%" class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex items-center justify-between mb-4">
+      <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Courses</h5>
+      <input type="text" [(ngModel)]="searchText" placeholder="Rechercher un cours" class="form-control">
+    </div>
+    <div class="flow-root">
+      <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+        <li class="py-3 sm:py-4" *ngFor="let cours of filteredProjects">
+          <div class="flex items-center">
+            <div class="flex-1 min-w-0 ms-4">
+              <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                {{cours.titre}}
+              </p>
+              <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                {{ cours.description }}
+              </p>
+            </div>
+            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+              <button (click)="coursDetails(cours.id)" type="button" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Start Cours</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

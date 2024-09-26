@@ -1,119 +1,42 @@
-/* General Container Styling */
 .container {
   display: flex;
-  flex-direction: column;
-  gap: 2em;
-  align-items: center;
-  padding: 20px;
-}
-
-/* Heading Styling */
-h2 {
-  color: #1F316F;
-  text-align: center;
-  margin-top: 2%;
-  font-size: 24px;
-}
-
-/* Card Container Styling */
-.cards {
-  display: flex;
+  gap: 1em;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
 }
 
-/* Card Styling */
 .card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between; /* Ensures content and buttons are spaced properly */
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Card Body Styling */
-.card-body {
-  padding: 15px;
-  text-align: left;
-}
-
-/* Label Styling */
-label {
-  display: block;
-  font-weight: bold;
-  color: #1F316F;
-  margin-top: 10px;
-}
-
-/* Card Title Styling */
-.card-title {
-  color: #021526;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-/* Card Text Styling */
-.card-text {
-  font-size: 14px;
-  color: #021526;
-  margin-bottom: 10px;
-}
-
-/* Button Styling */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #1F316F;
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #14244a;
-}
-
-nav {
+.buttons {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 60px;
+  padding: 0.5em;
+  background-color: #f3f4f6;
+  border-top: 1px solid #e5e7eb;
+  border-radius: 0 0 0.375rem 0.375rem; /* Rounded corners at the bottom */
 }
 
-
-.logo img {
-  max-width: 140px; /* Increased logo size */
+/* Media Queries */
+@media (min-width: 768px) {
+  .card {
+    width: 45%;
+  }
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 1rem;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #d3c0e1;
+@media (min-width: 1024px) {
+  .card {
+    width: 30%;
+  }
 }

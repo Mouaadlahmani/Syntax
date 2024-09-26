@@ -22,6 +22,10 @@ export class CoursDetailsComponent implements OnInit {
     this.service.getCoursById(this.id).subscribe(
       data => {
         this.cours = data;
+        // Ensure that selectedLecon is reset when a new course is loaded
+        if (this.cours.lecons.length > 0) {
+          this.selectedLecon = this.cours.lecons[0];
+        }
       },
       error => console.error('Error fetching course', error)
     );
@@ -30,5 +34,4 @@ export class CoursDetailsComponent implements OnInit {
   selectLecon(lecon: Lecon): void {
     this.selectedLecon = lecon;
   }
-
 }

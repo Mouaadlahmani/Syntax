@@ -20,6 +20,10 @@ export class ContenuService {
     return this.httpClient.get<Contenu>(`${this.url}${id}`)
   }
 
+    getContenuOfLecon(id: number | undefined):Observable<Contenu[]>{
+    return this.httpClient.get<Contenu[]>(`${this.url}lecon/${id}`);
+  }
+
   modifyContenu(id:number, contenu: Contenu):Observable<Object>{
     return this.httpClient.put(`${this.url}edit/${id}`, contenu);
   }

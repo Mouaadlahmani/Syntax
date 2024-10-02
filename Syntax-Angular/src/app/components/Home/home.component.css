@@ -130,8 +130,11 @@ footer {
 }
 
 .footer {
-  background-color: #6B3FA0; /* Override the default Angular Material primary color */
+  display: flex;
+  justify-content: center;
+  background-color: #6B3FA0;
   color: #fff;
   padding: 1.5rem;
+  margin-top: -5%;
   text-align: center;
 }

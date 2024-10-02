@@ -70,4 +70,12 @@ public class LeconServiceImpl implements LeconService {
     public void deleteLecon(Long id) {
         leconRepository.deleteById(id);
     }
+
+    @Override
+    public List<LeconDto> LeconsOfCours(Long id) {
+        List<Lecon> leconList = leconRepository.findByCoursesId(id);
+        return leconList.stream()
+                .map(leconMapper::toDto)
+                .collect(Collectors.toList());
+    }
 }

@@ -69,4 +69,12 @@ public class ContenuServiceImpl implements ContenuService {
     public void deleteContenu(Long id) {
             contenuRepository.deleteById(id);
     }
+
+    @Override
+    public List<ContenuDto> getLeconContenu(Long id) {
+        List<Contenu> contenuList = contenuRepository.findByLeconId(id);
+        return contenuList.stream()
+                .map(contenuMapper::toDto)
+                .collect(Collectors.toList());
+    }
 }

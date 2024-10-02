@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface CertificatRepository extends JpaRepository<Certificat, Long> {
-    List<Certificat> findAllByUtilisateur(Utilisateur utilisateur);
-    List<Certificat> findAllByCourses(Cours cours);
+    List<Certificat> findAllByUtilisateurId(Long id);
+    List<Certificat> findAllByCoursesId(Long id);
 }

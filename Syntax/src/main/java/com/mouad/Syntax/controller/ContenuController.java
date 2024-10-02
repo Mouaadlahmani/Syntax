@@ -31,6 +31,12 @@ public class ContenuController {
         return contenuService.contenuById(id);
     }
 
+    @GetMapping("lecon/{id}")
+    public List<ContenuDto> contenuByLeconId(@PathVariable Long id){
+        return contenuService.getLeconContenu(id);
+    }
+
+
     @PutMapping("edit/{id}")
     public ContenuDto editContenu(@PathVariable Long id, @RequestBody ContenuDto contenu){
         return contenuService.editContenu(id,contenu);

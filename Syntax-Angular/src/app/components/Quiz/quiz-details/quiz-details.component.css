@@ -1,0 +1,67 @@
+.quiz-details-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 2px solid #1F316F; /* Border color matches your preference */
+  border-radius: 10px;
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+h1 {
+  color: #1F316F; /* Primary color */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #1F316F;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+h3 {
+  color: #333;
+  margin-top: 20px;
+  border-bottom: 2px solid #ddd; /* Separator line */
+  padding-bottom: 5px;
+}
+
+h4 {
+  color: #555;
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding-left: 0;
+}
+
+ul li {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f5; /* Light background for options */
+  transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+  background-color: #e0e0eb; /* Slightly darker background on hover */
+}
+
+.quiz-details-container button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1F316F; /* Primary button color */
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-details-container button:hover {
+  background-color: #14204d; /* Darker color on hover */
+}

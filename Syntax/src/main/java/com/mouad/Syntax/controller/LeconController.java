@@ -30,6 +30,12 @@ public class LeconController {
         return leconService.LeconById(id);
     }
 
+    @GetMapping("cours/{id}")
+    public List<LeconDto> leconByCoursId(@PathVariable Long id){
+        return leconService.LeconsOfCours(id);
+    }
+
+
     @PutMapping("edit/{id}")
     public LeconDto editLecon(@PathVariable Long id, @RequestBody LeconDto leconDto){
         return leconService.editLecon(id, leconDto);

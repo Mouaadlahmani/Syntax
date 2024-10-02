@@ -1,7 +1,7 @@
 .container {
   display: flex;
-  gap: 1em;
   flex-wrap: wrap;
+  gap: 1.5rem;
   justify-content: center;
 }
 
@@ -10,22 +10,44 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  justify-content: space-between; /* Ensures content and buttons are spaced properly */
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Action Buttons */
 .buttons {
   display: flex;
   justify-content: space-between;
   padding: 0.5em;
-  background-color: #f3f4f6;
   border-top: 1px solid #e5e7eb;
-  border-radius: 0 0 0.375rem 0.375rem; /* Rounded corners at the bottom */
+  background-color: #f9fafb;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Button Styles */
+.edit-btn {
+  background-color: #6B3FA0; /* Consistent with the previous button colors */
+}
+
+.delete-btn {
+  background-color: #B8001F; /* Consistent with the previous button colors */
+}
+
+.edit-btn:hover {
+  background-color: #5a3482;
+}
+
+.delete-btn:hover {
+  background-color: #99001a;
+}
+
+.edit-btn:focus, .delete-btn:focus {
+  box-shadow: 0 0 0 4px rgba(107, 63, 160, 0.3);
 }
 
 /* Media Queries */

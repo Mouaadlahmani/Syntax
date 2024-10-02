@@ -27,7 +27,7 @@
         </button>
       </li>
       <li>
-        <button class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <button [routerLink]="['/utilisateurs']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
             <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
           </svg>
@@ -43,11 +43,11 @@
         </button>
       </li>
       <li>
-        <button [routerLink]="['/quiz2']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <button [routerLink]="['/question/all']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg class="w-6 h-6 text-gray-800 dark:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-1.78.24-3.62-.25-5.07-1.39l-1.16 1.16c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41l1.16-1.16c-1.14-1.45-1.63-3.29-1.39-5.07C4.06 12.67 5.67 11.06 7.76 11h8.48c2.09.06 3.7 1.67 3.7 3.76 0 1.91-1.44 3.5-3.28 3.73z"/>
           </svg>
-          <span class="ms-3">Quiz 2</span>
+          <span class="ms-3">Questions</span>
         </button>
       </li>
 

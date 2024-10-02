@@ -21,6 +21,7 @@ header {
 }
 
 mat-toolbar {
+  background-color: #6B3FA0;
   display: flex;
   justify-content: space-between;
   align-items: center;

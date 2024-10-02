@@ -12,4 +12,5 @@ public interface ContenuService {
     List<ContenuDto> contenuList();
     Optional<ContenuDto> contenuById(Long id);
     void deleteContenu(Long id);
+    List<ContenuDto>getLeconContenu(Long id);
 }

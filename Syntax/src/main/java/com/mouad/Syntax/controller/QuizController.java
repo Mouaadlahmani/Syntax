@@ -48,7 +48,7 @@ public class QuizController {
 //        return quizService.modifyQuiz(id, quizDto);
 //    }
 
-    @DeleteMapping
+    @DeleteMapping("delete/{id}")
     public void deleteQuiz(@PathVariable Long id) {
         quizService.deleteQuiz(id);
     }

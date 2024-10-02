@@ -18,7 +18,7 @@ public class Quiz {
     private Long id;
     private String titre;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany()
     @JoinTable(
             name = "quiz_question",
             joinColumns = @JoinColumn(name = "quiz_id"),

@@ -16,6 +16,10 @@ export class LeconService {
     return this.httpClient.post(`${this.url}add/${id}`, lecon);
   }
 
+  leconsOfCours(id:number):Observable<Lecon[]>{
+    return this.httpClient.get<Lecon[]>(`${this.url}cours/${id}`)
+  }
+
   modifyLecon(id:number, lecon: Lecon):Observable<Object>{
     return this.httpClient.put(`${this.url}edit/${id}`, lecon)
   }

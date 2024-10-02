@@ -38,6 +38,16 @@ import { UserCoursDetailsComponent } from './components/Utlisateur/Cours/user-co
 import { NavBarComponent } from './components/Nav-bar/nav-bar/nav-bar.component';
 import { LeconDetailsComponent } from './components/Lecons/lecon-details/lecon-details.component';
 import {AddQuizComponent} from "./components/Quiz/add-quiz/add-quiz.component";
+import { GenerateCertificatComponent } from './components/Certificat/generate-certificat/generate-certificat.component';
+import {MyCertificatesComponent} from "./components/Utlisateur/Certificat/my-certificates/my-certificates.component";
+import { DisplayQuizComponent } from './components/Utlisateur/Quiz/display-quiz/display-quiz.component';
+import { UserQuizComponent } from './components/Utlisateur/Quiz/user-quiz/user-quiz.component';
+import { StartQuizComponent } from './components/Utlisateur/Quiz/start-quiz/start-quiz.component';
+import { QuizListComponent } from './components/Quiz/quiz-list/quiz-list.component';
+import { QuizDetailsComponent } from './components/Quiz/quiz-details/quiz-details.component';
+import { DisplayUsersComponent } from './components/Users/display-users/display-users.component';
+import { UsersComponent } from './components/Users/users/users.component';
+import { CoursQuestionsComponent } from './components/Question/cours-questions/cours-questions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +79,16 @@ import {AddQuizComponent} from "./components/Quiz/add-quiz/add-quiz.component";
     UserCoursDetailsComponent,
     NavBarComponent,
     LeconDetailsComponent,
+    GenerateCertificatComponent,
+    MyCertificatesComponent,
+    DisplayQuizComponent,
+    UserQuizComponent,
+    StartQuizComponent,
+    QuizListComponent,
+    QuizDetailsComponent,
+    DisplayUsersComponent,
+    UsersComponent,
+    CoursQuestionsComponent,
   ],
   imports: [
     BrowserModule,

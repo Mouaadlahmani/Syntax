@@ -32,5 +32,9 @@ export class QuestionService {
     return this.httpClient.get<Question>(`${this.url}${id}`)
   }
 
+  getQuestionByCoursId(id:number):Observable<Question[]>{
+    return this.httpClient.get<Question[]>(`${this.url}cours/${id}`)
+  }
+
 
 }

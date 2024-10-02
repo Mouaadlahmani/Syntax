@@ -1,0 +1,21 @@
+<div class="quiz-details-container" *ngIf="id">
+  <h1>Quiz Details</h1>
+
+  <div *ngIf="quiz">
+    <h2>{{ quiz.titre }}</h2>
+
+    <h3>Questions:</h3>
+    <ul>
+      <li *ngFor="let question of quiz.questions">
+        <h4>{{ question.questionTitle }}</h4>
+        <ul>
+          <li>Option 1: {{ question.option1 }}</li>
+          <li>Option 2: {{ question.option2 }}</li>
+          <li>Option 3: {{ question.option3 }}</li>
+          <li>Right Answer: {{ question.rightAnswer }}</li>
+          <li>Difficulty Level: {{ question.difficultyLevel }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

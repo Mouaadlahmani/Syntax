@@ -16,9 +16,9 @@ public class CertificatController {
     @Autowired
     CertificatService certificatService;
 
-    @PostMapping("generate/{id}")
-    public CertificatDto generateCertificat(@PathVariable Long id, @RequestBody CertificatDto certificatDto){
-        return certificatService.generateCertificat(id, certificatDto);
+    @PostMapping("generate/{userId}/{coursId}")
+    public CertificatDto generateCertificat(@PathVariable Long userId, @PathVariable Long coursId, @RequestBody CertificatDto certificatDto){
+        return certificatService.generateCertificat(userId, coursId, certificatDto);
     }
 
     @GetMapping("{id}")

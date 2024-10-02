@@ -8,5 +8,5 @@ export class Cours {
   description!: string;
   certificat: Certificat[]=[];
   lecons: Lecon[]=[];
-  quizzes: Quiz[]=[];
+  questions:[]=[];
 }

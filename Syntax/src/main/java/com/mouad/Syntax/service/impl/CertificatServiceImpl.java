@@ -31,9 +31,11 @@ public class CertificatServiceImpl implements CertificatService {
     CoursRepository coursRepository;
 
     @Override
-    public CertificatDto generateCertificat(Long id, CertificatDto certificatDto) {
+    public CertificatDto generateCertificat(Long userId, Long coursId, CertificatDto certificatDto) {
         Certificat certificat = certificatMapper.toEntity(certificatDto);
-        Utilisateur utilisateur = (Utilisateur) personneRepository.findById(id).orElseThrow();
+        Cours cours = coursRepository.findById(coursId).orElseThrow();
+        certificat.setCourses(cours);
+        Utilisateur utilisateur = (Utilisateur) personneRepository.findById(userId).orElseThrow();
         certificat.setUtilisateur(utilisateur);
         certificat.setDateObtention(LocalDate.now());
         Certificat saved = certificatRepository.save(certificat);
@@ -56,8 +58,7 @@ public class CertificatServiceImpl implements CertificatService {
 
     @Override
     public List<CertificatDto> getUtilisateurCertificatList(Long id) {
-        Utilisateur utilisateur = (Utilisateur) personneRepository.findById(id).orElseThrow();
-        List<Certificat> utilisateurCertificats = certificatRepository.findAllByUtilisateur(utilisateur);
+        List<Certificat> utilisateurCertificats = certificatRepository.findAllByUtilisateurId(id);
         return utilisateurCertificats.stream()
                 .map(certificatMapper::toDto)
                 .collect(Collectors.toList());
@@ -65,8 +66,7 @@ public class CertificatServiceImpl implements CertificatService {
 
     @Override
     public List<CertificatDto> getCoursCertificats(Long id) {
-        Cours cours = coursRepository.findById(id).orElseThrow();
-        List<Certificat> coursCertificats = certificatRepository.findAllByCourses(cours);
+        List<Certificat> coursCertificats = certificatRepository.findAllByCoursesId(id);
         return coursCertificats.stream()
                 .map(certificatMapper::toDto)
                 .collect(Collectors.toList());

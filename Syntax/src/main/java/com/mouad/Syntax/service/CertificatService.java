@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CertificatService {
-    CertificatDto generateCertificat(Long id, CertificatDto certificatDto);
+    CertificatDto generateCertificat(Long userId , Long coursId, CertificatDto certificatDto);
     Optional<CertificatDto> getCertificatById(Long id);
     List<CertificatDto> getCertificatList();
     List<CertificatDto> getUtilisateurCertificatList(Long id);

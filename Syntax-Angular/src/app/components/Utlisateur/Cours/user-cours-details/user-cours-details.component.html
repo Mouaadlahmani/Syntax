@@ -2,8 +2,9 @@
   <aside class="sidebar">
     <h4>Leçons</h4>
     <ul>
-      <li *ngFor="let lecon of cours.lecons"
-          (click)="selectLecon(lecon)"
+      <!-- Affichage des leçons sous forme de liste -->
+      <li *ngFor="let lecon of leconList"
+          (click)="selectLecon(lecon, lecon.id)"
           [class.active]="lecon === selectedLecon">
         {{ lecon.titre }}
       </li>
@@ -11,14 +12,18 @@
   </aside>
   <div class="main-content">
     <div class="content-box">
-      <h3 class="course-title">{{ cours.titre }}</h3>
       <div class="content-area">
+        <!-- Affichage des informations de la leçon sélectionnée -->
         <div *ngIf="selectedLecon; else noLessons">
           <h3>{{ selectedLecon.titre }}</h3>
-          <p>{{ selectedLecon.contenu }}</p>
+          <div *ngFor="let contenu of contenuList">
+            <h5>{{ contenu.titre }}</h5>
+            <p>{{ contenu.contenu }}</p>
+          </div>
         </div>
+        <!-- Message affiché si aucune leçon n'est disponible -->
         <ng-template #noLessons>
-          <p>No lessons available for this course.</p>
+          <p>Aucune leçon n'est disponible pour ce cours.</p>
         </ng-template>
       </div>
     </div>

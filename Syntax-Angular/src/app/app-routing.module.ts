@@ -22,6 +22,17 @@ import {UserCoursComponent} from "./components/Utlisateur/Cours/user-cours/user-
 import {UserCoursDetailsComponent} from "./components/Utlisateur/Cours/user-cours-details/user-cours-details.component";
 import {LeconDetailsComponent} from "./components/Lecons/lecon-details/lecon-details.component";
 import {ModifyQuestionComponent} from "./components/Question/modify-question/modify-question.component";
+import {GenerateCertificatComponent} from "./components/Certificat/generate-certificat/generate-certificat.component";
+import {MyCertificatesComponent} from "./components/Utlisateur/Certificat/my-certificates/my-certificates.component";
+import {DisplayQuizComponent} from "./components/Utlisateur/Quiz/display-quiz/display-quiz.component";
+import {UserQuizComponent} from "./components/Utlisateur/Quiz/user-quiz/user-quiz.component";
+import {StartQuizComponent} from "./components/Utlisateur/Quiz/start-quiz/start-quiz.component";
+import {QuizComponent} from "./components/Quiz/quiz/quiz.component";
+import {QuizListComponent} from "./components/Quiz/quiz-list/quiz-list.component";
+import {QuizDetailsComponent} from "./components/Quiz/quiz-details/quiz-details.component";
+import {DisplayUsersComponent} from "./components/Users/display-users/display-users.component";
+import {UsersComponent} from "./components/Users/users/users.component";
+import {CoursQuestionsComponent} from "./components/Question/cours-questions/cours-questions.component";
 
 
 
@@ -57,25 +68,47 @@ const routes: Routes = [
   {path:'question',
     component:LeconsComponent,
     children:[
-      {path:'all', component:DispalyQuestionsComponent},
+      {path:'all', component:CoursQuestionsComponent},
+        {path:':id', component:DispalyQuestionsComponent},
       {path:'add/:id', component:AddQuestionComponent},
       {path:'modify/:id', component:ModifyQuestionComponent},
     ]
   },
   {path:'quiz',
-    component:LeconsComponent,
+    component:QuizComponent,
     children:[
       {path:'add', component:AddQuizComponent},
+      {path:'', component: QuizListComponent},
+      {path:':id', component: QuizDetailsComponent}
+    ]
+  },
+  {path:'utilisateurs',
+    component:UsersComponent,
+    children:[
+      {path:'', component:DisplayUsersComponent},
     ]
   },
   {
-    path:'syntax/courses',
-    component:UserCoursComponent,
-    children:[
-      {path: '', component: UserCoursListComponent},
-      {path:'cours/:id', component:UserCoursDetailsComponent},
+    path: 'syntax/courses',
+    component: UserCoursComponent,
+    children: [
+      { path: '', component: UserCoursListComponent },
+      { path: 'cours/:id', component: UserCoursDetailsComponent },
+      { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent },
+    ]
+  },{
+    path: 'syntax/quiz',
+    component: UserQuizComponent,
+    children: [
+      { path: '', component: DisplayQuizComponent },
+      { path: ':quizId', component: StartQuizComponent },
+      { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent },
     ]
   }
+,
+  {path:'certificat/:userId/:coursId', component:GenerateCertificatComponent},
+  {path:'my-certificates', component:MyCertificatesComponent}
+
 ];
 
 @NgModule({

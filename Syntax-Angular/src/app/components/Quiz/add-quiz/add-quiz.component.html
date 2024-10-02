@@ -3,8 +3,11 @@
 
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="category">Category:</label>
-      <input type="text" id="category" [(ngModel)]="category" name="category" required>
+      <label for="courseTitle">Cours</label>
+      <select [(ngModel)]="selectedCourse" (change)="onCourseSelect(selectedCourse)" id="courseTitle" name="courseTitle" class="form-control" required>
+        <option value="" disabled selected>Select Cours</option>
+        <option *ngFor="let title of coursTitles" [ngValue]="title">{{ title.titre }}</option>
+      </select>
     </div>
 
     <div class="form-group">

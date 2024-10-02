@@ -1,22 +1,33 @@
-h3 {
-  color: #1F316F;
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f2f5;
+}
+
+h1 {
+  color: #6B3FA0;
   text-align: center;
   margin-bottom: 20px;
   margin-top: 2%;
   font-size: 22px;
 }
 
-form {
+.form-container {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.form-group,
-.form-goup {
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-group {
+  width: 48%; /* Each group takes 48% of the width, making it fit nicely in two columns */
   margin-bottom: 15px;
 }
 
@@ -27,26 +38,17 @@ label {
   display: block;
 }
 
-p.form-control {
-  background-color: #f8f9fa;
-  padding: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #495057;
-}
-
-select {
+input, select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ced4da;
   border-radius: 5px;
   font-size: 14px;
+  margin-top: 5px;
   transition: border-color 0.3s ease;
 }
 
-select:focus {
+input:focus, select:focus {
   border-color: #1F316F;
   outline: none;
 }
@@ -64,10 +66,11 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition-duration: 0.3s;
+  margin-top: 20px;
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #5a2f7e;
 }
 
 button:active {

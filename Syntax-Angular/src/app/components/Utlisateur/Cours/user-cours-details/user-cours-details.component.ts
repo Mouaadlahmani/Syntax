@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Cours} from "../../../../classes/Cours/cours";
-import {Lecon} from "../../../../classes/Lecon/lecon";
-import {CoursService} from "../../../../services/cours/cours.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { Lecon } from "../../../../classes/Lecon/lecon";
+import { Contenu } from "../../../../classes/Contenu/contenu";
+import { ContenuService } from "../../../../services/contenu/contenu.service";
+import { LeconService } from "../../../../services/lecon/lecon.service";
 
 @Component({
   selector: 'app-user-cours-details',
@@ -12,33 +13,84 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class UserCoursDetailsComponent implements OnInit {
 
   id!: number;
-  cours: Cours = new Cours();
-  selectedLecon!: Lecon;
+  leconId?: number; // ID de la leçon sélectionnée
+  leconList: Lecon[] = []; // Liste des leçons du cours
+  contenuList: Contenu[] = []; // Liste des contenus de la leçon sélectionnée
+  selectedLecon!: Lecon; // Leçon actuellement sélectionnée
 
-  constructor(private service: CoursService,
-              private route: ActivatedRoute,
-              private router:Router
-
+  constructor(
+    private service: LeconService,
+    private contenuService: ContenuService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    // Récupérer l'ID du cours à partir des paramètres de route
     this.id = this.route.snapshot.params['id'];
-    this.service.getCoursById(this.id).subscribe(
+
+    // Récupérer les leçons du cours en utilisant le service de leçons
+    this.service.leconsOfCours(this.id).subscribe(
       data => {
-        this.cours = data;
-        if (this.cours.lecons.length > 0) {
-          this.selectedLecon = this.cours.lecons[0];
+        this.leconList = data; // Stocker la liste des leçons
+
+        // Si la liste des leçons n'est pas vide, sélectionner la première leçon par défaut
+        if (this.leconList.length > 0) {
+          this.selectLecon(this.leconList[0], this.leconList[0].id);
         }
       },
-      error => console.error('Error fetching course', error)
+      error => {
+        console.error("Erreur lors de la récupération des leçons :", error);
+      }
+    );
+
+    // Écouter les changements de paramètres de route pour récupérer leconId
+    this.route.params.subscribe(params => {
+      this.leconId = params['leconId'];
+
+      // Si un leconId est présent, récupérer le contenu de la leçon
+      if (this.leconId) {
+        this.loadContenuForLecon(this.leconId);
+      }
+    });
+  }
+
+  /**
+   * Méthode pour naviguer vers la liste des cours
+   */
+  courses() {
+    this.router.navigate(['courses']);
+  }
+
+  /**
+   * Méthode appelée lors de la sélection d'une leçon
+   * @param lecon - Objet Lecon sélectionné
+   * @param leconId - ID de la leçon sélectionnée
+   */
+  selectLecon(lecon: Lecon, leconId: number): void {
+    this.selectedLecon = lecon;
+    this.leconId = leconId;
+
+    // Naviguer vers la route avec les paramètres du cours et de la leçon
+    this.router.navigate(['syntax/courses/lecon', this.id, this.leconId]);
+
+    // Charger le contenu de la leçon sélectionnée
+    this.loadContenuForLecon(this.leconId);
+  }
+
+  /**
+   * Méthode pour charger les contenus d'une leçon en fonction de son ID
+   * @param leconId - ID de la leçon
+   */
+  private loadContenuForLecon(leconId: number): void {
+    this.contenuService.getContenuOfLecon(leconId).subscribe(
+      data => {
+        this.contenuList = data; // Mettre à jour la liste des contenus
+        console.log("Contenus récupérés :", this.contenuList);
+      },
+      error => {
+        console.error("Erreur lors de la récupération des contenus :", error);
+      }
     );
   }
-  courses(){
-    this.router.navigate(['courses'])
-  }
-
-  selectLecon(lecon: Lecon): void {
-    this.selectedLecon = lecon;
-  }
-
 }

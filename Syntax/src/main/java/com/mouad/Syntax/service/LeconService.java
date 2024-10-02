@@ -11,4 +11,5 @@ public interface LeconService {
     Optional<LeconDto> LeconById(Long id);
     LeconDto editLecon(Long id, LeconDto leconDto);
     void deleteLecon(Long id);
+    List<LeconDto> LeconsOfCours(Long id);
 }

@@ -22,12 +22,12 @@ public class UtilisateurController {
     }
 
     @GetMapping("{id}")
-    public Optional<UtilisateurDto> getById(@PathVariable Long id) {
+    public Optional<UtilisateurDto> getById(@PathVariable("id") Long id) {
         return utilisateurService.findById(id);
     }
 
     @PutMapping("edit/{id}")
-    public UtilisateurDto update(@PathVariable Long id, @RequestBody UtilisateurDto utilisateur) {
+    public UtilisateurDto update(@PathVariable("id") Long id, @RequestBody UtilisateurDto utilisateur) {
         return utilisateurService.editInfos(id, utilisateur);
     }
 }

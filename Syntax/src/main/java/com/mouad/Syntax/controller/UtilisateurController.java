@@ -1,6 +1,6 @@
 package com.mouad.Syntax.controller;
 
-import com.mouad.Syntax.model.Utilisateur;
+import com.mouad.Syntax.dto.UtilisateurDto;
 import com.mouad.Syntax.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +17,17 @@ public class UtilisateurController {
     private UtilisateurService utilisateurService;
 
     @GetMapping("all")
-    public List<Utilisateur> getAll() {
+    public List<UtilisateurDto> getAll() {
         return utilisateurService.findAll();
     }
 
     @GetMapping("{id}")
-    public Optional<Utilisateur> getById(@PathVariable Long id) {
+    public Optional<UtilisateurDto> getById(@PathVariable Long id) {
         return utilisateurService.findById(id);
+    }
+
+    @PutMapping("edit/{id}")
+    public UtilisateurDto update(@PathVariable Long id, @RequestBody UtilisateurDto utilisateur) {
+        return utilisateurService.editInfos(id, utilisateur);
     }
 }

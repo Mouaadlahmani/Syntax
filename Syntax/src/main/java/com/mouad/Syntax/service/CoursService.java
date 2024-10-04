@@ -8,6 +8,7 @@ public interface CoursService {
     CoursDto ajouterCours(CoursDto coursDto);
     List<CoursDto> allCourses();
     Optional<CoursDto> coursById(Long id);
+    Optional<CoursDto> coursByQuestionId(Long id);
     CoursDto editCours(Long id, CoursDto coursDto);
     void deleteCours(Long id);
 }

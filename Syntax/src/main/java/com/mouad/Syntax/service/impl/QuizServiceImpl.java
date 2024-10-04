@@ -27,24 +27,6 @@ public class QuizServiceImpl implements QuizService {
     @Autowired
     QuizMapper quizMapper;
 
-
-
-//    @Override
-//    public QuizDto modifyQuiz(Long id, QuizDto quizDto) {
-//        Optional<Quiz> quiz = quizRepository.findById(id);
-//        if(quiz.isPresent()){
-//            Quiz quizToModify = quiz.get();
-//            quizToModify.setId(id);
-//            quizToModify.setTitre(quizDto.getTitre());
-//            quizToModify.setCourses(quizDto.getCourses());
-//            quizToModify.setQuestions(quizDto.getQuestions());
-//
-//            Quiz savedQuiz = quizRepository.save(quizToModify);
-//            return quizMapper.toDto(savedQuiz);
-//        }
-//        return null;
-//    }
-
     @Override
     public QuizDto ajouterQuiz(String category, int numQ, String title) {
         List<Question> questions = questionRepository.findRandomQuestionByCours(category, numQ);
@@ -101,8 +83,4 @@ public class QuizServiceImpl implements QuizService {
             quizRepository.deleteById(id);
     }
 
-    @Override
-    public void demarrerQuiz() {
-
-    }
 }

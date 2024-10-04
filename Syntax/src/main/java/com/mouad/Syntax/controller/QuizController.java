@@ -24,7 +24,7 @@ public class QuizController {
     }
 
     @PostMapping("submit/{id}")
-    public int submitQuiz(@PathVariable Long id, @RequestBody List<Reponse> responses){
+    public int submitQuiz(@PathVariable("id") Long id, @RequestBody List<Reponse> responses){
         return quizService.calculateResult(id, responses);
     }
 
@@ -34,7 +34,7 @@ public class QuizController {
     }
 
     @GetMapping("num/{id}")
-    public Optional<QuizDto> getQuizById(@PathVariable Long id) {
+    public Optional<QuizDto> getQuizById(@PathVariable("id") Long id) {
         return quizService.getQuiz(id);
     }
 
@@ -43,13 +43,8 @@ public class QuizController {
         return quizService.getQuizWithQuestions(id);
     }
 
-//    @PutMapping("edit/{id}")
-//    public QuizDto editQuiz(@PathVariable Long id, @RequestBody QuizDto quizDto) {
-//        return quizService.modifyQuiz(id, quizDto);
-//    }
-
     @DeleteMapping("delete/{id}")
-    public void deleteQuiz(@PathVariable Long id) {
+    public void deleteQuiz(@PathVariable("id") Long id) {
         quizService.deleteQuiz(id);
     }
 }

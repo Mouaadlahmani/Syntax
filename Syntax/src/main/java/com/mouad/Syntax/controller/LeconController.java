@@ -16,7 +16,7 @@ public class LeconController {
     LeconService leconService;
 
     @PostMapping("add/{id}")
-    public LeconDto ajouterLecon(@PathVariable Long id, @RequestBody LeconDto leconDto){
+    public LeconDto ajouterLecon(@PathVariable("id") Long id, @RequestBody LeconDto leconDto){
         return leconService.ajouterLecon(id,leconDto);
     }
 
@@ -26,23 +26,23 @@ public class LeconController {
     }
 
     @GetMapping("{id}")
-    public Optional<LeconDto> leconById(@PathVariable Long id){
+    public Optional<LeconDto> leconById(@PathVariable("id") Long id){
         return leconService.LeconById(id);
     }
 
     @GetMapping("cours/{id}")
-    public List<LeconDto> leconByCoursId(@PathVariable Long id){
+    public List<LeconDto> leconByCoursId(@PathVariable("id") Long id){
         return leconService.LeconsOfCours(id);
     }
 
 
     @PutMapping("edit/{id}")
-    public LeconDto editLecon(@PathVariable Long id, @RequestBody LeconDto leconDto){
+    public LeconDto editLecon(@PathVariable("id") Long id, @RequestBody LeconDto leconDto){
         return leconService.editLecon(id, leconDto);
     }
 
     @DeleteMapping("delete/{id}")
-    public void deleteLecon(@PathVariable Long id){
+    public void deleteLecon(@PathVariable("id") Long id){
         leconService.deleteLecon(id);
     }
 }

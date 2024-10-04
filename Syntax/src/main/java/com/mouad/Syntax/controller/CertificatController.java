@@ -17,12 +17,12 @@ public class CertificatController {
     CertificatService certificatService;
 
     @PostMapping("generate/{userId}/{coursId}")
-    public CertificatDto generateCertificat(@PathVariable Long userId, @PathVariable Long coursId, @RequestBody CertificatDto certificatDto){
+    public CertificatDto generateCertificat(@PathVariable("userId") Long userId, @PathVariable("coursId") Long coursId, @RequestBody CertificatDto certificatDto){
         return certificatService.generateCertificat(userId, coursId, certificatDto);
     }
 
     @GetMapping("{id}")
-    public Optional<CertificatDto> getCertificat(@PathVariable Long id){
+    public Optional<CertificatDto> getCertificat(@PathVariable("id") Long id){
         return certificatService.getCertificatById(id);
     }
 
@@ -32,12 +32,12 @@ public class CertificatController {
     }
 
     @GetMapping("my-certificates/{id}")
-    public List<CertificatDto> utilisateurCertificats(@PathVariable Long id){
+    public List<CertificatDto> utilisateurCertificats(@PathVariable("id") Long id){
         return certificatService.getUtilisateurCertificatList(id);
     }
 
     @GetMapping("cours-certificates/{id}")
-    public List<CertificatDto> coursCertificats(@PathVariable Long id){
+    public List<CertificatDto> coursCertificats(@PathVariable("id") Long id){
         return certificatService.getCoursCertificats(id);
     }
 

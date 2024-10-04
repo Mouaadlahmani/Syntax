@@ -36,6 +36,7 @@
   padding: 1rem;
 }
 
+
 @media (max-width: 768px) {
   .w-64 {
     width: 10%;
@@ -43,4 +44,8 @@
   .nav{
     display: none;
   }
+  .bg-gray-50{
+    width: 12%;
+  }
 }
+

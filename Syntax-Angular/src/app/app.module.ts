@@ -48,6 +48,8 @@ import { QuizDetailsComponent } from './components/Quiz/quiz-details/quiz-detail
 import { DisplayUsersComponent } from './components/Users/display-users/display-users.component';
 import { UsersComponent } from './components/Users/users/users.component';
 import { CoursQuestionsComponent } from './components/Question/cours-questions/cours-questions.component';
+import { UtilisateurInfoComponent } from './components/Utlisateur/utilisateur-info/utilisateur-info.component';
+import {MatIconModule} from "@angular/material/icon";
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +91,7 @@ import { CoursQuestionsComponent } from './components/Question/cours-questions/c
     DisplayUsersComponent,
     UsersComponent,
     CoursQuestionsComponent,
+    UtilisateurInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,6 +105,7 @@ import { CoursQuestionsComponent } from './components/Question/cours-questions/c
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
+    MatIconModule,
   ],
   providers: [
     {

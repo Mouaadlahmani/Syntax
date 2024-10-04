@@ -11,7 +11,7 @@
 .title {
   font-size: 28px;
   font-weight: 600;
-  color: #1f316f;
+  color: #2E073F;
   margin-bottom: 30px;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .create-quiz-button {
-  background-color: #1f316f;
+  background-color: #2E073F;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -31,7 +31,7 @@
 }
 
 .create-quiz-button:hover {
-  background-color: #3f4e9b;
+  background-color: #2E073F;
 }
 
 .quiz-list {
@@ -70,7 +70,7 @@
 }
 
 .quiz-card button {
-  background-color: #1f316f;
+  background-color: #2E073F;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -84,7 +84,7 @@
   font-size: 16px;
   font-weight: 500;
   color: #ffffff;
-  background-color: #1f316f;
+  background-color: #2E073F;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -93,7 +93,7 @@
 }
 
 .view-button:hover {
-  background-color: #14204b;
+  background-color: #2E073F;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }

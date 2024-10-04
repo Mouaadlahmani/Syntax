@@ -1,47 +1,185 @@
+/* Container styles */
 .container {
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-  justify-content: center;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #f8f8fb;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  text-align: center;
 }
 
-.card {
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: space-between; /* Ensures content and buttons are spaced properly */
+/* Title styles */
+.title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2E073F; /* Primary color */
+  margin-bottom: 45px;
+  border-bottom: 3px solid #2E073F;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+/* Course list styles */
+.course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.buttons {
+/* Individual course item styles */
+.course-item {
   display: flex;
   justify-content: space-between;
-  padding: 0.5em;
-  background-color: #f3f4f6;
-  border-top: 1px solid #e5e7eb;
-  border-radius: 0 0 0.375rem 0.375rem; /* Rounded corners at the bottom */
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2%; /* Space between the button and content cards */
+  align-items: center;
+  padding: 25px 40px;
+  margin: 20px 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ece3f1, #f4eef8); /* Soft gradient */
+  border: 1px solid #d4c2e0;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Media Queries */
-@media (min-width: 768px) {
-  .card {
-    width: 45%;
+/* Course item hover effects */
+.course-item:hover {
+  background: linear-gradient(135deg, #e4dbe8, #f0e9f5); /* Slightly darker on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+/* Course info styles */
+.course-info h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2E073F;
+}
+
+.course-info p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  color: #6a6275;
+}
+
+/* Button Container styles */
+.button-container {
+  display: flex;
+  gap: 15px;
+}
+
+
+.add-button {
+  background: linear-gradient(135deg, #4B146B, #6B3FA0);
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px; /* Fully rounded button */
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  text-transform: uppercase; /* Uppercase text for a modern look */
+  margin-bottom: 20px; /* Space below the button */
+}
+
+.add-button:hover {
+  background: linear-gradient(135deg, #3e0d5e, #522d78);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px); /* Lift effect */
+}
+
+/* Common Button styles */
+button {
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px; /* Fully rounded buttons */
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  text-transform: uppercase; /* Uppercase text for a modern look */
+}
+
+/* View button styling */
+.view-button {
+  background: linear-gradient(135deg, #2E073F, #4B146B);
+}
+
+.view-button:hover {
+  background: linear-gradient(135deg, #25042f, #3e0d5e);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px); /* Lift effect */
+}
+
+/* Edit button styling */
+.edit-button {
+  background: linear-gradient(135deg, #6B3FA0, #8E5CC0);
+}
+
+.edit-button:hover {
+  background: linear-gradient(135deg, #522d78, #7a48b0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px); /* Lift effect */
+}
+
+/* Delete button styling */
+.delete-button {
+  background: linear-gradient(135deg, #B8001F, #D11D38);
+}
+
+.delete-button:hover {
+  background: linear-gradient(135deg, #880018, #b7152f);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px); /* Lift effect */
+}
+
+@media (max-width: 768px) {
+  /* Adjust the button padding and font size on smaller screens */
+  button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  /* Modify the button container layout to be stacked vertically */
+  .button-container {
+    flex-direction: column;
+    gap: 10px; /* Reduced spacing between buttons */
+  }
+
+  /* Increase the container padding for better spacing */
+  .container {
+    padding: 30px;
   }
 }
 
-@media (min-width: 1024px) {
-  .card {
-    width: 30%;
+@media (max-width: 480px) {
+  /* Further adjust button padding and font size for extra small screens */
+  button {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+
+  /* Reduce the container's max-width and margin */
+  .container {
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  /* Change course item layout for better readability */
+  .course-item {
+    gap: 1em;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* Adjust title font size */
+  .title {
+    font-size: 28px;
   }
 }

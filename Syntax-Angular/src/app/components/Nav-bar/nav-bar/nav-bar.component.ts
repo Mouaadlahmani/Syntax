@@ -9,13 +9,23 @@ import {AuthService} from "../../../services/auth/auth.service";
 })
 export class NavBarComponent implements OnInit{
   role!:string | null;
+  email!:string | null;
+  firstName!:string | null;
+  lastName!:string | null;
   showNavButtons: boolean = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService:AuthService) {
+  }
+
+  getrole(){
+    this.email = this.authService.getCurrentUserEmail();
+    this.role = this.authService.getCurrentUserRole();
+    this.firstName = this.authService.getCurrentUserFirstName();
+    this.lastName = this.authService.getCurrentUserLastName()
   }
 
   ngOnInit(): void {
-    this.role = localStorage.getItem('userRole');
+    this.getrole();
     this.checkRole();
   }
   toCourses(){
@@ -28,8 +38,6 @@ export class NavBarComponent implements OnInit{
   }
   logout(){
     localStorage.removeItem('token');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('userRole');
     this.router.navigate(['sign-in']);
   }
 

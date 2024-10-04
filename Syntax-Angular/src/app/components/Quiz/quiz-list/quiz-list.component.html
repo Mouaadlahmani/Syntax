@@ -9,7 +9,7 @@
   <ul class="quiz-list">
     <li *ngFor="let quiz of quizList" class="quiz-card">
       <h3>{{ quiz.titre }}</h3>
-      <p>Number of Questions: {{ quiz.questions?.length || 0 }}</p>
+      <p>Number of Questions: {{ quiz.questions.length || 0 }}</p>
       <div class="buttons">
       <button style="width: 30%;" class="view-button" (click)="Details(quiz.id)">Details</button>
       <button style="width: 30%; background-color: #B8001F" class="delete-button" (click)="deleteQuiz(quiz.id)">Delete</button>

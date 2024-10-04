@@ -19,4 +19,8 @@ export class UtilisateursService {
   getUtilisateurById(id: number): Observable<Utilisateur> {
     return this.http.get<Utilisateur>(`${this.apiUrl}${id}`);
   }
+
+  editUtilisateur(id: number, utilisateur:Utilisateur): Observable<Object> {
+    return this.http.put<Object>(`${this.apiUrl}edit/${id}`, utilisateur);
+  }
 }

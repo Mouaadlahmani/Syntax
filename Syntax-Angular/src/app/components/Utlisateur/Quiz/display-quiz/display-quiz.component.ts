@@ -27,5 +27,9 @@ export class DisplayQuizComponent implements OnInit{
       }
     )
   }
+  startQuiz(id:number){
+    this.router.navigate(['syntax/quiz', id])
+  }
+
 
 }

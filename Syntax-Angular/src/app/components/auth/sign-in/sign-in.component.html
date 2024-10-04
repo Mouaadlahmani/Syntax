@@ -2,7 +2,7 @@
   <mat-toolbar color="primary">
     <span class="logo">
       <a routerLink="">
-        <img src="assets/images/Syntax.png" alt="Syntax Logo">
+        <img src="assets/images/Syntax.png" alt="Syntax Logo" class="logo-image">
       </a>
     </span>
     <span class="spacer"></span>
@@ -12,7 +12,7 @@
 <div class="container">
   <div class="form-wrapper">
     <mat-card class="form-container">
-      <mat-card-title>Sign In</mat-card-title>
+      <mat-card-title class="card-title">Sign In</mat-card-title>
       <mat-card-content>
         <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
           <mat-form-field appearance="outline" class="form-group">
@@ -22,12 +22,15 @@
 
           <mat-form-field appearance="outline" class="form-group">
             <mat-label>Password</mat-label>
-            <input matInput formControlName="password" type="password" id="password" name="password" required>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" id="password" name="password" required>
+            <button mat-icon-button type="button" (click)="hidePassword = !hidePassword" aria-label="Toggle password visibility">
+              <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+            </button>
           </mat-form-field>
 
-          <button style="background-color: #6B3FA0" mat-raised-button color="primary" type="submit" class="btn">Sign In</button>
+          <button style="background-color: #2E073F" mat-raised-button color="primary" type="submit" class="btn">Sign In</button>
         </form>
-        <p>Don't have an account? <a mat-button [routerLink]="['/sign-up']">Sign Up</a></p>
+        <p class="signup-prompt">Don't have an account? <a mat-button [routerLink]="['/sign-up']">Sign Up</a></p>
       </mat-card-content>
     </mat-card>
   </div>

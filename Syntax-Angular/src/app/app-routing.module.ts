@@ -33,6 +33,7 @@ import {QuizDetailsComponent} from "./components/Quiz/quiz-details/quiz-details.
 import {DisplayUsersComponent} from "./components/Users/display-users/display-users.component";
 import {UsersComponent} from "./components/Users/users/users.component";
 import {CoursQuestionsComponent} from "./components/Question/cours-questions/cours-questions.component";
+import {UtilisateurInfoComponent} from "./components/Utlisateur/utilisateur-info/utilisateur-info.component";
 
 
 
@@ -101,13 +102,14 @@ const routes: Routes = [
     component: UserQuizComponent,
     children: [
       { path: '', component: DisplayQuizComponent },
-      { path: ':quizId', component: StartQuizComponent },
+      { path: ':id', component: StartQuizComponent },
       { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent },
     ]
   }
 ,
   {path:'certificat/:userId/:coursId', component:GenerateCertificatComponent},
-  {path:'my-certificates', component:MyCertificatesComponent}
+  {path:'my-certificates', component:MyCertificatesComponent},
+  {path:'settings/:id', component:UtilisateurInfoComponent}
 
 ];
 

@@ -10,7 +10,7 @@ body {
 
 /* Header Styling */
 header {
-  background-color: #6B3FA0; /* Override the default Angular Material primary color */
+  background-color: #2E073F; /* Override the default Angular Material primary color */
   margin: 0;
   padding: 0;
 }
@@ -20,7 +20,7 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  background-color: #6B3FA0;
+  background-color: #2E073F;
 }
 
 .logo img {
@@ -99,7 +99,7 @@ header {
 
 .cta-button {
   display: inline-block;
-  background-color: #6B3FA0;
+  background-color: #2E073F;
   color: #fff;
   padding: 1rem 2rem;
   text-decoration: none;
@@ -110,7 +110,7 @@ header {
 }
 
 .cta-button:hover {
-  background-color: #532C7F;
+  background-color: #2E073F;
   transform: scale(1.05);
 }
 
@@ -132,7 +132,7 @@ footer {
 .footer {
   display: flex;
   justify-content: center;
-  background-color: #6B3FA0;
+  background-color: #2E073F;
   color: #fff;
   padding: 1.5rem;
   margin-top: -5%;

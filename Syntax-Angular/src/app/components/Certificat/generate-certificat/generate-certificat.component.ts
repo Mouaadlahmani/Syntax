@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CertificatService} from "../../../services/certificat/certificat.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Certificat} from "../../../classes/Certificat/certificat";
+import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-generate-certificat',
@@ -15,13 +16,16 @@ export class GenerateCertificatComponent implements OnInit{
   certificate!:Certificat;
 
   constructor(private service: CertificatService,
+              private authService:AuthService,
               private router:Router,
               private route: ActivatedRoute) {
   }
   ngOnInit(): void {
     const userIdFromStorage = localStorage.getItem('userId');
-    this.userId = userIdFromStorage ? Number(userIdFromStorage) : null;
+    this.userId = this.authService.getCurrentUserId();
     this.coursId = this.route.snapshot.params['coursId'];
+    console.log(this.coursId)
+    console.log(this.userId);
     this.certificate = {
       dateObtention: new Date(), // Set the current date
       utilisateur: {},

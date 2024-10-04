@@ -1,5 +1,5 @@
 .nav-list {
-  background-color: #5a2f7e; /* Background color for the entire list */
+  background-color: #2E073F; /* Background color for the entire list */
   padding: 1rem; /* Add padding to the list */
   border-radius: 0.375rem; /* Optional: Add rounded corners */
 }
@@ -21,6 +21,6 @@
 
 .nav-link:hover,
 .nav-link:focus {
-  background-color: #4a2569; /* Darker background on hover */
+  background-color: #2E073F; /* Darker background on hover */
   border-radius: 0.375rem; /* Keep rounded corners on hover */
 }

@@ -13,6 +13,7 @@ export class SignInComponent implements OnInit {
 
   loginForm!: FormGroup;
   role!: string | null;
+  hidePassword: boolean = true;
   errorMessage: string | null = null;
 
   constructor(private service: AuthService,
@@ -25,40 +26,43 @@ export class SignInComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
-    this.role = localStorage.getItem('userRole');
   }
 
   submitForm(): void {
     if (this.loginForm.invalid) {
       return; // Prevent submission if the form is invalid
     }
-
     console.log(this.loginForm.value);
     this.service.login(this.loginForm.value).subscribe(
-      (response: Jwt) => {
-        const jwtToken = response.token;
-        const userId = response.user.id;
-        const userRole = response.user.role;
-
-        localStorage.setItem('token', jwtToken);
-        localStorage.setItem('userId', userId.toString());
-        localStorage.setItem('userRole', userRole);
-
-        // Navigate based on role
-        if (userRole === 'ADMIN') {
-          this.router.navigate(['courses']);
-        } else {
-          this.router.navigate(['syntax/courses']);
+      response=>{
+        const role = this.service.getCurrentUserRole();
+        if(role){
+          console.log(response);
+          this.redirectUsers(role);
+        }else{
+          this.router.navigate(['/sign-in'])
         }
-
-        // Clear form
-        this.loginForm.reset();
       },
-      (error) => {
-        this.errorMessage = 'Login failed. Please check your credentials.'; // Set error message
-        console.error(error); // Log the error for debugging
+      error =>{
+        this.errorMessage = "invalid email or password.";
+        console.log("Failed to log in", JSON.stringify(error));
       }
     );
+  }
+
+  redirectUsers(role : string){
+    switch(role){
+      case 'ADMIN' :
+        this.router.navigate(['courses']);
+        break;
+
+      case 'UTILISATEUR' :
+        this.router.navigate(['syntax/courses']);
+        break;
+
+      default : this.router.navigate(['/sign-in']);
+
+    }
   }
 
 }

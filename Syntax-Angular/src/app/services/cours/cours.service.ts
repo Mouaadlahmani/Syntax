@@ -24,6 +24,10 @@ export class CoursService {
     return this.httpClient.get<Cours>(`${this.url}${id}`)
   }
 
+  getCoursByQuestionId(id:number):Observable<Cours>{
+    return this.httpClient.get<Cours>(`${this.url}question/${id}`)
+  }
+
   modifyCours(id:number, cours: Cours):Observable<Object>{
     return this.httpClient.put(`${this.url}edit/${id}`, cours);
   }

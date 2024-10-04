@@ -16,7 +16,7 @@ body {
 }
 
 header {
-  background-color: #6B3FA0;
+  background-color: #2E073F;
   padding: 0.5rem 1rem;
 }
 
@@ -78,7 +78,7 @@ nav ul li a:hover {
 }
 
 .form-container h2 {
-  color: #6B3FA0;
+  color: #2E073F;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
@@ -118,7 +118,7 @@ nav ul li a:hover {
 
 .btn {
   width: 100%;
-  background-color: #6B3FA0;
+  background-color: #2E073F;
   color: #fff;
   padding: 0.75rem;
   border: none;
@@ -130,7 +130,7 @@ nav ul li a:hover {
 }
 
 .btn:hover {
-  background-color: #532C7F;
+  background-color: #2E073F;
 }
 
 p {
@@ -139,7 +139,7 @@ p {
 }
 
 a {
-  color: #6B3FA0;
+  color: #2E073F;
   text-decoration: none;
   font-weight: bold;
 }

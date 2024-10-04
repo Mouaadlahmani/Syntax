@@ -1,24 +1,59 @@
-<div *ngIf="quiz">
-  <h2>{{ quiz.titre }}</h2>
+<div class="container">
+  <ng-container *ngIf="!isLoading; else loading">
+    <ng-container *ngIf="quizQuestions.length > 0; else noQuestions">
+      <ng-container *ngIf="!quizFinished; else quizCompleted">
+        <div class="quiz-header">
+          <h2 class="title">Question {{ currentQuestionIndex + 1 }} / {{ quizQuestions.length }}</h2>
+        </div>
 
-  <form (ngSubmit)="onSumit()">
-    <div *ngFor="let question of quiz.questions; let i = index">
-      <h3>{{ question.questionTitle }}</h3>
-      <ul>
-        <li>
-          <input type="radio" name="option{{ i }}" [(ngModel)]="responseList[i].response" [value]="question.option1">
-          {{ question.option1 }}
-        </li>
-        <li>
-          <input type="radio" name="option{{ i }}" [(ngModel)]="responseList[i].response" [value]="question.option2">
-          {{ question.option2 }}
-        </li>
-        <li>
-          <input type="radio" name="option{{ i }}" [(ngModel)]="responseList[i].response" [value]="question.option3">
-          {{ question.option3 }}
-        </li>
-      </ul>
-    </div>
-    <button type="submit">Submit Quiz</button>
-  </form>
+        <div class="question-card">
+          <p class="question-text">{{ quizQuestions[currentQuestionIndex].questionTitle }}</p>
+          <form (ngSubmit)="next()" class="options-container">
+            <div class="option-item">
+              <input type="radio" id="option1" name="answer" [(ngModel)]="currentResponse" [value]="quizQuestions[currentQuestionIndex].option1" class="radio-input">
+              <label for="option1" class="option-label">
+                <span class="option-number">1</span>
+                <span class="option-text">{{ quizQuestions[currentQuestionIndex].option1 }}</span>
+              </label>
+            </div>
+            <div class="option-item">
+              <input type="radio" id="option2" name="answer" [(ngModel)]="currentResponse" [value]="quizQuestions[currentQuestionIndex].option2" class="radio-input">
+              <label for="option2" class="option-label">
+                <span class="option-number">2</span>
+                <span class="option-text">{{ quizQuestions[currentQuestionIndex].option2 }}</span>
+              </label>
+            </div>
+            <div class="option-item">
+              <input type="radio" id="option3" name="answer" [(ngModel)]="currentResponse" [value]="quizQuestions[currentQuestionIndex].option3" class="radio-input">
+              <label for="option3" class="option-label">
+                <span class="option-number">3</span>
+                <span class="option-text">{{ quizQuestions[currentQuestionIndex].option3 }}</span>
+              </label>
+            </div>
+
+            <button type="submit" class="next-button" [disabled]="!currentResponse">
+              {{ currentQuestionIndex < quizQuestions.length - 1 ? 'Suivant' : 'Terminer' }}
+              <span class="arrow">→</span>
+            </button>
+          </form>
+        </div>
+      </ng-container>
+
+      <ng-template #quizCompleted>
+        <div class="completion-card">
+          <h2 class="completion-title">Quiz terminé !</h2>
+          <p class="completion-text">Vous avez répondu Bonne chance prochaine fois</p>
+          <button class="submit-button" (click)="toQuiz()">Retour à Quiz</button>
+        </div>
+      </ng-template>
+    </ng-container>
+
+    <ng-template #noQuestions>
+      <p>Ce quiz ne contient pas de questions.</p>
+    </ng-template>
+  </ng-container>
+
+  <ng-template #loading>
+    <p>Chargement du quiz...</p>
+  </ng-template>
 </div>

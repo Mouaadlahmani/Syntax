@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CertificatService} from "../../../../services/certificat/certificat.service";
 import {ActivatedRoute} from "@angular/router";
 import {Certificat} from "../../../../classes/Certificat/certificat";
+import {AuthService} from "../../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-my-certificates',
@@ -14,13 +15,12 @@ export class MyCertificatesComponent implements OnInit{
   userId!:number | null;
 
   constructor(private service:CertificatService,
+              private authService:AuthService,
               private route:ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.userId = this.route.snapshot.params['id'];
-    const userIdFromStorage = localStorage.getItem('userId');
-    this.userId = userIdFromStorage ? Number(userIdFromStorage) : null;
+    this.userId = this.authService.getCurrentUserId();
     this.getMyCertificates();
   }
 

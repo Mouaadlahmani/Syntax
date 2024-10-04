@@ -1,5 +1,6 @@
 package com.mouad.Syntax.service;
 
+import com.mouad.Syntax.model.Personne;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Function;
 
 @Service
@@ -36,8 +38,14 @@ public class JWTService {
                 .getBody();
     }
 
-    public String generateToken(UserDetails userDetails) {
-        return generateToken(new HashMap<>(),userDetails);
+    public String generateToken(Personne personne) {
+        HashMap<String, Object> claims = new HashMap<>();
+        claims.put("id", personne.getId());
+        claims.put("role", personne.getRole().name());
+        claims.put("email", personne.getEmail());
+        claims.put("firstname", personne.getPrenom());
+        claims.put("lastname", personne.getNom());
+        return generateToken(claims, personne);
     }
 
     public String generateToken(

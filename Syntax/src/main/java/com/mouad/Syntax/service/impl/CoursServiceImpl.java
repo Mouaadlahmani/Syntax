@@ -42,6 +42,12 @@ public class CoursServiceImpl implements CoursService {
     }
 
     @Override
+    public Optional<CoursDto> coursByQuestionId(Long id) {
+        Optional<Cours> optionalCours = coursRepository.findByQuestionsId(id);
+        return optionalCours.map(coursMapper::toDto);
+    }
+
+    @Override
     public CoursDto editCours(Long id, CoursDto coursDto) {
         Optional<Cours> cours = coursRepository.findById(id);
         if (cours.isPresent()){

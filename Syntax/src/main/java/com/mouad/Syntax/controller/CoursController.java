@@ -30,6 +30,11 @@ public class CoursController {
         return coursService.coursById(id);
     }
 
+    @GetMapping("question/{id}")
+    public Optional<CoursDto> coursByQuestionId(@PathVariable Long id){
+        return coursService.coursByQuestionId(id);
+    }
+
     @PutMapping("edit/{id}")
     public CoursDto editCours(@PathVariable Long id, @RequestBody CoursDto coursDto){
         return coursService.editCours(id, coursDto);

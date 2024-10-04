@@ -16,7 +16,7 @@ public class QuestionController {
     QuestionService questionService;
 
     @PostMapping("create/{id}")
-    QuestionDto create(@PathVariable Long id, @RequestBody QuestionDto questionDto){
+    QuestionDto create(@PathVariable("id") Long id, @RequestBody QuestionDto questionDto){
         return questionService.addQuestion(id, questionDto);
     }
 
@@ -26,22 +26,22 @@ public class QuestionController {
     }
 
     @GetMapping("{id}")
-    Optional<QuestionDto> reponseById(@PathVariable Long id){
+    Optional<QuestionDto> reponseById(@PathVariable("id") Long id){
         return questionService.questionById(id);
     }
 
     @GetMapping("cours/{id}")
-    List<QuestionDto> questionsCours(@PathVariable Long id){
+    List<QuestionDto> questionsCours(@PathVariable("id") Long id){
         return questionService.findByCours(id);
     }
 
     @PutMapping("edit/{id}")
-    QuestionDto editReponse(@PathVariable Long id, @RequestBody QuestionDto questionDto){
+    QuestionDto editReponse(@PathVariable("id") Long id, @RequestBody QuestionDto questionDto){
         return questionService.editQuestion(id, questionDto);
     }
 
     @DeleteMapping("delete/{id}")
-    void delete(@PathVariable Long id){
+    void delete(@PathVariable("id") Long id){
         questionService.delete(id);
     }
 }

@@ -25,10 +25,10 @@ public class SecurityConfig {
                 .csrf( csrf -> csrf.disable()) // desactivation du CSRF pour tous les requetes http(GET-POST-PUT....)
                 // Configuration des autorisations des requêtes HTTP
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers( "/api/certificat/","/api/auth/authenticate", "/api/auth/register/utilisateur", "/api/auth/register/admin").permitAll()
-                        .requestMatchers("/api/utilisateur/all", "/api/cours/add", "/api/cours/edit", "/api/cours/delete/",
-                                "/api/question/edit/","/api/question/delete/","/api/question/create/", "/api/quiz/add",
-                                "/api/quiz/delete/").hasAuthority("ADMIN")
+                        .requestMatchers("/api/auth/authenticate", "/api/auth/register/utilisateur", "/api/auth/register/admin").permitAll()
+                        .requestMatchers("/api/utilisateur/all", "/api/cours/add", "/api/cours/edit", "/api/cours/delete/", "/api/contenu/add/**","/api/contenu/edit/**",
+                                "/api/question/edit/","/api/question/delete/","/api/question/create/", "/api/quiz/add","/api/contenu/delete/**",
+                                "/api/quiz/delete/", "/api/lecon/add/**","/api/lecon/delete/**", "/api/lecon/edit/**").hasAuthority("ADMIN")
                         .requestMatchers("/api/utilisateur/", "/api/certificat/generate/", "/api/certificat/my-certificates/").hasAuthority("UTILISATEUR")
                         .requestMatchers("/api/cours/all", "/api/question/cours/").hasAnyAuthority("ADMIN", "UTILISATEUR")
                         .anyRequest().authenticated()

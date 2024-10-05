@@ -19,7 +19,7 @@ public class QuizController {
     QuizService quizService;
 
     @PostMapping("add")
-    public QuizDto addQuiz(@RequestParam String category, @RequestParam int numQ, @RequestParam String title) {
+    public QuizDto addQuiz(@RequestParam("category") String category, @RequestParam("numQ") int numQ, @RequestParam("title") String title) {
         return quizService.ajouterQuiz(category, numQ, title);
     }
 

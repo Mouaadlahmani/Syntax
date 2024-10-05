@@ -4,6 +4,7 @@ import com.mouad.Syntax.model.Cours;
 import com.mouad.Syntax.model.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,6 +18,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
             "WHERE c.titre = :category\n" +
             "ORDER BY RANDOM()\n" +
             "LIMIT :numQ", nativeQuery = true)
-    List<Question> findRandomQuestionByCours(String category, int numQ);
+    List<Question> findRandomQuestionByCours(@Param("category") String category, @Param("numQ") int numQ);
 
 }

@@ -38,7 +38,7 @@ public class LeconServiceImpl implements LeconService {
 
     @Override
     public List<LeconDto> allLecons() {
-        List<Lecon> lecons = leconRepository.findAll();
+        List<Lecon> lecons = leconRepository.findAllSortedById();
         return lecons.stream()
                 .map(leconMapper::toDto)
                 .collect(Collectors.toList());

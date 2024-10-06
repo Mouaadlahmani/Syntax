@@ -35,11 +35,18 @@ export class CoursListComponent implements OnInit{
   }
 
   deleteCours(id:number){
-    this.service.deleteCours(id).subscribe(
-      data=>{
-        this.router.navigate(['courses']);
-      }
-    );
+    const confirmation = confirm("Are you sure you want to delete this course?");
+    if (confirmation){
+      this.service.deleteCours(id).subscribe(
+        data=>{
+          this.getCours();
+        },
+        error => {
+          console.error("Error deleting course:", error);
+        }
+      )
+    }
+
   }
 
   coursDetails(id:number){

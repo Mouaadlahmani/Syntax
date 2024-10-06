@@ -33,7 +33,7 @@ export class QuestionService {
   }
 
   getQuestionByCoursId(id:number):Observable<Question[]>{
-    return this.httpClient.get<Question[]>(`${this.url}cours/${id}`)
+    return this.httpClient.get<Question[]>(`${this.url}course/${id}`)
   }
 
 

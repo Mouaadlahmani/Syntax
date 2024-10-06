@@ -18,7 +18,7 @@ public class Cours {
     private String titre;
     private String description;
 
-    @OneToMany(mappedBy = "courses")
+    @OneToMany(mappedBy = "courses", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Certificat> certificat;
 

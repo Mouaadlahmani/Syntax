@@ -36,6 +36,11 @@ public class CertificatController {
         return certificatService.getUtilisateurCertificatList(id);
     }
 
+    @GetMapping("/check/{userId}/{coursId}")
+    public Boolean checkCertificateExists(@PathVariable("userId") Long userId, @PathVariable("coursId") Long coursId) {
+        return certificatService.certificateExists(userId, coursId);
+    }
+
     @GetMapping("cours-certificates/{id}")
     public List<CertificatDto> coursCertificats(@PathVariable("id") Long id){
         return certificatService.getCoursCertificats(id);

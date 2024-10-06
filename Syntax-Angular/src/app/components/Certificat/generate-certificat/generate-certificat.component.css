@@ -1,65 +1,135 @@
 .certificate-container {
-  background-color: #ffffff;
-  border: 3px solid #1F316F;
-  padding: 30px;
-  width: 800px;
-  margin: 0 auto;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.certificate-header {
-  margin-bottom: 20px;
-}
-
-.certificate-header img {
-  width: 150px;
-  margin-bottom: 20px;
-}
-
-.certificate-header h1 {
-  font-size: 28px;
-  font-weight: bold;
-  color: #1F316F;
-}
-
-.certificate-body {
-  margin-top: 30px;
-}
-
-.certificate-body h2 {
-  font-size: 32px;
-  color: #1F316F;
-}
-
-.certificate-body h3 {
-  font-size: 24px;
-  color: #1F316F;
-}
-
-.certificate-body p {
-  font-size: 18px;
-  color: #333;
-}
-
-.certificate-footer {
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  padding: 20px 0;
-  border-top: 2px solid #1F316F;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 20px;
 }
 
-.certificate-footer p {
-  font-size: 16px;
-  color: #333;
+.certificate-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(46, 7, 63, 0.1);
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
 }
 
-.signature {
+.card-header {
+  background-color: #2E073F;
+  color: white;
+  padding: 20px;
   text-align: center;
+  position: relative;
 }
 
-.signature img {
-  width: 100px;
+.card-header h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.card-content {
+  padding: 30px;
+}
+
+/* Loading State */
+.loading-state {
+  text-align: center;
+  padding: 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #2E073F;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Message Box */
+.message-box {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.message-box.success {
+  background-color: rgba(46, 7, 63, 0.1);
+  border: 1px solid rgba(46, 7, 63, 0.2);
+  color: #2E073F;
+}
+
+.message-box.error {
+  background-color: #fff2f2;
+  border: 1px solid #ffcdd2;
+  color: #d32f2f;
+}
+
+.message-icon {
+  margin-right: 15px;
+  font-size: 24px;
+}
+
+.message-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Button */
+.view-button {
+  background-color: #2E073F;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.view-button:hover {
+  background-color: #3b0952;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 7, 63, 0.2);
+}
+
+.view-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .certificate-card {
+    border-radius: 10px;
+  }
+
+  .card-header h3 {
+    font-size: 20px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
 }

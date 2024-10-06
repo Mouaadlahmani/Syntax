@@ -1,71 +1,158 @@
-.container{
-  margin-top: 2%;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-.certificate-container {
-  background-color: #ffffff;
-  border: 3px solid #1F316F;
-  padding: 30px;
-  width: 800px;
-  margin: 0 auto;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
+/* Full-page container */
+.container {
+  background-color: #f5f5f5; /* Light background for the page */
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  gap: 2em;
+}
+
+/* Certificate Container */
+.certificate-container {
+  background-color: #FFFFFF; /* White background for the certificate */
+  color: #2E073F; /* Dark text for contrast */
+  border: 2px solid #2E073F; /* Dark border */
+  padding: 30px;
+  width: 750px; /* Increased width for a spacious layout */
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Certificate Header Styling */
 .certificate-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
 }
 
 .certificate-header img {
-  width: 150px;
-  margin-bottom: 20px;
+  width: 100px;
+  margin-bottom: 15px;
 }
 
 .certificate-header h1 {
-  font-size: 28px;
+  font-size: 30px; /* Slightly larger font size */
   font-weight: bold;
-  color: #1F316F;
+  color: #2E073F; /* Dark color for header */
+  margin: 10px 0;
 }
 
+/* Header and Footer Lines */
+.header-line, .footer-line {
+  height: 5px;
+  width: 60%;
+  background-color: #2E073F; /* Dark lines for contrast */
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+/* Certificate Body */
 .certificate-body {
-  margin-top: 30px;
-}
-
-.certificate-body h2 {
-  font-size: 32px;
-  color: #1F316F;
-}
-
-.certificate-body h3 {
-  font-size: 24px;
-  color: #1F316F;
+  margin-top: 10px;
 }
 
 .certificate-body p {
   font-size: 18px;
-  color: #333;
+  color: #2E073F; /* Dark text */
+  margin: 8px 0;
 }
 
+.certificate-body h2 {
+  font-size: 28px;
+  color: #2E073F; /* Dark color for recipient's name */
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.certificate-body h3 {
+  font-size: 22px;
+  color: #2E073F; /* Dark color for course title */
+  margin: 10px 0;
+}
+
+.course-details {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f0f0f0; /* Light grey for details background */
+  border: 1px solid #2E073F; /* Dark border */
+  border-radius: 8px;
+}
+
+.course-details p {
+  font-size: 16px;
+  color: #2E073F; /* Dark text */
+  margin: 5px 0;
+}
+
+/* Certificate Footer */
 .certificate-footer {
   display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  padding: 20px 0;
-  border-top: 2px solid #1F316F;
-}
-
-.certificate-footer p {
-  font-size: 16px;
-  color: #333;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 2px solid #2E073F; /* Dark border */
 }
 
 .signature {
   text-align: center;
+  margin: 0 20px;
 }
 
-.signature img {
-  width: 100px;
+.signature-line {
+  width: 120px;
+  height: 2px;
+  background-color: #2E073F; /* Dark line for signature */
+  margin: 0 auto 5px auto;
+}
+
+/* Download Button Styling */
+.download-button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.download-button {
+  background-color: #2E073F; /* Dark button */
+  color: #FFFFFF; /* White text for contrast */
+  padding: 12px 24px;
+  border: none; /* No border */
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.download-button:hover {
+  background-color: #1A0E26; /* Darker hover effect */
+}
+
+.description {
+  font-size: 14px;
+  color: #666; /* Grey text for description */
+  margin: 10px 0;
+  padding: 0 20px;
+}
+
+/* Print and PDF Optimization */
+.certificate-container {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  background-color: #FFFFFF !important; /* Ensure white background for printing */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }

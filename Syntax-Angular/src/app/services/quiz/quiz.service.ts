@@ -28,12 +28,8 @@ export class QuizService {
     return this.http.get<Quiz[]>(`${this.url}all`);
   }
 
-  getQuiz(id: number): Observable<Quiz> {
-    return this.http.get<Quiz>(`${this.url}num/${id}`);
-  }
-
   getQuizById(id: number): Observable<Quiz> {
-    return this.http.get<Quiz>(`${this.url}${id}`);
+    return this.http.get<Quiz>(`${this.url}num/${id}`);
   }
   //
   // getQuizWithQuestions(id: number): Observable<QuestionWrapper[]> {

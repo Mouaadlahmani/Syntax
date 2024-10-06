@@ -53,6 +53,12 @@ input:focus, select:focus {
   outline: none;
 }
 
+.error-message {
+  color: red;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 button {
   display: inline-flex;
   align-items: center;

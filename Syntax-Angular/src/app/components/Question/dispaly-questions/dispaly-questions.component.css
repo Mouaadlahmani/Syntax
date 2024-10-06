@@ -1,10 +1,17 @@
 .container {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1em;
   justify-content: center;
+  padding: 1rem;
 }
-
+.questions{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
 .card {
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
@@ -29,13 +36,38 @@
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
+/* Add Question Button Styles */
+.add-question-btn {
+  margin-bottom: 1.5rem;
+  background-color: #2E073F;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.add-question-btn:hover {
+  background-color: #5a3482;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 63, 160, 0.2);
+}
+
+.add-question-btn:focus {
+  box-shadow: 0 0 0 4px rgba(107, 63, 160, 0.3);
+  outline: none;
+}
+
+.add-question-btn:active {
+  transform: translateY(0);
+}
+
 /* Button Styles */
 .edit-btn {
-  background-color: #6B3FA0; /* Consistent with the previous button colors */
+  background-color: #6B3FA0;
 }
 
 .delete-btn {
-  background-color: #B8001F; /* Consistent with the previous button colors */
+  background-color: #B8001F;
 }
 
 .edit-btn:hover {
@@ -46,8 +78,19 @@
   background-color: #99001a;
 }
 
-.edit-btn:focus, .delete-btn:focus {
+.edit-btn:focus,
+.delete-btn:focus {
   box-shadow: 0 0 0 4px rgba(107, 63, 160, 0.3);
+}
+
+/* No Questions Message */
+.no-questions-message {
+  width: 100%;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  border: 1px dashed #e5e7eb;
+  margin: 1rem 0;
 }
 
 /* Media Queries */
@@ -55,10 +98,27 @@
   .card {
     width: 45%;
   }
+
+  .add-question-btn {
+    margin-left: 1rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .card {
     width: 30%;
+  }
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  .no-questions-message {
+    background-color: #1f2937;
+    border-color: #374151;
+  }
+
+  .buttons {
+    background-color: #1f2937;
+    border-color: #374151;
   }
 }

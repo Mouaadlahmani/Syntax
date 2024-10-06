@@ -34,82 +34,77 @@ import {DisplayUsersComponent} from "./components/Users/display-users/display-us
 import {UsersComponent} from "./components/Users/users/users.component";
 import {CoursQuestionsComponent} from "./components/Question/cours-questions/cours-questions.component";
 import {UtilisateurInfoComponent} from "./components/Utlisateur/utilisateur-info/utilisateur-info.component";
+import {authGuardGuard} from "./Guard/auth.guard";
 
 
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'dashbord', component:DashbordComponent},
   {path:'sign-in', component:SignInComponent},
   {path:'sign-up', component:SignUpComponent},
   {path:'courses',
   component:CoursComponent,
     children:[
-      {path:'', component:CoursListComponent},
-      {path:'add', component:AddCoursComponent},
-      {path:'modify/:id', component:ModifyCoursComponent},
-      {path:'cours/:id', component:CoursDetailsComponent},
+      {path:'', component:CoursListComponent, canActivate:[authGuardGuard]},
+      {path:'add', component:AddCoursComponent, canActivate:[authGuardGuard]},
+      {path:'modify/:id', component:ModifyCoursComponent, canActivate:[authGuardGuard]},
+      {path:'cours/:id', component:CoursDetailsComponent, canActivate:[authGuardGuard]},
     ]
   },
   {path:'lecons',
     component:LeconsComponent,
     children:[
-      {path:'modify/:id', component:ModifyLeconComponent},
-      {path:'add/:id', component:AddLeconComponent},
+      {path:'modify/:id', component:ModifyLeconComponent, canActivate:[authGuardGuard]},
+      {path:'add/:id', component:AddLeconComponent, canActivate:[authGuardGuard]},
     ]
   },
   {path:'contenu',
     component:LeconsComponent,
     children:[
-      {path:'modify/:id', component:ModifyContenuComponent},
-      {path:'add/:id', component:AddContenuComponent},
-      {path:':id', component:LeconDetailsComponent},
+      {path:'modify/:id', component:ModifyContenuComponent, canActivate:[authGuardGuard]},
+      {path:'add/:id', component:AddContenuComponent, canActivate:[authGuardGuard]},
+      {path:':id', component:LeconDetailsComponent, canActivate:[authGuardGuard]},
     ]
   },
   {path:'question',
     component:LeconsComponent,
     children:[
-      {path:'all', component:CoursQuestionsComponent},
-        {path:':id', component:DispalyQuestionsComponent},
-      {path:'add/:id', component:AddQuestionComponent},
-      {path:'modify/:id', component:ModifyQuestionComponent},
+      {path:'all', component:CoursQuestionsComponent, canActivate:[authGuardGuard]},
+        {path:':id', component:DispalyQuestionsComponent, canActivate:[authGuardGuard]},
+      {path:'add/:id', component:AddQuestionComponent, canActivate:[authGuardGuard]},
+      {path:'modify/:id', component:ModifyQuestionComponent, canActivate:[authGuardGuard]},
     ]
   },
   {path:'quiz',
     component:QuizComponent,
     children:[
-      {path:'add', component:AddQuizComponent},
-      {path:'', component: QuizListComponent},
-      {path:':id', component: QuizDetailsComponent}
+      {path:'add', component:AddQuizComponent, canActivate:[authGuardGuard]},
+      {path:'', component: QuizListComponent, canActivate:[authGuardGuard]},
+      {path:':id', component: QuizDetailsComponent, canActivate:[authGuardGuard]}
     ]
   },
   {path:'utilisateurs',
     component:UsersComponent,
     children:[
-      {path:'', component:DisplayUsersComponent},
+      {path:'', component:DisplayUsersComponent, canActivate:[authGuardGuard]},
     ]
   },
   {
-    path: 'syntax/courses',
+    path: 'syntax',
     component: UserCoursComponent,
     children: [
-      { path: '', component: UserCoursListComponent },
-      { path: 'cours/:id', component: UserCoursDetailsComponent },
-      { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent },
-    ]
-  },{
-    path: 'syntax/quiz',
-    component: UserQuizComponent,
-    children: [
-      { path: '', component: DisplayQuizComponent },
-      { path: ':id', component: StartQuizComponent },
-      { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent },
+      { path: 'courses', component: UserCoursListComponent, canActivate:[authGuardGuard]},
+      { path: 'courses/cours/:id', component: UserCoursDetailsComponent, canActivate:[authGuardGuard]},
+      { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent, canActivate:[authGuardGuard]},
+      { path: 'quiz', component: DisplayQuizComponent, canActivate:[authGuardGuard]},
+      { path: 'quiz/:id', component: StartQuizComponent, canActivate:[authGuardGuard]},
+      { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent, canActivate:[authGuardGuard]},
     ]
   }
 ,
-  {path:'certificat/:userId/:coursId', component:GenerateCertificatComponent},
-  {path:'my-certificates', component:MyCertificatesComponent},
-  {path:'settings/:id', component:UtilisateurInfoComponent}
+  {path:'certificat/:userId/:coursId', component:GenerateCertificatComponent, canActivate:[authGuardGuard]},
+  {path:'my-certificates', component:MyCertificatesComponent, canActivate:[authGuardGuard]},
+  {path:'settings/:id', component:UtilisateurInfoComponent, canActivate:[authGuardGuard]}
 
 ];
 

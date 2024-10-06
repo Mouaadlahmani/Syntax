@@ -32,12 +32,22 @@ public class CertificatServiceImpl implements CertificatService {
 
     @Override
     public CertificatDto generateCertificat(Long userId, Long coursId, CertificatDto certificatDto) {
+        // Check if certificate already exists
+        if (certificateExists(userId, coursId)) {
+            throw new IllegalStateException("Certificate already exists for this user and course");
+        }
+
         Certificat certificat = certificatMapper.toEntity(certificatDto);
-        Cours cours = coursRepository.findById(coursId).orElseThrow();
+        Cours cours = coursRepository.findById(coursId)
+                .orElseThrow(() -> new IllegalArgumentException("Course not found"));
+
+        Utilisateur utilisateur = (Utilisateur) personneRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
         certificat.setCourses(cours);
-        Utilisateur utilisateur = (Utilisateur) personneRepository.findById(userId).orElseThrow();
         certificat.setUtilisateur(utilisateur);
         certificat.setDateObtention(LocalDate.now());
+
         Certificat saved = certificatRepository.save(certificat);
         return certificatMapper.toDto(saved);
     }
@@ -70,5 +80,10 @@ public class CertificatServiceImpl implements CertificatService {
         return coursCertificats.stream()
                 .map(certificatMapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Boolean certificateExists(Long userId, Long coursId) {
+        return certificatRepository.existsByUtilisateurIdAndCoursesId(userId, coursId);
     }
 }

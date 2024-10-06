@@ -30,10 +30,11 @@ export class AddContenuComponent implements OnInit{
   onSubmit(){
     this.service.addContenu(this.id,this.contenu).subscribe(
       data=>{
-        console.log(data);
+        this.router.navigate(['contenu', this.id]).then(()=>{
+          console.log("Redirected successfully")
+        });
       }
     )
-    this.router.navigate(['contenu', this.id]);
   }
 
 }

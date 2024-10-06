@@ -53,7 +53,7 @@ public class ContenuServiceImpl implements ContenuService {
 
     @Override
     public List<ContenuDto> contenuList() {
-        List<Contenu> contenus = contenuRepository.findAll();
+        List<Contenu> contenus = contenuRepository.findAllSortedById();
         return contenus.stream()
                 .map(contenuMapper::toDto)
                 .collect(Collectors.toList());

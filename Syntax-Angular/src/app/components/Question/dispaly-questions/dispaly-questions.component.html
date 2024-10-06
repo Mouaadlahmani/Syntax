@@ -1,4 +1,16 @@
 <div class="container" style="margin-top: 2%">
+  <button (click)="addQuestion()" class="add-question-btn inline-flex items-center px-4 py-2 text-white bg-green-600 rounded-lg focus:outline-none focus:ring-4 hover:bg-green-700 transition duration-200">
+    Add Question
+    <svg class="w-5 h-5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path d="M12 4v16m8-8H4" />
+    </svg>
+  </button>
+  <!-- Check if the questions array is empty and display a message -->
+  <div *ngIf="questions.length === 0" class="no-questions-message">
+    <p class="text-center text-gray-500 dark:text-gray-300 text-lg">No questions available for this course.</p>
+  </div>
+
+  <div class="questions">
   <div *ngFor="let question of questions" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 card dark:bg-gray-800 dark:border-gray-700">
     <div class="p-6">
       <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Course Title</h3>
@@ -23,13 +35,13 @@
 
     <!-- Action Buttons -->
     <div class="buttons p-4">
-      <button (click)="toModify(question.id)" class="edit-btn inline-flex items-center px-4 py-2 mr-2 text-sm font-medium text-white rounded-lg focus:outline-none focus:ring-4">
+      <button (click)="toModify(question.id)" class="edit-btn inline-flex items-center px-4 py-2 mr-2 text-sm font-medium text-white bg-blue-600 rounded-lg focus:outline-none focus:ring-4">
         Edit
         <svg class="w-5 h-5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path d="M4 21v-4m0 0L12 4l4 4-8 13H4zm8-13l-8 8v4h4l8-8m0 0l4 4-8 8" />
         </svg>
       </button>
-      <button class="delete-btn inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg focus:outline-none focus:ring-4">
+      <button (click)="delete(question.id)" class="delete-btn inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg focus:outline-none focus:ring-4">
         Delete
         <svg class="w-5 h-5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path d="M6 6h12m-9 6v6m6-6v6M4 6h16M9 6V4h6v2" />
@@ -37,4 +49,5 @@
       </button>
     </div>
   </div>
+</div>
 </div>

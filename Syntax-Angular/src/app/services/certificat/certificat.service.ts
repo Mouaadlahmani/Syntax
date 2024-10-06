@@ -16,6 +16,10 @@ export class CertificatService {
     return this.httpClient.get<Certificat[]>(this.url + 'all');
   }
 
+  checkCertificateExists(userId: number, courseId: number): Observable<boolean> {
+    return this.httpClient.get<boolean>(`${this.url}check/${userId}/${courseId}`);
+  }
+
   // Get certificate by ID
   getCertificatById(id: number): Observable<Certificat> {
     return this.httpClient.get<Certificat>(`${this.url}${id}`);

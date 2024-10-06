@@ -1,6 +1,9 @@
 <form (ngSubmit)="onSubmit()" class="form-container">
   <h1>Add Question</h1>
 
+  <!-- Display error message if it exists -->
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
   <div class="form-row">
     <!-- Left Column -->
     <div class="form-group">
@@ -11,17 +14,21 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="option1">Option 1</label>
-      <input [(ngModel)]="question.option1" name="option1" id="option1" type="text" placeholder="Option 1" class="form-control"/>
+      <label for="questionTitle">Question Title</label>
+      <input [(ngModel)]="question.questionTitle" name="questionTitle" id="questionTitle" type="text" placeholder="Question Title" class="form-control"/>
     </div>
     <div class="form-group">
-      <label for="option2">Option 2</label>
-      <input [(ngModel)]="question.option2" name="option2" id="option2" type="text" placeholder="Option 2" class="form-control"/>
+      <label for="option1">Option 1</label>
+      <input [(ngModel)]="question.option1" name="option1" id="option1" type="text" placeholder="Option 1" class="form-control"/>
     </div>
   </div>
 
   <div class="form-row">
     <!-- Right Column -->
+    <div class="form-group">
+      <label for="option2">Option 2</label>
+      <input [(ngModel)]="question.option2" name="option2" id="option2" type="text" placeholder="Option 2" class="form-control"/>
+    </div>
     <div class="form-group">
       <label for="option3">Option 3</label>
       <input [(ngModel)]="question.option3" name="option3" id="option3" type="text" placeholder="Option 3" class="form-control"/>

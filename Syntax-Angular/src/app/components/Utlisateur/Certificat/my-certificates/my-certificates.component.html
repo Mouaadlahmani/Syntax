@@ -1,40 +1,45 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
-<div *ngFor="let certificate of myCertificates" style="background-color: #ffffff; border: 3px solid #1F316F; padding: 30px; width: 800px; margin: 0 auto; border-radius: 15px;">
-  <!-- Certificate Header -->
-  <div style="display: flex; flex-direction: column; align-items: center; text-align: center; padding-bottom: 20px;" >
-    <img src="assets/images/Syntax.png" alt="Logo" style="width: 15%;">
-    <h1 style="font-size: 28px; font-weight: bold; color: #1F316F;">CERTIFICATE OF COMPLETION</h1>
-  </div>
+  <div *ngFor="let certificate of myCertificates; let i = index" class="certificate-wrapper">
+    <div class="certificate-container">
+      <!-- Certificate Header with Logo and Lines -->
+      <div class="certificate-header">
+        <div class="header-line"></div>
+        <img src="assets/images/Syntax.png" alt="Logo" class="certificate-logo">
+        <h1>CERTIFICATE OF COMPLETION</h1>
+        <div class="header-line"></div>
+      </div>
 
-  <!-- User Information -->
-  <div style="text-align: center;">
-    <p style="font-size: 18px; color: #333;">This certifies that</p>
-    <h2 style="font-size: 32px; color: #1F316F;">{{ certificate.utilisateur.nom }} {{ certificate.utilisateur.prenom }}</h2>
-    <p style="font-size: 18px; color: #333;">has successfully completed the online course:</p>
-    <h3 style="font-size: 24px; color: #1F316F;">{{ certificate.courses.titre }}</h3>
-    <p style="font-size: 18px; color: #333;">Description: {{ certificate.courses.description }}</p>
-  </div>
+      <!-- Certificate Body -->
+      <div class="certificate-body">
+        <p>This certifies that</p>
+        <h2>{{ certificate.utilisateur.nom }} {{ certificate.utilisateur.prenom }}</h2>
+        <p>has successfully completed the online course:</p>
+        <h3>{{ certificate.courses.titre }}</h3>
+        <p class="description">Description: {{ certificate.courses.description }}</p>
 
-  <!-- Course Details -->
-  <div style="margin-top: 30px; text-align: center;">
-    <p style="font-size: 16px; color: #333;">Course ID: {{ certificate.courses.titre }}</p>
-    <p style="font-size: 16px; color: #333;">Date of Completion: {{ certificate.dateObtention | date: 'MMMM d, y' }}</p>
-  </div>
+        <div class="course-details">
+          <p>Course ID: {{ certificate.courses.titre }}</p>
+          <p>Date of Completion: {{ certificate.dateObtention | date: 'MMMM d, y' }}</p>
+        </div>
+      </div>
 
-  <!-- Signature and Footer -->
-  <div style="display: flex; justify-content: space-between; margin-top: 40px; padding: 20px 0; border-top: 2px solid #1F316F;">
-    <div style="text-align: left;">
-      <p style="font-size: 16px; color: #333;">Certificate Code: <span style="font-weight: bold;">7409756</span></p>
+      <!-- Certificate Footer with Signature -->
+      <div class="certificate-footer">
+        <div class="footer-line"></div>
+        <div class="signature">
+          <div class="signature-line"></div>
+          <p>Lahmani Mouaad</p>
+          <p>CEO, Syntax</p>
+        </div>
+        <div class="footer-line"></div>
+      </div>
     </div>
-    <div style="text-align: center;">
-      <p style="color: #1F316F;">_______________________</p>
-      <p style="font-size: 16px; color: #333;">Lahmani Mouaad</p>
-      <p style="font-size: 16px; color: #333;">CEO, Syntax</p>
-    </div>
-    <div style="text-align: right;">
-      <img src="assets/images/Syntax.png" alt="Verified Seal" style="width: 100px;">
+
+    <div class="download-button-container">
+      <button (click)="downloadCertificate(i)" class="download-button">
+        Download Certificate
+      </button>
     </div>
   </div>
-</div>
 </div>

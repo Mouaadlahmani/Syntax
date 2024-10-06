@@ -16,6 +16,7 @@ export class AddQuestionComponent implements OnInit{
   question: Question = new Question();
   coursTitles:Cours[]=[];
   selectedCourse!: Cours;
+  errorMessage: string = '';
 
   constructor(private service: QuestionService,
               private router: Router,
@@ -38,13 +39,21 @@ export class AddQuestionComponent implements OnInit{
   }
 
 
-  onSubmit(){
-    this.service.addQuestion(this.id,this.question).subscribe(
-      data=>{
-        console.log(data);
-      }
-    )
-    this.router.navigate(['questions']);
+  onSubmit() {
+    if (
+      this.question.rightAnswer !== this.question.option1 &&
+      this.question.rightAnswer !== this.question.option2 &&
+      this.question.rightAnswer !== this.question.option3
+    ) {
+      this.errorMessage = 'The correct answer must be one of the provided options!';
+      return;
+    }
+    this.errorMessage = '';
+    this.service.addQuestion(this.id, this.question).subscribe(data => {
+      console.log(data);
+    });
+
+    this.router.navigate(['question', this.id]).then();
   }
 
 }

@@ -30,7 +30,7 @@ public class QuestionController {
         return questionService.questionById(id);
     }
 
-    @GetMapping("cours/{id}")
+    @GetMapping("course/{id}")
     List<QuestionDto> questionsCours(@PathVariable("id") Long id){
         return questionService.findByCours(id);
     }

@@ -23,7 +23,9 @@ export class AddCoursComponent implements OnInit{
     this.service.addCours(this.cours).subscribe(
       data=>{
         console.log(data);
-        this.service.getCourses();
+        this.router.navigate(['courses']).then(() => {
+          console.log('Navigation successful!');
+        })
       },
       error => {
         console.error('Error adding course', error);
@@ -35,8 +37,6 @@ export class AddCoursComponent implements OnInit{
 
   onSubmit(){
     this.addCours()
-    this.router.navigate(['courses'])
-    this.service.getCourses()
   }
 
 

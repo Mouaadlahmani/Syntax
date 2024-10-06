@@ -1,6 +1,11 @@
 <form (ngSubmit)="onSubmit()" class="form-container">
   <h1>Edit Question</h1>
 
+  <!-- Error message display -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
   <div class="form-row">
     <!-- Left Column -->
     <div class="form-group">
@@ -30,7 +35,7 @@
     <div class="form-group">
       <label for="difficultyLevel">Difficulty Level</label>
       <select [(ngModel)]="question.difficultyLevel" name="difficultyLevel" id="difficultyLevel" class="form-control">
-        <option value="" disabled selected>Select Difficulty</option>
+        <option value="" disabled>Select Difficulty</option>
         <option value="Easy">Easy</option>
         <option value="Medium">Medium</option>
         <option value="Hard">Hard</option>

@@ -12,6 +12,7 @@ export class ModifyQuestionComponent implements OnInit{
 
   id!:number;
   question: Question = new Question();
+  errorMessage: string = '';
   constructor(private service: QuestionService,
               private route: ActivatedRoute,
               private router: Router) {
@@ -28,11 +29,23 @@ export class ModifyQuestionComponent implements OnInit{
     );
   }
 
-  onSubmit(){
+  onSubmit(): void {
+    // Validate that the correct answer is one of the three options
+    if (this.question.rightAnswer !== this.question.option1 &&
+      this.question.rightAnswer !== this.question.option2 &&
+      this.question.rightAnswer !== this.question.option3) {
+      this.errorMessage = 'The correct answer must match one of the provided options.';
+      return;
+    } else {
+      this.errorMessage = '';
+    }
+
+    // Call service to modify the question if validation passes
     this.service.modifyQuestion(this.id, this.question).subscribe(
-      data=>{
-        this.router.navigate(['courses'])
-      }
-    )
+      data => {
+        this.router.navigate(['question', this.question.cours.id]);
+      },
+      error => console.error('Error modifying question', error)
+    );
   }
 }

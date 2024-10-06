@@ -20,7 +20,6 @@ export class AddLeconComponent implements OnInit{
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    console.log(this.id)
   }
   onSubmit(){
     this.service.addLecon(this.id,this.lecon).subscribe(

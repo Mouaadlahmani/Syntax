@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import { Question } from "../../../../classes/Question/question";
 import {AuthService} from "../../../../services/auth/auth.service";
 import {CoursService} from "../../../../services/cours/cours.service";
+import {Quiz} from "../../../../classes/Quiz/quiz";
 
 @Component({
   selector: 'app-start-quiz',
@@ -41,29 +42,30 @@ export class StartQuizComponent implements OnInit {
 
   loadQuiz(): void {
     this.isLoading = true;
-    this.service.getQuizById(this.id).subscribe(
-      data => {
-        if (Array.isArray(data)) {
-          this.quizQuestions = data as Question[];
+    this.service.getQuizById(this.id).subscribe({
+      next: (data: Quiz) => {
+        this.quizQuestions = data.questions;
+        if (this.quizQuestions.length > 0) {
           const firstQuestionId = this.quizQuestions[0].id;
-          this.coursService.getCoursByQuestionId(firstQuestionId).subscribe(
-            data=>{
-              this.courseId = data.id
-              console.log(this.courseId);
+          this.coursService.getCoursByQuestionId(firstQuestionId).subscribe({
+            next: (courseData) => {
+              this.courseId = courseData.id;
+              console.log('Course ID:', this.courseId);
+            },
+            error: (error) => {
+              console.error('Error loading course:', error);
             }
-          );
-        } else {
-          console.error('Les données du quiz ne sont pas dans le format attendu', data);
+          });
         }
         this.isLoading = false;
-        console.log('Quiz chargé:', data);
+        console.log('Quiz loaded:', data);
         console.log('Questions:', this.quizQuestions);
       },
-      error => {
-        console.error('Erreur lors du chargement du quiz', error);
+      error: (error) => {
+        console.error('Error loading quiz:', error);
         this.isLoading = false;
       }
-    );
+    });
   }
 
   startQuiz(): void {

@@ -35,4 +35,22 @@ export class DispalyQuestionsComponent implements OnInit{
     this.router.navigate(['question/modify', id])
   }
 
+  delete(id: number) {
+    const confirmed = confirm('Are you sure you want to delete this question?');
+    if (confirmed) {
+      this.service.deleteQuestion(id).subscribe(
+        data => {
+          this.getGuestions();
+        },
+        error => {
+          console.error('Error deleting question', error);
+        }
+      );
+    }
+  }
+
+  addQuestion(){
+    this.router.navigate(["question/add", this.id])
+  }
+
 }

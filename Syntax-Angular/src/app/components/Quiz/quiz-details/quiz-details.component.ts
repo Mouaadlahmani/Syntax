@@ -24,7 +24,7 @@ export class QuizDetailsComponent implements OnInit{
   }
 
   getQuizById(){
-    this.service.getQuiz(this.id).subscribe(
+    this.service.getQuizById(this.id).subscribe(
       data=>{
         this.quiz = data;
       }

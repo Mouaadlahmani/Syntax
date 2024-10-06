@@ -43,7 +43,9 @@ export class CoursDetailsComponent implements OnInit {
     if (id) {
       this.leconService.deleteLecon(id).subscribe(
         () => {
-          this.router.navigate(['courses/cours', this.id])
+          this.router.navigate(['courses/cours', this.id]).then(()=>
+            console.log("Lesson deleted successfully")
+          )
         },
         error => console.error('Error deleting leçon', error)
       );

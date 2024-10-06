@@ -27,7 +27,7 @@ public class Question {
     @JoinColumn(name = "cours")
     private Cours cours;
 
-    @ManyToMany(mappedBy = "questions")
+    @ManyToMany(mappedBy = "questions", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Quiz> quizzes;
 

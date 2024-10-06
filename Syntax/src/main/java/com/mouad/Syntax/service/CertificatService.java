@@ -11,4 +11,5 @@ public interface CertificatService {
     List<CertificatDto> getCertificatList();
     List<CertificatDto> getUtilisateurCertificatList(Long id);
     List<CertificatDto> getCoursCertificats(Long id);
+    Boolean certificateExists(Long userId, Long coursId);
 }

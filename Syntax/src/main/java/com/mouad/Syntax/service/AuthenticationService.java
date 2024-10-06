@@ -21,8 +21,6 @@ public class AuthenticationService {
 
     private final PersonneRepository personneRepository;
     private final UtilisateurRepository utilisateurRepository;
-    //    private final CentreCollectRepository centreCollectRepository;
-//    private final RendezVousReposirory rendezVousReposirory;
     private final JWTService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;

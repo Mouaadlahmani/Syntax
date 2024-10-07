@@ -28,6 +28,10 @@ export class CoursService {
     return this.httpClient.get<Cours>(`${this.url}question/${id}`)
   }
 
+  count(): Observable<number> {
+    return this.httpClient.get<number>(`${this.url}count`);
+  }
+
   modifyCours(id:number, cours: Cours):Observable<Object>{
     return this.httpClient.put(`${this.url}edit/${id}`, cours);
   }

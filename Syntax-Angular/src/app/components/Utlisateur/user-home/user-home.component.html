@@ -1,0 +1,57 @@
+<!-- user-home.component.html -->
+<div class="dashboard-container">
+  <!-- Welcome Section -->
+  <div class="welcome-section">
+    <h1>Welcome Back, {{userName}}! 👋</h1>
+    <p>Track your progress and continue learning</p>
+  </div>
+
+  <!-- Image Section -->
+  <div class="image-section">
+    <img src="assets/images/homepppp.png" alt="Syntax Overview" class="overview-image" />
+  </div>
+
+  <!-- Progress Overview -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">📚</div>
+      <div class="stat-content">
+        <h3>Available Courses</h3>
+        <div class="stat-numbers">{{coursesNumber}}</div>
+        <p>Total courses available for you</p>
+        <button [routerLink]="['/courses']" class="action-button">Browse Courses</button>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">📝</div>
+      <div class="stat-content">
+        <h3>Available Quizzes</h3>
+        <div class="stat-numbers">{{quizzesNumber}}</div>
+        <p>Practice quizzes ready for you</p>
+        <button [routerLink]="['/quiz']" class="action-button">Take Quiz</button>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">🎓</div>
+      <div class="stat-content">
+        <h3>Certificates</h3>
+        <div class="stat-numbers">{{certifesNumber}}</div>
+        <p>Certificates Available</p>
+        <button [routerLink]="['/certificates']" class="action-button">View Certificates</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overview Section -->
+  <div class="overview-section">
+    <h2>About Syntax</h2>
+    <p>
+      Syntax is a comprehensive learning platform designed to help developers enhance their skills through interactive courses, quizzes, and certifications. Our goal is to make learning seamless, enjoyable, and accessible for everyone, regardless of their experience level.
+    </p>
+    <p>
+      You can explore a variety of courses to deepen your knowledge, test your skills with quizzes, and earn certifications to validate your expertise. Get started by browsing through our available courses or take a quiz to assess your progress!
+    </p>
+  </div>
+</div>

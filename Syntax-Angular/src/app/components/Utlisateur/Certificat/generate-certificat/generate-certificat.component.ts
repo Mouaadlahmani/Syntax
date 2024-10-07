@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {CertificatService} from "../../../services/certificat/certificat.service";
+import {CertificatService} from "../../../../services/certificat/certificat.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Certificat} from "../../../classes/Certificat/certificat";
-import {AuthService} from "../../../services/auth/auth.service";
+import {Certificat} from "../../../../classes/Certificat/certificat";
+import {AuthService} from "../../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-generate-certificat',

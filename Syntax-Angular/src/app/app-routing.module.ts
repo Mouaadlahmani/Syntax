@@ -22,7 +22,7 @@ import {UserCoursComponent} from "./components/Utlisateur/Cours/user-cours/user-
 import {UserCoursDetailsComponent} from "./components/Utlisateur/Cours/user-cours-details/user-cours-details.component";
 import {LeconDetailsComponent} from "./components/Lecons/lecon-details/lecon-details.component";
 import {ModifyQuestionComponent} from "./components/Question/modify-question/modify-question.component";
-import {GenerateCertificatComponent} from "./components/Certificat/generate-certificat/generate-certificat.component";
+import {GenerateCertificatComponent} from "./components/Utlisateur/Certificat/generate-certificat/generate-certificat.component";
 import {MyCertificatesComponent} from "./components/Utlisateur/Certificat/my-certificates/my-certificates.component";
 import {DisplayQuizComponent} from "./components/Utlisateur/Quiz/display-quiz/display-quiz.component";
 import {UserQuizComponent} from "./components/Utlisateur/Quiz/user-quiz/user-quiz.component";
@@ -35,11 +35,14 @@ import {UsersComponent} from "./components/Users/users/users.component";
 import {CoursQuestionsComponent} from "./components/Question/cours-questions/cours-questions.component";
 import {UtilisateurInfoComponent} from "./components/Utlisateur/utilisateur-info/utilisateur-info.component";
 import {authGuardGuard} from "./Guard/auth.guard";
+import {AdminDashbordComponent} from "./components/admin-dashbord/admin-dashbord.component";
+import {UserHomeComponent} from "./components/Utlisateur/user-home/user-home.component";
 
 
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
+  {path:'dashbord', component:AdminDashbordComponent, canActivate:[authGuardGuard]},
   {path:'sign-in', component:SignInComponent},
   {path:'sign-up', component:SignUpComponent},
   {path:'courses',
@@ -93,6 +96,7 @@ const routes: Routes = [
     path: 'syntax',
     component: UserCoursComponent,
     children: [
+      {path: 'home', component: UserHomeComponent},
       { path: 'courses', component: UserCoursListComponent, canActivate:[authGuardGuard]},
       { path: 'courses/cours/:id', component: UserCoursDetailsComponent, canActivate:[authGuardGuard]},
       { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent, canActivate:[authGuardGuard]},

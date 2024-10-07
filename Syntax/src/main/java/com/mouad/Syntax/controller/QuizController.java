@@ -33,6 +33,12 @@ public class QuizController {
         return quizService.getAllQuizzes();
     }
 
+    @GetMapping("count")
+    public long count() {
+        return quizService.getQuizCount();
+    }
+
+
     @GetMapping("num/{id}")
     public Optional<QuizDto> getQuizById(@PathVariable("id") Long id) {
         return quizService.getQuiz(id);

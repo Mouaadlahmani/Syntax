@@ -68,4 +68,9 @@ public class CoursServiceImpl implements CoursService {
     public void deleteCours(Long id) {
         coursRepository.deleteById(id);
     }
+
+    @Override
+    public long count() {
+        return coursRepository.count();
+    }
 }

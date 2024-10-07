@@ -15,4 +15,5 @@ public interface QuizService {
     List<QuestionWrapper> getQuizWithQuestions(Long id);
     List<QuizDto>getAllQuizzes();
     void deleteQuiz(Long id);
+    long getQuizCount();
 }

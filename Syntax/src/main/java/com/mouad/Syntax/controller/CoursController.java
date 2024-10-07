@@ -35,6 +35,11 @@ public class CoursController {
         return coursService.coursByQuestionId(id);
     }
 
+    @GetMapping("count")
+    public long count(){
+        return coursService.count();
+    }
+
     @PutMapping("edit/{id}")
     public CoursDto editCours(@PathVariable("id") Long id, @RequestBody CoursDto coursDto){
         return coursService.editCours(id, coursDto);

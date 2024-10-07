@@ -11,4 +11,5 @@ public interface CoursService {
     Optional<CoursDto> coursByQuestionId(Long id);
     CoursDto editCours(Long id, CoursDto coursDto);
     void deleteCours(Long id);
+    long count();
 }

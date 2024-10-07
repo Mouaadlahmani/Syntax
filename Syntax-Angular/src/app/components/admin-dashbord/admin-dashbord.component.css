@@ -1,0 +1,150 @@
+
+  /* Layout Styles */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #4B5563 #F3F4F6;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: #4B5563;
+  border-radius: 3px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  transition: width 0.3s ease;
+  z-index: 40;
+}
+
+/* Main content styles */
+.main-content {
+  transition: margin-left 0.3s ease;
+}
+
+/* Dashboard Styles */
+.dashboard-header {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2E073F;
+  margin-bottom: 30px;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px;
+}
+
+/* Card Styles */
+.card {
+  background-color: #2E073F;
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+}
+
+.card-number {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.card p {
+  font-size: 16px;
+  color: #dcdcdc;
+  margin-bottom: 20px;
+}
+
+.card-button {
+  background-color: white;
+  color: #2E073F;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.card-button:hover {
+  background-color: #6B3FA0;
+  color: whitesmoke;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px;
+  }
+
+  .main-content {
+    margin-left: 80px;
+  }
+
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .main-content {
+    margin-left: 60px;
+  }
+
+  .dashboard-header {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-number {
+    font-size: 32px;
+  }
+}

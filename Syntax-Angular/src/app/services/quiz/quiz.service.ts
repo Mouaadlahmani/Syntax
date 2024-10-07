@@ -28,6 +28,10 @@ export class QuizService {
     return this.http.get<Quiz[]>(`${this.url}all`);
   }
 
+  count(): Observable<number> {
+    return this.http.get<number>(`${this.url}count`);
+  }
+
   getQuizById(id: number): Observable<Quiz> {
     return this.http.get<Quiz>(`${this.url}num/${id}`);
   }

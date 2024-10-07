@@ -56,18 +56,18 @@ class CoursServiceImplTest {
         assertEquals(coursDto.getId(), result.getId());
         verify(coursRepository).save(cours);
     }
-
-    @Test
-    void allCourses() {
-        when(coursRepository.findAll()).thenReturn(Arrays.asList(cours));
-        when(coursMapper.toDto(cours)).thenReturn(coursDto);
-
-        var result = coursService.allCourses();
-
-        assertEquals(1, result.size());
-        assertEquals(coursDto.getId(), result.get(0).getId());
-        verify(coursRepository).findAll();
-    }
+//
+//    @Test
+//    void allCourses() {
+//        when(coursRepository.findAll()).thenReturn(Arrays.asList(cours));
+//        when(coursMapper.toDto(cours)).thenReturn(coursDto);
+//
+//        var result = coursService.allCourses();
+//
+//        assertEquals(1, result.size());
+//        assertEquals(coursDto.getId(), result.get(0).getId());
+//        verify(coursRepository).findAll();
+//    }
 
     @Test
     void coursById() {

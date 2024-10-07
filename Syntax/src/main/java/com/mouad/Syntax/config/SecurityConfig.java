@@ -32,7 +32,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/certificat/generate/**","/api/certificat/my-certificates/**","/api/quiz/submit/**").hasAuthority("UTILISATEUR")
                         .requestMatchers("/api/cours/all", "/api/question/course/","/api/quiz/num/**","/api/certificat/**","/api/contenu/**","/api/contenu/lecon/**",
                                 "/api/cours/all","/api/cours/**","/api/cours/question/**","/api/lecon/all","/api/lecon/**","/api/lecon/cours/**","/api/question/**","/api/question/course/**",
-                                "/api/quiz/all","/api/quiz/num/**","/api/certificat/check/**").hasAnyAuthority("ADMIN", "UTILISATEUR")
+                                "/api/quiz/all","/api/quiz/num/**","/api/certificat/check/**","/api/utilisateur/count","/api/quiz/count","/api/certificat/count","/api/cours/count").hasAnyAuthority("ADMIN", "UTILISATEUR")
                         .anyRequest().authenticated()
 
 

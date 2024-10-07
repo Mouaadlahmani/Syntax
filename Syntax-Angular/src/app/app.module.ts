@@ -38,7 +38,7 @@ import { UserCoursDetailsComponent } from './components/Utlisateur/Cours/user-co
 import { NavBarComponent } from './components/Nav-bar/nav-bar/nav-bar.component';
 import { LeconDetailsComponent } from './components/Lecons/lecon-details/lecon-details.component';
 import {AddQuizComponent} from "./components/Quiz/add-quiz/add-quiz.component";
-import { GenerateCertificatComponent } from './components/Certificat/generate-certificat/generate-certificat.component';
+import { GenerateCertificatComponent } from './components/Utlisateur/Certificat/generate-certificat/generate-certificat.component';
 import {MyCertificatesComponent} from "./components/Utlisateur/Certificat/my-certificates/my-certificates.component";
 import { DisplayQuizComponent } from './components/Utlisateur/Quiz/display-quiz/display-quiz.component';
 import { UserQuizComponent } from './components/Utlisateur/Quiz/user-quiz/user-quiz.component';
@@ -50,6 +50,9 @@ import { UsersComponent } from './components/Users/users/users.component';
 import { CoursQuestionsComponent } from './components/Question/cours-questions/cours-questions.component';
 import { UtilisateurInfoComponent } from './components/Utlisateur/utilisateur-info/utilisateur-info.component';
 import {MatIconModule} from "@angular/material/icon";
+import { AdminDashbordComponent } from './components/admin-dashbord/admin-dashbord.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { UserHomeComponent } from './components/Utlisateur/user-home/user-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +95,8 @@ import {MatIconModule} from "@angular/material/icon";
     UsersComponent,
     CoursQuestionsComponent,
     UtilisateurInfoComponent,
+    AdminDashbordComponent,
+    UserHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,6 +111,7 @@ import {MatIconModule} from "@angular/material/icon";
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
+    MatGridListModule,
   ],
   providers: [
     {

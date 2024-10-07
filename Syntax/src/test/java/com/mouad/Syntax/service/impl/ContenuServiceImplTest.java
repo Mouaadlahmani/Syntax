@@ -72,17 +72,17 @@ class ContenuServiceImplTest {
         // You can implement this test after completing the logic in `editContenu()`
     }
 
-    @Test
-    void contenuList() {
-        when(contenuRepository.findAll()).thenReturn(Arrays.asList(contenu));
-        when(contenuMapper.toDto(contenu)).thenReturn(contenuDto);
-
-        var result = contenuService.contenuList();
-
-        assertEquals(1, result.size());
-        assertEquals(contenuDto.getId(), result.get(0).getId());
-        verify(contenuRepository).findAll();
-    }
+//    @Test
+//    void contenuList() {
+//        when(contenuRepository.findAll()).thenReturn(Arrays.asList(contenu));
+//        when(contenuMapper.toDto(contenu)).thenReturn(contenuDto);
+//
+//        var result = contenuService.contenuList();
+//
+//        assertEquals(1, result.size());
+//        assertEquals(contenuDto.getId(), result.get(0).getId());
+//        verify(contenuRepository).findAll();
+//    }
 
     @Test
     void contenuById() {

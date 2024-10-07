@@ -86,4 +86,9 @@ public class CertificatServiceImpl implements CertificatService {
     public Boolean certificateExists(Long userId, Long coursId) {
         return certificatRepository.existsByUtilisateurIdAndCoursesId(userId, coursId);
     }
+
+    @Override
+    public long countCertificats() {
+        return certificatRepository.count();
+    }
 }

@@ -1,0 +1,52 @@
+<!-- main-layout.component.html -->
+<div class="flex flex-col h-screen">
+  <!-- Navbar -->
+  <nav class="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 w-full z-50">
+    <app-nav-bar></app-nav-bar>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="flex pt-[64px] h-screen">
+    <!-- Fixed Dashboard Sidebar -->
+    <aside class="sidebar fixed left-0 top-[64px] h-[calc(100vh-64px)] w-64 bg-gray-50 dark:bg-gray-800 overflow-y-auto border-r border-gray-200 dark:border-gray-700">
+      <app-dashbord></app-dashbord>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content ml-64 flex-1 overflow-y-auto bg-gray-100 dark:bg-gray-900 min-h-[calc(100vh-64px)]">
+      <!-- Dashboard Content -->
+      <div class="p-6">
+        <div class="dashboard-header">
+          Admin Dashboard Overview
+        </div>
+        <div class="dashboard-container">
+          <div class="card">
+            <div class="card-title">Users 🟢</div>
+            <div class="card-number">{{usersNumber}}</div>
+            <p>Total registered users on the platform.</p>
+            <button [routerLink]="['/utilisateurs']" class="card-button">View Details</button>
+          </div>
+          <div class="card">
+            <div class="card-title">Courses 📚</div>
+            <div class="card-number">{{coursesNumber}}</div>
+            <p>Total number of courses available.</p>
+            <button [routerLink]="['/courses']" class="card-button">View Courses</button>
+          </div>
+          <div class="card">
+            <div class="card-title">Quizzes 📝</div>
+            <div class="card-number">{{quizzesNumber}}</div>
+            <p>Number of quizzes currently hosted.</p>
+            <button [routerLink]="['/quiz']" class="card-button">Manage Quizzes</button>
+          </div>
+          <div class="card">
+            <div class="card-title">Certificates 🎓</div>
+            <div class="card-number">{{certifesNumber}}</div>
+            <p>Certificates awarded to users.</p>
+            <button [routerLink]="['/certificates']" class="card-button">View Certificates</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+

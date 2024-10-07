@@ -10,4 +10,5 @@ public interface UtilisateurService {
     List<UtilisateurDto> findAll();
     Optional<UtilisateurDto> findById(Long id);
     UtilisateurDto editInfos(Long id, UtilisateurDto utilisateurDto);
+    long count();
 }

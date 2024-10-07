@@ -13,4 +13,7 @@ public interface CoursRepository extends JpaRepository<Cours, Long> {
     @Query("SELECT c FROM Cours c ORDER BY c.id ASC")
     List<Cours> findAllSortedById();
     Optional<Cours> findByQuestionsId(Long id);
+
+    @Override
+    long count();
 }

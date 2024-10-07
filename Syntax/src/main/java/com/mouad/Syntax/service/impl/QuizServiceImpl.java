@@ -83,4 +83,9 @@ public class QuizServiceImpl implements QuizService {
             quizRepository.deleteById(id);
     }
 
+    @Override
+    public long getQuizCount() {
+        return quizRepository.count();
+    }
+
 }

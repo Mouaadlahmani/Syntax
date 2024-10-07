@@ -25,6 +25,10 @@ export class CertificatService {
     return this.httpClient.get<Certificat>(`${this.url}${id}`);
   }
 
+  count(): Observable<number> {
+    return this.httpClient.get<number>(`${this.url}count`);
+  }
+
   // Generate a new certificate
   generateCertificat(userId: number | null, coursId: number | null, certificat: Certificat): Observable<Certificat> {
     return this.httpClient.post<Certificat>(`${this.url}generate/${userId}/${coursId}`, certificat);

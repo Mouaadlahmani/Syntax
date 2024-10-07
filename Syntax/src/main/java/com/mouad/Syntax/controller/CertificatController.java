@@ -46,4 +46,9 @@ public class CertificatController {
         return certificatService.getCoursCertificats(id);
     }
 
+    @GetMapping("count")
+    public long count(){
+        return certificatService.countCertificats();
+    }
+
 }

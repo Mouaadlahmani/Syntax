@@ -21,6 +21,12 @@ public class UtilisateurController {
         return utilisateurService.findAll();
     }
 
+    @GetMapping("count")
+    public long count() {
+        return utilisateurService.count();
+    }
+
+
     @GetMapping("{id}")
     public Optional<UtilisateurDto> getById(@PathVariable("id") Long id) {
         return utilisateurService.findById(id);

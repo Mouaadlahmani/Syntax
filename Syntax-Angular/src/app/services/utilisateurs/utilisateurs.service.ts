@@ -23,4 +23,8 @@ export class UtilisateursService {
   editUtilisateur(id: number, utilisateur:Utilisateur): Observable<Object> {
     return this.http.put<Object>(`${this.apiUrl}edit/${id}`, utilisateur);
   }
+
+  count(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}count`);
+  }
 }

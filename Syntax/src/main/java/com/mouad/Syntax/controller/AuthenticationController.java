@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
-    @Autowired
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register/admin")

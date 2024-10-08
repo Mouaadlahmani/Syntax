@@ -5,6 +5,7 @@ import com.mouad.Syntax.mapper.UtilisateurMapper;
 import com.mouad.Syntax.model.Utilisateur;
 import com.mouad.Syntax.repository.UtilisateurRepository;
 import com.mouad.Syntax.service.UtilisateurService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class UtilisateurServiceImpl implements UtilisateurService {
 
-    @Autowired
-    private UtilisateurRepository utilisateurRepository;
-    @Autowired
-    UtilisateurMapper utilisateurMapper;
+
+    private final UtilisateurRepository utilisateurRepository;
+
+    private final UtilisateurMapper utilisateurMapper;
 
 
     @Override

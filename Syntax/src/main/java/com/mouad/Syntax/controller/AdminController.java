@@ -2,6 +2,7 @@ package com.mouad.Syntax.controller;
 
 import com.mouad.Syntax.model.Admin;
 import com.mouad.Syntax.service.AdminService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,10 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/admin/")
+@RequiredArgsConstructor
 public class AdminController {
 
-    @Autowired
-    AdminService service;
+    private final AdminService service;
 
     @GetMapping("all")
     public List<Admin> getAll() {

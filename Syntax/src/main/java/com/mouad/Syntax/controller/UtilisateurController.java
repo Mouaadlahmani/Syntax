@@ -2,6 +2,7 @@ package com.mouad.Syntax.controller;
 
 import com.mouad.Syntax.dto.UtilisateurDto;
 import com.mouad.Syntax.service.UtilisateurService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,11 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/utilisateur/")
+@RequiredArgsConstructor
 public class UtilisateurController {
 
-    @Autowired
-    private UtilisateurService utilisateurService;
+
+    private final UtilisateurService utilisateurService;
 
     @GetMapping("all")
     public List<UtilisateurDto> getAll() {

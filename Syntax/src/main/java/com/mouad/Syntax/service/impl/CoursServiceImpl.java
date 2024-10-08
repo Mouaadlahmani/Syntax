@@ -5,6 +5,7 @@ import com.mouad.Syntax.mapper.CoursMapper;
 import com.mouad.Syntax.model.Cours;
 import com.mouad.Syntax.repository.CoursRepository;
 import com.mouad.Syntax.service.CoursService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class CoursServiceImpl implements CoursService {
 
-    @Autowired
-    CoursRepository coursRepository;
-    @Autowired
-    CoursMapper coursMapper;
+    private final CoursRepository coursRepository;
+
+    private final CoursMapper coursMapper;
 
     @Override
     public CoursDto ajouterCours(CoursDto coursDto) {

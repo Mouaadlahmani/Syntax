@@ -4,6 +4,7 @@ import com.mouad.Syntax.dto.QuizDto;
 import com.mouad.Syntax.dto.QuestionWrapper;
 import com.mouad.Syntax.dto.Reponse;
 import com.mouad.Syntax.service.QuizService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +14,11 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/quiz/")
+@RequiredArgsConstructor
 public class QuizController {
 
-    @Autowired
-    QuizService quizService;
+
+    private final QuizService quizService;
 
     @PostMapping("add")
     public QuizDto addQuiz(@RequestParam("category") String category, @RequestParam("numQ") int numQ, @RequestParam("title") String title) {

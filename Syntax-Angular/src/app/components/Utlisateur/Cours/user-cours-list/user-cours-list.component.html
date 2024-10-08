@@ -1,5 +1,11 @@
 <div class="container">
   <h2 class="title">Available Courses</h2>
+
+  <!-- Barre de recherche -->
+  <div class="search-container">
+    <input type="text" placeholder="Search for a course..." [(ngModel)]="searchText" class="search-input">
+  </div>
+
   <ul class="course-list">
     <li *ngFor="let course of filteredProjects" class="course-item">
       <div class="course-info">
@@ -8,7 +14,7 @@
 
       <div class="button-container">
         <button class="view-button" (click)="coursDetails(course.id)">
-          Start Cours
+          Start Course
         </button>
       </div>
     </li>

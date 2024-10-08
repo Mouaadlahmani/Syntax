@@ -9,7 +9,5 @@ import java.util.List;
 
 @Repository
 public interface LeconRepository extends JpaRepository<Lecon, Long> {
-    @Query("SELECT l FROM Lecon l ORDER BY l.id ASC")
-    List<Lecon> findAllSortedById();
-    List<Lecon> findByCoursesId(Long id);
+    List<Lecon> findByCoursesIdOrderByIdAsc(Long coursesId);
 }

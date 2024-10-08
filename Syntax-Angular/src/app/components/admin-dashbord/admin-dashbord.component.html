@@ -1,52 +1,106 @@
 <!-- main-layout.component.html -->
-<div class="flex flex-col h-screen">
+<div class="flex flex-col h-screen bg-gray-50 dark:bg-gray-900">
   <!-- Navbar -->
-  <nav class="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 w-full z-50">
+  <nav class="bg-[#2E073F] text-white fixed top-0 w-full z-50 shadow-lg">
     <app-nav-bar></app-nav-bar>
   </nav>
 
   <!-- Main Container -->
   <div class="flex pt-[64px] h-screen">
     <!-- Fixed Dashboard Sidebar -->
-    <aside class="sidebar fixed left-0 top-[64px] h-[calc(100vh-64px)] w-64 bg-gray-50 dark:bg-gray-800 overflow-y-auto border-r border-gray-200 dark:border-gray-700">
+    <aside class="sidebar fixed left-0 top-[64px] h-[calc(100vh-64px)] w-64 bg-[#2E073F] text-white overflow-y-auto shadow-lg">
       <app-dashbord></app-dashbord>
     </aside>
 
     <!-- Main Content Area -->
-    <main class="main-content ml-64 flex-1 overflow-y-auto bg-gray-100 dark:bg-gray-900 min-h-[calc(100vh-64px)]">
+    <main class="main-content ml-64 flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 min-h-[calc(100vh-64px)]">
       <!-- Dashboard Content -->
-      <div class="p-6">
-        <div class="dashboard-header">
-          Admin Dashboard Overview
+      <div class="p-8">
+        <div class="dashboard-header mb-8">
+          <h1 class="text-3xl font-bold text-[#2E073F] dark:text-white">Admin Dashboard</h1>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">Welcome back to your dashboard!</p>
         </div>
-        <div class="dashboard-container">
-          <div class="card">
-            <div class="card-title">Users 🟢</div>
-            <div class="card-number">{{usersNumber}}</div>
-            <p>Total registered users on the platform.</p>
-            <button [routerLink]="['/utilisateurs']" class="card-button">View Details</button>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="card bg-gradient-to-br from-[#2E073F] to-[#4A0A68]">
+            <div class="card-content">
+              <div class="flex items-center justify-between">
+                <div class="card-icon">👥</div>
+                <div class="text-right">
+                  <p class="card-label">All Users</p>
+                  <h3 class="card-value">{{usersNumber}}</h3>
+                </div>
+              </div>
+              <button [routerLink]="['/utilisateurs']" class="card-button">
+                View Details
+              </button>
+            </div>
           </div>
-          <div class="card">
-            <div class="card-title">Courses 📚</div>
-            <div class="card-number">{{coursesNumber}}</div>
-            <p>Total number of courses available.</p>
-            <button [routerLink]="['/courses']" class="card-button">View Courses</button>
+
+          <div class="card bg-gradient-to-br from-[#3B0952] to-[#580F7A]">
+            <div class="card-content">
+              <div class="flex items-center justify-between">
+                <div class="card-icon">📚</div>
+                <div class="text-right">
+                  <p class="card-label">Total Courses</p>
+                  <h3 class="card-value">{{coursesNumber}}</h3>
+                </div>
+              </div>
+              <button [routerLink]="['/courses']" class="card-button">
+                View Courses
+              </button>
+            </div>
           </div>
-          <div class="card">
-            <div class="card-title">Quizzes 📝</div>
-            <div class="card-number">{{quizzesNumber}}</div>
-            <p>Number of quizzes currently hosted.</p>
-            <button [routerLink]="['/quiz']" class="card-button">Manage Quizzes</button>
+
+          <div class="card bg-gradient-to-br from-[#480B63] to-[#650E8C]">
+            <div class="card-content">
+              <div class="flex items-center justify-between">
+                <div class="card-icon">📝</div>
+                <div class="text-right">
+                  <p class="card-label">Active Quizzes</p>
+                  <h3 class="card-value">{{quizzesNumber}}</h3>
+                </div>
+              </div>
+              <button [routerLink]="['/quiz']" class="card-button">
+                Manage Quizzes
+              </button>
+            </div>
           </div>
-          <div class="card">
-            <div class="card-title">Certificates 🎓</div>
-            <div class="card-number">{{certifesNumber}}</div>
-            <p>Certificates awarded to users.</p>
-            <button [routerLink]="['/certificates']" class="card-button">View Certificates</button>
+
+          <div class="card bg-gradient-to-br from-[#550D75] to-[#720F9E]">
+            <div class="card-content">
+              <div class="flex items-center justify-between">
+                <div class="card-icon">🎓</div>
+                <div class="text-right">
+                  <p class="card-label">Certificates Issued</p>
+                  <h3 class="card-value">{{certifesNumber}}</h3>
+                </div>
+              </div>
+              <button [routerLink]="['/certificates']" class="card-button">
+                View Certificates
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="bg-white dark:bg-[#2E073F]/90 rounded-lg shadow-lg p-6">
+          <h2 class="text-xl font-semibold text-[#2E073F] dark:text-white mb-4">Recent Activity</h2>
+          <div class="space-y-4">
+            <div class="flex items-center p-4 bg-gray-50 dark:bg-[#2E073F]/50 rounded-lg">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#2E073F]/10 dark:bg-[#2E073F] flex items-center justify-center">
+                <span class="text-[#2E073F] dark:text-purple-300">👤</span>
+              </div>
+              <div class="ml-4">
+                <p class="text-sm font-medium text-[#2E073F] dark:text-white">New User Registration</p>
+                <p class="text-sm text-gray-500 dark:text-gray-300">John Doe joined the platform</p>
+              </div>
+              <span class="ml-auto text-sm text-gray-500 dark:text-gray-300">5 min ago</span>
+            </div>
           </div>
         </div>
       </div>
     </main>
   </div>
 </div>
-

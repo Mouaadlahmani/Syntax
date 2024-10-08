@@ -103,11 +103,11 @@ const routes: Routes = [
       { path: 'quiz', component: DisplayQuizComponent, canActivate:[authGuardGuard]},
       { path: 'quiz/:id', component: StartQuizComponent, canActivate:[authGuardGuard]},
       { path: 'lecon/:id/:leconId', component: UserCoursDetailsComponent, canActivate:[authGuardGuard]},
+      {path:'my-certificates', component:MyCertificatesComponent, canActivate:[authGuardGuard]},
     ]
   }
 ,
   {path:'certificat/:userId/:coursId', component:GenerateCertificatComponent, canActivate:[authGuardGuard]},
-  {path:'my-certificates', component:MyCertificatesComponent, canActivate:[authGuardGuard]},
   {path:'settings/:id', component:UtilisateurInfoComponent, canActivate:[authGuardGuard]}
 
 ];

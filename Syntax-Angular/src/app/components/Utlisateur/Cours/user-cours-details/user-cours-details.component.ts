@@ -26,15 +26,11 @@ export class UserCoursDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Récupérer l'ID du cours à partir des paramètres de route
     this.id = this.route.snapshot.params['id'];
 
-    // Récupérer les leçons du cours en utilisant le service de leçons
     this.service.leconsOfCours(this.id).subscribe(
       data => {
-        this.leconList = data; // Stocker la liste des leçons
-
-        // Si la liste des leçons n'est pas vide, sélectionner la première leçon par défaut
+        this.leconList = data;
         if (this.leconList.length > 0) {
           this.selectLecon(this.leconList[0], this.leconList[0].id);
         }

@@ -11,5 +11,5 @@ import java.util.List;
 public interface ContenuRepository extends JpaRepository<Contenu, Long> {
     @Query("SELECT c FROM Contenu c ORDER BY c.id ASC")
     List<Contenu> findAllSortedById();
-    List<Contenu> findByLeconId(Long id);
+    List<Contenu> findByLeconIdOrderByIdAsc(Long leconId);
 }

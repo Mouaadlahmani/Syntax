@@ -73,7 +73,7 @@ public class LeconServiceImpl implements LeconService {
 
     @Override
     public List<LeconDto> LeconsOfCours(Long id) {
-        List<Lecon> leconList = leconRepository.findByCoursesId(id);
+        List<Lecon> leconList = leconRepository.findByCoursesIdOrderByIdAsc(id);
         return leconList.stream()
                 .map(leconMapper::toDto)
                 .collect(Collectors.toList());

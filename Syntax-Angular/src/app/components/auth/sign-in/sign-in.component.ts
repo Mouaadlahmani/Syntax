@@ -53,11 +53,11 @@ export class SignInComponent implements OnInit {
   redirectUsers(role : string){
     switch(role){
       case 'ADMIN' :
-        this.router.navigate(['courses']);
+        this.router.navigate(['dashbord']);
         break;
 
       case 'UTILISATEUR' :
-        this.router.navigate(['syntax/courses']);
+        this.router.navigate(['syntax/home']);
         break;
 
       default : this.router.navigate(['/sign-in']);

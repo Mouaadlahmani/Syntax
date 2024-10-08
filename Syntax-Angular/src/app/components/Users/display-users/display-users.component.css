@@ -1,14 +1,28 @@
 .users-container {
   padding: 20px;
+  background-color: #fff; /* Background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+  max-width: 800px; /* Container width */
+  margin: 20px auto; /* Centering the container */
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #2E073F;
 }
 
 .load-users-btn {
   background-color: #1F316F;
   color: #fff;
   border: none;
-  padding: 10px 15px;
+  padding: 12px 20px;
   cursor: pointer;
   margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
 .load-users-btn:hover {
@@ -18,20 +32,32 @@
 .users-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden; /* Fix rounded borders */
 }
 
 .users-table th, .users-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 12px 16px;
   text-align: left;
 }
 
 .users-table th {
   background-color: #4a2569;
   color: white;
+  font-size: 16px;
 }
 
 .users-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #f9f9f9;
+}
+
+.users-table tr:hover {
+  background-color: #f1f1f1; /* Row hover effect */
+}
+
+.users-table tr td {
+  font-size: 14px; /* Slightly smaller font */
+  color: #333; /* Text color */
 }

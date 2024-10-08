@@ -28,12 +28,12 @@ public class LeconController {
 
     @GetMapping("{id}")
     public Optional<LeconDto> leconById(@PathVariable("id") Long id){
-        return leconService.LeconById(id);
+        return leconService.leconById(id);
     }
 
     @GetMapping("cours/{id}")
     public List<LeconDto> leconByCoursId(@PathVariable("id") Long id){
-        return leconService.LeconsOfCours(id);
+        return leconService.leconsOfCours(id);
     }
 
 

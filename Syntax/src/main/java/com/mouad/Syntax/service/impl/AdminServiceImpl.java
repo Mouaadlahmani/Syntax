@@ -4,7 +4,6 @@ import com.mouad.Syntax.model.Admin;
 import com.mouad.Syntax.repository.AdminRepository;
 import com.mouad.Syntax.service.AdminService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

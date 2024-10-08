@@ -3,11 +3,8 @@ package com.mouad.Syntax.controller;
 import com.mouad.Syntax.dto.AuthenticationRequest;
 import com.mouad.Syntax.dto.AuthenticationResponse;
 import com.mouad.Syntax.dto.RegisterRequest;
-import com.mouad.Syntax.model.Admin;
-import com.mouad.Syntax.model.Utilisateur;
 import com.mouad.Syntax.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

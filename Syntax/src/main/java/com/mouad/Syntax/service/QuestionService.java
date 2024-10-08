@@ -1,7 +1,6 @@
 package com.mouad.Syntax.service;
 
 import com.mouad.Syntax.dto.QuestionDto;
-import com.mouad.Syntax.model.Cours;
 
 import java.util.List;
 import java.util.Optional;

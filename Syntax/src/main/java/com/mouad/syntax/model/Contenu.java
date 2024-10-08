@@ -15,7 +15,7 @@ public class Contenu {
     private Long id;
     private String titre;
     @Column(columnDefinition = "TEXT")
-    private String contenu;
+    private String content;
 
     @ManyToOne
     @JoinColumn(name = "lecon")

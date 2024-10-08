@@ -44,7 +44,7 @@ public class ContenuServiceImpl implements ContenuService {
             editedContenu.setId(id);
             editedContenu.setTitre(contenuDto.getTitre());
             editedContenu.setLecon(contenuDto.getLecon());
-            editedContenu.setContenu(contenuDto.getContenu());
+            editedContenu.setContent(contenuDto.getContenu());
             Contenu saved = contenuRepository.save(editedContenu);
             return contenuMapper.toDto(saved);
         }

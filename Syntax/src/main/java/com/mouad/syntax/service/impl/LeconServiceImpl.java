@@ -45,7 +45,7 @@ public class LeconServiceImpl implements LeconService {
     }
 
     @Override
-    public Optional<LeconDto> LeconById(Long id) {
+    public Optional<LeconDto> leconById(Long id) {
         Optional<Lecon> lecon = leconRepository.findById(id);
         return lecon.map(leconMapper::toDto);
     }
@@ -72,7 +72,7 @@ public class LeconServiceImpl implements LeconService {
     }
 
     @Override
-    public List<LeconDto> LeconsOfCours(Long id) {
+    public List<LeconDto> leconsOfCours(Long id) {
         List<Lecon> leconList = leconRepository.findByCoursesIdOrderByIdAsc(id);
         return leconList.stream()
                 .map(leconMapper::toDto)

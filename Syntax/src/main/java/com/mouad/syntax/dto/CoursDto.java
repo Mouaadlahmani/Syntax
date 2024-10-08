@@ -13,6 +13,6 @@ public class CoursDto {
     private String titre;
     private String description;
     private List<Certificat> certificat;
-    private List<Lecon> Lecons;
+    private List<Lecon> lecons;
     private List<Quiz> quizzes;
 }

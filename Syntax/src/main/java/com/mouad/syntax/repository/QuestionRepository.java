@@ -13,11 +13,13 @@ import java.util.List;
 public interface QuestionRepository extends JpaRepository<Question, Long> {
     List<Question> findByCours(Cours cours);
 
-    @Query(value = "SELECT q.* FROM question q\n" +
-            "INNER JOIN cours c ON q.cours = c.id\n" +
-            "WHERE c.titre = :category\n" +
-            "ORDER BY RANDOM()\n" +
-            "LIMIT :numQ", nativeQuery = true)
+    @Query(value = """
+            SELECT q.* FROM question q
+            INNER JOIN cours c ON q.cours = c.id
+            WHERE c.titre = :category
+            ORDER BY RANDOM()
+            LIMIT :numQ
+            """, nativeQuery = true)
     List<Question> findRandomQuestionByCours(@Param("category") String category, @Param("numQ") int numQ);
 
 }

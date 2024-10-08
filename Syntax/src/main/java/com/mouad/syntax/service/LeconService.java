@@ -8,8 +8,8 @@ import java.util.Optional;
 public interface LeconService {
     LeconDto ajouterLecon(Long id, LeconDto leconDto);
     List<LeconDto> allLecons();
-    Optional<LeconDto> LeconById(Long id);
+    Optional<LeconDto> leconById(Long id);
     LeconDto editLecon(Long id, LeconDto leconDto);
     void deleteLecon(Long id);
-    List<LeconDto> LeconsOfCours(Long id);
+    List<LeconDto> leconsOfCours(Long id);
 }

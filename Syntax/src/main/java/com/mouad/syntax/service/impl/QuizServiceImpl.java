@@ -92,7 +92,7 @@ public class QuizServiceImpl implements QuizService {
         List<Quiz> quizzes = quizRepository.findAll();
         return quizzes.stream()
                 .map(quizMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override

@@ -14,6 +14,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -49,6 +50,7 @@ class QuestionServiceImplTest {
         question = new Question();
         question.setId(1L);
         question.setQuestionTitle("What is Java?");
+        question.setCours(cours); // Set the course for the question
 
         questionDto = new QuestionDto();
         questionDto.setId(1L);
@@ -66,8 +68,21 @@ class QuestionServiceImplTest {
 
         assertNotNull(result);
         assertEquals(questionDto.getId(), result.getId());
+        assertEquals(questionDto.getQuestionTitle(), result.getQuestionTitle());
         verify(coursRepository).findById(1L);
         verify(questionRepository).save(question);
+    }
+
+    @Test
+    void addQuestion_CourseNotFound() {
+        when(coursRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(NoSuchElementException.class, () -> {
+            questionService.addQuestion(1L, questionDto);
+        });
+
+        verify(coursRepository).findById(1L);
+        verify(questionRepository, never()).save(any(Question.class));
     }
 
     @Test
@@ -79,6 +94,7 @@ class QuestionServiceImplTest {
 
         assertEquals(1, result.size());
         assertEquals(questionDto.getId(), result.get(0).getId());
+        assertEquals(questionDto.getQuestionTitle(), result.get(0).getQuestionTitle());
         verify(questionRepository).findAll();
     }
 
@@ -91,6 +107,16 @@ class QuestionServiceImplTest {
 
         assertTrue(result.isPresent());
         assertEquals(questionDto.getId(), result.get().getId());
+        verify(questionRepository).findById(1L);
+    }
+
+    @Test
+    void questionById_NotFound() {
+        when(questionRepository.findById(1L)).thenReturn(Optional.empty());
+
+        Optional<QuestionDto> result = questionService.questionById(1L);
+
+        assertFalse(result.isPresent());
         verify(questionRepository).findById(1L);
     }
 
@@ -109,8 +135,21 @@ class QuestionServiceImplTest {
     }
 
     @Test
+    void findByCours_CourseNotFound() {
+        when(coursRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(NoSuchElementException.class, () -> {
+            questionService.findByCours(1L);
+        });
+
+        verify(coursRepository).findById(1L);
+        verify(questionRepository, never()).findByCours(any(Cours.class));
+    }
+
+    @Test
     void editQuestion() {
         when(questionRepository.findById(1L)).thenReturn(Optional.of(question));
+        when(questionMapper.toEntity(questionDto)).thenReturn(question);
         when(questionRepository.save(question)).thenReturn(question);
         when(questionMapper.toDto(question)).thenReturn(questionDto);
 
@@ -118,8 +157,20 @@ class QuestionServiceImplTest {
 
         assertNotNull(result);
         assertEquals(questionDto.getId(), result.getId());
+        assertEquals(questionDto.getQuestionTitle(), result.getQuestionTitle());
         verify(questionRepository).findById(1L);
         verify(questionRepository).save(question);
+    }
+
+    @Test
+    void editQuestion_NotFound() {
+        when(questionRepository.findById(1L)).thenReturn(Optional.empty());
+
+        QuestionDto result = questionService.editQuestion(1L, questionDto);
+
+        assertNull(result);
+        verify(questionRepository).findById(1L);
+        verify(questionRepository, never()).save(any(Question.class));
     }
 
     @Test

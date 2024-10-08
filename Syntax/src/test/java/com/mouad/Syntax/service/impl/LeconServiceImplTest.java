@@ -56,13 +56,16 @@ class LeconServiceImplTest {
 
     @Test
     void ajouterLecon() {
+        // Arrange
         when(coursRepository.findById(1L)).thenReturn(Optional.of(cours));
         when(leconMapper.toEntity(leconDto)).thenReturn(lecon);
         when(leconRepository.save(lecon)).thenReturn(lecon);
         when(leconMapper.toDto(lecon)).thenReturn(leconDto);
 
+        // Act
         LeconDto result = leconService.ajouterLecon(1L, leconDto);
 
+        // Assert
         assertNotNull(result);
         assertEquals(leconDto.getId(), result.getId());
         verify(coursRepository).findById(1L);
@@ -70,12 +73,28 @@ class LeconServiceImplTest {
     }
 
     @Test
+    void ajouterLecon_CoursNotFound() {
+        // Arrange
+        when(coursRepository.findById(1L)).thenReturn(Optional.empty());
+
+        // Act & Assert
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            leconService.ajouterLecon(1L, leconDto);
+        });
+
+        assertEquals("Cours Not Found", exception.getMessage());
+    }
+
+    @Test
     void allLecons() {
+        // Arrange
         when(leconRepository.findAll()).thenReturn(Arrays.asList(lecon));
         when(leconMapper.toDto(lecon)).thenReturn(leconDto);
 
+        // Act
         var result = leconService.allLecons();
 
+        // Assert
         assertEquals(1, result.size());
         assertEquals(leconDto.getId(), result.get(0).getId());
         verify(leconRepository).findAll();
@@ -83,24 +102,43 @@ class LeconServiceImplTest {
 
     @Test
     void leconById() {
+        // Arrange
         when(leconRepository.findById(1L)).thenReturn(Optional.of(lecon));
         when(leconMapper.toDto(lecon)).thenReturn(leconDto);
 
+        // Act
         Optional<LeconDto> result = leconService.LeconById(1L);
 
+        // Assert
         assertTrue(result.isPresent());
         assertEquals(leconDto.getId(), result.get().getId());
         verify(leconRepository).findById(1L);
     }
 
     @Test
+    void leconById_NotFound() {
+        // Arrange
+        when(leconRepository.findById(1L)).thenReturn(Optional.empty());
+
+        // Act
+        Optional<LeconDto> result = leconService.LeconById(1L);
+
+        // Assert
+        assertFalse(result.isPresent());
+        verify(leconRepository).findById(1L);
+    }
+
+    @Test
     void editLecon() {
+        // Arrange
         when(leconRepository.findById(1L)).thenReturn(Optional.of(lecon));
         when(leconRepository.save(lecon)).thenReturn(lecon);
         when(leconMapper.toDto(lecon)).thenReturn(leconDto);
 
+        // Act
         LeconDto result = leconService.editLecon(1L, leconDto);
 
+        // Assert
         assertNotNull(result);
         assertEquals(leconDto.getId(), result.getId());
         verify(leconRepository).findById(1L);
@@ -109,10 +147,26 @@ class LeconServiceImplTest {
 
     @Test
     void deleteLecon() {
+        // Arrange
         doNothing().when(leconRepository).deleteById(1L);
 
+        // Act
         leconService.deleteLecon(1L);
 
+        // Assert
         verify(leconRepository).deleteById(1L);
+    }
+
+    @Test
+    void deleteLecon_WhenNotFound() {
+        // Arrange
+        doThrow(new RuntimeException("Lecon not found")).when(leconRepository).deleteById(1L);
+
+        // Act & Assert
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            leconService.deleteLecon(1L);
+        });
+
+        assertEquals("Lecon not found", exception.getMessage());
     }
 }

@@ -5,12 +5,6 @@
     <h1>Welcome Back, {{userName}}! 👋</h1>
     <p>Track your progress and continue learning</p>
   </div>
-
-  <!-- Image Section -->
-  <div class="image-section">
-    <img src="assets/images/homepppp.png" alt="Syntax Overview" class="overview-image" />
-  </div>
-
   <!-- Progress Overview -->
   <div class="stats-grid">
     <div class="stat-card">
@@ -19,7 +13,7 @@
         <h3>Available Courses</h3>
         <div class="stat-numbers">{{coursesNumber}}</div>
         <p>Total courses available for you</p>
-        <button [routerLink]="['/courses']" class="action-button">Browse Courses</button>
+        <button [routerLink]="['/syntax/courses']" class="action-button">Browse Courses</button>
       </div>
     </div>
 
@@ -29,7 +23,7 @@
         <h3>Available Quizzes</h3>
         <div class="stat-numbers">{{quizzesNumber}}</div>
         <p>Practice quizzes ready for you</p>
-        <button [routerLink]="['/quiz']" class="action-button">Take Quiz</button>
+        <button [routerLink]="['/syntax/quiz']" class="action-button">Take Quiz</button>
       </div>
     </div>
 
@@ -38,8 +32,8 @@
       <div class="stat-content">
         <h3>Certificates</h3>
         <div class="stat-numbers">{{certifesNumber}}</div>
-        <p>Certificates Available</p>
-        <button [routerLink]="['/certificates']" class="action-button">View Certificates</button>
+        <p>Certificates awarded to our users.</p>
+        <button [routerLink]="['/syntax/my-certificates']" class="action-button">View Certificates</button>
       </div>
     </div>
   </div>

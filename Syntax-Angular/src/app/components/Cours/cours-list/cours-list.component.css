@@ -56,7 +56,7 @@
   padding: 25px 40px;
   margin: 20px 0;
   border-radius: 12px;
-  background: linear-gradient(135deg, #ece3f1, #f4eef8); /* Soft gradient */
+  background: linear-gradient(to right, #ececec, #f7f7f7); /* Soft gradient */
   border: 1px solid #d4c2e0;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -64,9 +64,8 @@
 
 /* Course item hover effects */
 .course-item:hover {
-  background: linear-gradient(135deg, #e4dbe8, #f0e9f5); /* Slightly darker on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-3px);
+  background: linear-gradient(to right, #f1f1f1, #f9f9f9);
+  transform: translateY(-2px);
 }
 
 /* Course info styles */

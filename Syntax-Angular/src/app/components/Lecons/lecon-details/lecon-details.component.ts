@@ -13,7 +13,6 @@ import {ContenuService} from "../../../services/contenu/contenu.service";
 export class LeconDetailsComponent implements OnInit{
 
   id!:number;
-  lecon!:Lecon;
   content?:Contenu[]=[];
 
   constructor(private service:LeconService,
@@ -28,10 +27,9 @@ export class LeconDetailsComponent implements OnInit{
   }
 
   getContenu(){
-    this.service.getLeconById(this.id).subscribe(
+    this.contenuService.getContenuOfLecon(this.id).subscribe(
       data=>{
-        this.lecon = data;
-        this.content = data.contenu;
+        this.content = data;
       }
     )
   }

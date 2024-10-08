@@ -73,7 +73,7 @@ public class ContenuServiceImpl implements ContenuService {
 
     @Override
     public List<ContenuDto> getLeconContenu(Long id) {
-        List<Contenu> contenuList = contenuRepository.findByLeconId(id);
+        List<Contenu> contenuList = contenuRepository.findByLeconIdOrderByIdAsc(id);
         return contenuList.stream()
                 .map(contenuMapper::toDto)
                 .collect(Collectors.toList());

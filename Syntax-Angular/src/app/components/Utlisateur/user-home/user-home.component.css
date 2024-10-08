@@ -8,21 +8,21 @@
 .welcome-section {
   margin-bottom: 32px;
   text-align: center;
-  background: white;
+  background: linear-gradient(135deg, #2E073F, #4A0A68);
   padding: 24px;
   border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 .welcome-section h1 {
   font-size: 32px;
-  color: #2E073F;
   margin-bottom: 8px;
 }
 
 .welcome-section p {
-  color: #666;
   font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Image Section */
@@ -35,7 +35,7 @@
 
 .overview-image {
   max-width: 100%;
-  height: auto; /* Ensure the aspect ratio is maintained */
+  height: auto;
   border-radius: 16px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: 24px;
@@ -44,7 +44,7 @@
 
 /* Hover Effect for the Image */
 .overview-image:hover {
-  transform: scale(1.05); /* Slight scaling effect */
+  transform: scale(1.05);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -57,49 +57,47 @@
 }
 
 .stat-card {
-  background: white;
+  background: linear-gradient(135deg, #3B0952, #580F7A);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: flex-start;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
 .stat-icon {
   font-size: 32px;
   margin-right: 16px;
-}
-
-.stat-content {
-  flex: 1;
+  color: white;
 }
 
 .stat-content h3 {
-  color: #2E073F;
   margin-bottom: 12px;
   font-size: 20px;
+  color: white;
 }
 
 .stat-numbers {
   font-size: 36px;
   font-weight: bold;
-  color: #2E073F;
+  color: #FFFFFF;
   margin-bottom: 8px;
 }
 
 .stat-content p {
-  color: #666;
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 16px;
 }
 
 .action-button {
-  background: #2E073F;
-  color: white;
+  background: white;
+  color: #2E073F;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -110,25 +108,25 @@
 
 .action-button:hover {
   background: #4A0A68;
+  color: white;
 }
 
 /* Overview Section */
 .overview-section {
-  background: white;
+  background: linear-gradient(135deg, #2E073F, #4A0A68);
   border-radius: 16px;
   padding: 24px;
   margin-top: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 .overview-section h2 {
-  color: #2E073F;
   margin-bottom: 24px;
   font-size: 24px;
 }
 
 .overview-section p {
-  color: #666;
   line-height: 1.6;
   margin-bottom: 16px;
   font-size: 18px;
@@ -154,6 +152,6 @@
 
   .overview-image {
     width: 90%;
-    border-radius: 12px; /* Slightly reduce border-radius for smaller screens */
+    border-radius: 12px;
   }
 }

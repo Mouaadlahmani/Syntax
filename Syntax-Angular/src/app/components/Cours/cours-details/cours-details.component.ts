@@ -25,9 +25,9 @@ export class CoursDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.service.getCoursById(this.id).subscribe(
+    this.leconService.leconsOfCours(this.id).subscribe(
       data => {
-      this.Lecons = data.lecons;
+      this.Lecons = data;
       },
       error => console.error('Error fetching course', error)
     );

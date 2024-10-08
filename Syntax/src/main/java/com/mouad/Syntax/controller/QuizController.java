@@ -5,7 +5,6 @@ import com.mouad.Syntax.dto.QuestionWrapper;
 import com.mouad.Syntax.dto.Reponse;
 import com.mouad.Syntax.service.QuizService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

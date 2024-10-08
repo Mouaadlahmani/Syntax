@@ -8,10 +8,8 @@ import com.mouad.Syntax.model.Utilisateur;
 import com.mouad.Syntax.repository.CertificatRepository;
 import com.mouad.Syntax.repository.CoursRepository;
 import com.mouad.Syntax.repository.PersonneRepository;
-import com.mouad.Syntax.repository.UtilisateurRepository;
 import com.mouad.Syntax.service.CertificatService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

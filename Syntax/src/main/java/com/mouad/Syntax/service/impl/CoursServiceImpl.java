@@ -6,7 +6,6 @@ import com.mouad.Syntax.model.Cours;
 import com.mouad.Syntax.repository.CoursRepository;
 import com.mouad.Syntax.service.CoursService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

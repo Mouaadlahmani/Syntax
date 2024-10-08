@@ -6,7 +6,6 @@ import com.mouad.Syntax.model.Utilisateur;
 import com.mouad.Syntax.repository.UtilisateurRepository;
 import com.mouad.Syntax.service.UtilisateurService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -4,7 +4,6 @@ import com.mouad.Syntax.dto.AuthenticationRequest;
 import com.mouad.Syntax.dto.AuthenticationResponse;
 import com.mouad.Syntax.dto.RegisterRequest;
 import com.mouad.Syntax.model.Admin;
-import com.mouad.Syntax.model.Personne;
 import com.mouad.Syntax.model.Utilisateur;
 import com.mouad.Syntax.model.enums.Role;
 import com.mouad.Syntax.repository.PersonneRepository;

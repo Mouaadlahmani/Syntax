@@ -1,7 +1,6 @@
 package com.mouad.Syntax.service;
 
 import com.mouad.Syntax.dto.ContenuDto;
-import com.mouad.Syntax.model.Contenu;
 
 import java.util.List;
 import java.util.Optional;

@@ -8,7 +8,6 @@ import com.mouad.Syntax.repository.ContenuRepository;
 import com.mouad.Syntax.repository.LeconRepository;
 import com.mouad.Syntax.service.ContenuService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,6 +1,5 @@
 package com.mouad.Syntax.dto;
 
-import com.mouad.Syntax.model.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -48,7 +48,7 @@ class ContenuServiceImplTest {
         contenu.setId(1L);
         contenu.setLecon(lecon);
         contenu.setTitre("Sample Title");
-        contenu.setContenu("Sample Content");
+        contenu.setContent("Sample Content");
 
         contenuDto = new ContenuDto();
         contenuDto.setId(1L);

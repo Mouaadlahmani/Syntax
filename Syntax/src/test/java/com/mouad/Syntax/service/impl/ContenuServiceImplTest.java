@@ -47,9 +47,14 @@ class ContenuServiceImplTest {
         contenu = new Contenu();
         contenu.setId(1L);
         contenu.setLecon(lecon);
+        contenu.setTitre("Sample Title");
+        contenu.setContenu("Sample Content");
 
         contenuDto = new ContenuDto();
         contenuDto.setId(1L);
+        contenuDto.setTitre("Sample Title");
+        contenuDto.setContenu("Sample Content");
+        contenuDto.setLecon(lecon);
     }
 
     @Test
@@ -68,21 +73,42 @@ class ContenuServiceImplTest {
     }
 
     @Test
-    void editContenu() {
-        // You can implement this test after completing the logic in `editContenu()`
+    void addContenu_WhenLeconNotFound() {
+        when(leconRepository.findById(1L)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            contenuService.addContenu(1L, contenuDto);
+        });
+
+        assertEquals("Lecon not found", exception.getMessage());
     }
 
-//    @Test
-//    void contenuList() {
-//        when(contenuRepository.findAll()).thenReturn(Arrays.asList(contenu));
-//        when(contenuMapper.toDto(contenu)).thenReturn(contenuDto);
-//
-//        var result = contenuService.contenuList();
-//
-//        assertEquals(1, result.size());
-//        assertEquals(contenuDto.getId(), result.get(0).getId());
-//        verify(contenuRepository).findAll();
-//    }
+    @Test
+    void editContenu() {
+        when(contenuRepository.findById(1L)).thenReturn(Optional.of(contenu));
+        when(contenuMapper.toEntity(contenuDto)).thenReturn(contenu);
+        when(contenuRepository.save(contenu)).thenReturn(contenu);
+        when(contenuMapper.toDto(contenu)).thenReturn(contenuDto);
+
+        ContenuDto result = contenuService.editContenu(1L, contenuDto);
+
+        assertNotNull(result);
+        assertEquals(contenuDto.getId(), result.getId());
+        verify(contenuRepository).save(contenu);
+        verify(contenuRepository).findById(1L);
+    }
+
+    @Test
+    void contenuList() {
+        when(contenuRepository.findAllSortedById()).thenReturn(Arrays.asList(contenu));
+        when(contenuMapper.toDto(contenu)).thenReturn(contenuDto);
+
+        var result = contenuService.contenuList();
+
+        assertEquals(1, result.size());
+        assertEquals(contenuDto.getId(), result.get(0).getId());
+        verify(contenuRepository).findAllSortedById();
+    }
 
     @Test
     void contenuById() {
@@ -97,11 +123,33 @@ class ContenuServiceImplTest {
     }
 
     @Test
+    void contenuById_WhenNotFound() {
+        when(contenuRepository.findById(1L)).thenReturn(Optional.empty());
+
+        Optional<ContenuDto> result = contenuService.contenuById(1L);
+
+        assertFalse(result.isPresent());
+        verify(contenuRepository).findById(1L);
+    }
+
+    @Test
     void deleteContenu() {
         doNothing().when(contenuRepository).deleteById(1L);
 
         contenuService.deleteContenu(1L);
 
         verify(contenuRepository).deleteById(1L);
+    }
+
+    @Test
+    void getLeconContenu() {
+        when(contenuRepository.findByLeconIdOrderByIdAsc(1L)).thenReturn(Arrays.asList(contenu));
+        when(contenuMapper.toDto(contenu)).thenReturn(contenuDto);
+
+        var result = contenuService.getLeconContenu(1L);
+
+        assertEquals(1, result.size());
+        assertEquals(contenuDto.getId(), result.get(0).getId());
+        verify(contenuRepository).findByLeconIdOrderByIdAsc(1L);
     }
 }

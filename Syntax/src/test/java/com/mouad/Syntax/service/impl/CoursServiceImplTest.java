@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,18 +57,19 @@ class CoursServiceImplTest {
         assertEquals(coursDto.getId(), result.getId());
         verify(coursRepository).save(cours);
     }
-//
-//    @Test
-//    void allCourses() {
-//        when(coursRepository.findAll()).thenReturn(Arrays.asList(cours));
-//        when(coursMapper.toDto(cours)).thenReturn(coursDto);
-//
-//        var result = coursService.allCourses();
-//
-//        assertEquals(1, result.size());
-//        assertEquals(coursDto.getId(), result.get(0).getId());
-//        verify(coursRepository).findAll();
-//    }
+
+    @Test
+    void allCourses() {
+        when(coursRepository.findAllSortedById()).thenReturn(Arrays.asList(cours));  // Use the correct method here
+        when(coursMapper.toDto(cours)).thenReturn(coursDto);
+
+        List<CoursDto> result = coursService.allCourses();
+
+        assertEquals(1, result.size());  // Expecting 1 course in the result
+        assertEquals(coursDto.getId(), result.get(0).getId());
+        verify(coursRepository).findAllSortedById();  // Verify the correct repository method was called
+    }
+
 
     @Test
     void coursById() {
@@ -84,6 +86,7 @@ class CoursServiceImplTest {
     @Test
     void editCours() {
         when(coursRepository.findById(1L)).thenReturn(Optional.of(cours));
+        when(coursMapper.toEntity(coursDto)).thenReturn(cours);
         when(coursRepository.save(cours)).thenReturn(cours);
         when(coursMapper.toDto(cours)).thenReturn(coursDto);
 
@@ -102,5 +105,16 @@ class CoursServiceImplTest {
         coursService.deleteCours(1L);
 
         verify(coursRepository).deleteById(1L);
+    }
+
+    @Test
+    void editCours_notFound() {
+        when(coursRepository.findById(1L)).thenReturn(Optional.empty());
+
+        CoursDto result = coursService.editCours(1L, coursDto);
+
+        assertNull(result);
+        verify(coursRepository).findById(1L);
+        verify(coursRepository, never()).save(any(Cours.class));
     }
 }

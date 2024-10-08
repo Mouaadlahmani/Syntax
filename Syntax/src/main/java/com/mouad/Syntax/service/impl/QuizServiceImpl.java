@@ -9,6 +9,7 @@ import com.mouad.Syntax.dto.Reponse;
 import com.mouad.Syntax.repository.QuestionRepository;
 import com.mouad.Syntax.repository.QuizRepository;
 import com.mouad.Syntax.service.QuizService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,14 +19,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class QuizServiceImpl implements QuizService {
 
-    @Autowired
-    QuizRepository quizRepository;
-    @Autowired
-    QuestionRepository questionRepository;
-    @Autowired
-    QuizMapper quizMapper;
+
+    private final QuizRepository quizRepository;
+
+    private final QuestionRepository questionRepository;
+
+    private final QuizMapper quizMapper;
 
     @Override
     public QuizDto ajouterQuiz(String category, int numQ, String title) {

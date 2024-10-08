@@ -2,6 +2,7 @@ package com.mouad.Syntax.controller;
 
 import com.mouad.Syntax.dto.LeconDto;
 import com.mouad.Syntax.service.LeconService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +12,10 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/lecon/")
+@RequiredArgsConstructor
 public class LeconController {
-    @Autowired
-    LeconService leconService;
+
+    private final LeconService leconService;
 
     @PostMapping("add/{id}")
     public LeconDto ajouterLecon(@PathVariable("id") Long id, @RequestBody LeconDto leconDto){

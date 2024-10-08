@@ -2,6 +2,7 @@ package com.mouad.Syntax.controller;
 
 import com.mouad.Syntax.dto.CertificatDto;
 import com.mouad.Syntax.service.CertificatService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,10 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/certificat/")
+@RequiredArgsConstructor
 public class CertificatController {
 
-    @Autowired
-    CertificatService certificatService;
+    private final CertificatService certificatService;
 
     @PostMapping("generate/{userId}/{coursId}")
     public CertificatDto generateCertificat(@PathVariable("userId") Long userId, @PathVariable("coursId") Long coursId, @RequestBody CertificatDto certificatDto){

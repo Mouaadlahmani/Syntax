@@ -7,6 +7,7 @@ import com.mouad.Syntax.model.Lecon;
 import com.mouad.Syntax.repository.ContenuRepository;
 import com.mouad.Syntax.repository.LeconRepository;
 import com.mouad.Syntax.service.ContenuService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +16,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ContenuServiceImpl implements ContenuService {
 
-    @Autowired
-    ContenuRepository contenuRepository;
-    @Autowired
-    LeconRepository leconRepository;
-    @Autowired
-    ContenuMapper contenuMapper;
+
+    private final ContenuRepository contenuRepository;
+
+    private final LeconRepository leconRepository;
+
+    private final ContenuMapper contenuMapper;
 
     @Override
     public ContenuDto addContenu(Long id, ContenuDto contenuDto) {

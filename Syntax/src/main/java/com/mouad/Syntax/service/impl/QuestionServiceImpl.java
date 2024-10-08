@@ -7,6 +7,7 @@ import com.mouad.Syntax.model.Question;
 import com.mouad.Syntax.repository.CoursRepository;
 import com.mouad.Syntax.repository.QuestionRepository;
 import com.mouad.Syntax.service.QuestionService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +16,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class QuestionServiceImpl implements QuestionService {
 
-    @Autowired
-    QuestionRepository questionRepository;
-    @Autowired
-    CoursRepository coursRepository;
-    @Autowired
-    QuestionMapper questionMapper;
+    private final QuestionRepository questionRepository;
+
+    private final CoursRepository coursRepository;
+
+    private final QuestionMapper questionMapper;
 
 
     @Override

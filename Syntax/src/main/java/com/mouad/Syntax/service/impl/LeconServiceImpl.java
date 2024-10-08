@@ -7,6 +7,7 @@ import com.mouad.Syntax.model.Lecon;
 import com.mouad.Syntax.repository.CoursRepository;
 import com.mouad.Syntax.repository.LeconRepository;
 import com.mouad.Syntax.service.LeconService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +16,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class LeconServiceImpl implements LeconService {
 
-    @Autowired
-    LeconRepository leconRepository;
-    @Autowired
-    CoursRepository coursRepository;
-    @Autowired
-    LeconMapper leconMapper;
+    private final LeconRepository leconRepository;
+
+    private final CoursRepository coursRepository;
+
+    private final LeconMapper leconMapper;
 
 
     @Override

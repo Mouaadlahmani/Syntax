@@ -10,6 +10,7 @@ import com.mouad.Syntax.repository.CoursRepository;
 import com.mouad.Syntax.repository.PersonneRepository;
 import com.mouad.Syntax.repository.UtilisateurRepository;
 import com.mouad.Syntax.service.CertificatService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,16 +20,16 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class CertificatServiceImpl implements CertificatService {
 
-    @Autowired
-    CertificatRepository certificatRepository;
-    @Autowired
-    CertificatMapper certificatMapper;
-    @Autowired
-    PersonneRepository personneRepository;
-    @Autowired
-    CoursRepository coursRepository;
+    private final CertificatRepository certificatRepository;
+
+    private final CertificatMapper certificatMapper;
+
+    private final PersonneRepository personneRepository;
+
+    private final CoursRepository coursRepository;
 
     @Override
     public CertificatDto generateCertificat(Long userId, Long coursId, CertificatDto certificatDto) {

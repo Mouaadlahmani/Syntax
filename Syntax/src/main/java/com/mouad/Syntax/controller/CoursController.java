@@ -2,6 +2,7 @@ package com.mouad.Syntax.controller;
 
 import com.mouad.Syntax.dto.CoursDto;
 import com.mouad.Syntax.service.CoursService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +12,10 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/cours/")
+@RequiredArgsConstructor
 public class CoursController {
-    @Autowired
-    CoursService coursService;
+
+    private final CoursService coursService;
 
     @PostMapping("add")
     public CoursDto ajouterCours(@RequestBody CoursDto coursDto){

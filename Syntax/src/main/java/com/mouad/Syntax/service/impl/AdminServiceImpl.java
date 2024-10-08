@@ -3,6 +3,7 @@ package com.mouad.Syntax.service.impl;
 import com.mouad.Syntax.model.Admin;
 import com.mouad.Syntax.repository.AdminRepository;
 import com.mouad.Syntax.service.AdminService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {
 
-    @Autowired
-    private AdminRepository adminRepository;
+
+    private final AdminRepository adminRepository;
 
     @Override
     public List<Admin> getAdmins() {

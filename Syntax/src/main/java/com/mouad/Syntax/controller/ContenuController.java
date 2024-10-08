@@ -2,6 +2,7 @@ package com.mouad.Syntax.controller;
 
 import com.mouad.Syntax.dto.ContenuDto;
 import com.mouad.Syntax.service.ContenuService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,10 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/contenu/")
+@RequiredArgsConstructor
 public class ContenuController {
 
-    @Autowired
-    ContenuService contenuService;
+    private final ContenuService contenuService;
 
     @PostMapping("add/{id}")
     public ContenuDto addContenu(@PathVariable("id") Long id, @RequestBody ContenuDto contenu){

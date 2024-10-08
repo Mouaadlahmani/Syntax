@@ -24,7 +24,7 @@ public class Cours {
 
     @OneToMany(mappedBy = "courses" , cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Lecon> Lecons;
+    private List<Lecon> lecons;
 
     @OneToMany(mappedBy = "cours", cascade = CascadeType.ALL)
     @JsonIgnore

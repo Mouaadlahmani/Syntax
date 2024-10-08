@@ -107,7 +107,7 @@ class LeconServiceImplTest {
         when(leconMapper.toDto(lecon)).thenReturn(leconDto);
 
         // Act
-        Optional<LeconDto> result = leconService.LeconById(1L);
+        Optional<LeconDto> result = leconService.leconById(1L);
 
         // Assert
         assertTrue(result.isPresent());
@@ -121,7 +121,7 @@ class LeconServiceImplTest {
         when(leconRepository.findById(1L)).thenReturn(Optional.empty());
 
         // Act
-        Optional<LeconDto> result = leconService.LeconById(1L);
+        Optional<LeconDto> result = leconService.leconById(1L);
 
         // Assert
         assertFalse(result.isPresent());

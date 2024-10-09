@@ -59,14 +59,14 @@ public class ContenuServiceImpl implements ContenuService {
     @Override
     public Optional<ContenuDto> contenuById(Long id) {
         Contenu contenu = contenuRepository.findById(id)
-                .orElseThrow(() -> new ContenuNotFoundException("Contenu not found!"));
+                .orElseThrow(() -> new ContenuNotFoundException("Contenu by this id not found!"));
         return Optional.of(contenuMapper.toDto(contenu));
     }
 
     @Override
     public void deleteContenu(Long id) {
         if (!contenuRepository.existsById(id)) {
-            throw new ContenuNotFoundException("Contenu not found!");
+            throw new ContenuNotFoundException("Contenu id not found!");
         }
         contenuRepository.deleteById(id);
     }

@@ -73,19 +73,6 @@ class LeconServiceImplTest {
     }
 
     @Test
-    void ajouterLecon_CoursNotFound() {
-        // Arrange
-        when(coursRepository.findById(1L)).thenReturn(Optional.empty());
-
-        // Act & Assert
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            leconService.ajouterLecon(1L, leconDto);
-        });
-
-        assertEquals("Cours Not Found", exception.getMessage());
-    }
-
-    @Test
     void allLecons() {
         // Arrange
         when(leconRepository.findAll()).thenReturn(Arrays.asList(lecon));

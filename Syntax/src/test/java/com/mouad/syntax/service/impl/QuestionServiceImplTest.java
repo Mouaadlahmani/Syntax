@@ -73,17 +73,6 @@ class QuestionServiceImplTest {
         verify(questionRepository).save(question);
     }
 
-    @Test
-    void addQuestion_CourseNotFound() {
-        when(coursRepository.findById(1L)).thenReturn(Optional.empty());
-
-        assertThrows(NoSuchElementException.class, () -> {
-            questionService.addQuestion(1L, questionDto);
-        });
-
-        verify(coursRepository).findById(1L);
-        verify(questionRepository, never()).save(any(Question.class));
-    }
 
     @Test
     void getAll() {

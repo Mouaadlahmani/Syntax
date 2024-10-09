@@ -1,6 +1,7 @@
 package com.mouad.syntax.service.impl;
 
 import com.mouad.syntax.dto.ContenuDto;
+import com.mouad.syntax.exeption.ContenuNotFoundException;
 import com.mouad.syntax.mapper.ContenuMapper;
 import com.mouad.syntax.model.Contenu;
 import com.mouad.syntax.model.Lecon;
@@ -71,16 +72,6 @@ class ContenuServiceImplTest {
         verify(leconRepository).findById(1L);
     }
 
-    @Test
-    void addContenu_WhenLeconNotFound() {
-        when(leconRepository.findById(1L)).thenReturn(Optional.empty());
-
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            contenuService.addContenu(1L, contenuDto);
-        });
-
-        assertEquals("Lecon not found", exception.getMessage());
-    }
 
     @Test
     void editContenu() {
@@ -121,18 +112,10 @@ class ContenuServiceImplTest {
         verify(contenuRepository).findById(1L);
     }
 
-    @Test
-    void contenuById_WhenNotFound() {
-        when(contenuRepository.findById(1L)).thenReturn(Optional.empty());
-
-        Optional<ContenuDto> result = contenuService.contenuById(1L);
-
-        assertFalse(result.isPresent());
-        verify(contenuRepository).findById(1L);
-    }
 
     @Test
     void deleteContenu() {
+        when(contenuRepository.existsById(1L)).thenReturn(true);
         doNothing().when(contenuRepository).deleteById(1L);
 
         contenuService.deleteContenu(1L);

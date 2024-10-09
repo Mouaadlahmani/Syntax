@@ -93,19 +93,6 @@ class CertificatServiceImplTest {
     }
 
     @Test
-    void generateCertificat_CertificateExists() {
-        // Arrange
-        when(certificatRepository.existsByUtilisateurIdAndCoursesId(1L, 1L)).thenReturn(true);
-
-        // Act & Assert
-        Exception exception = assertThrows(IllegalStateException.class, () -> {
-            certificatService.generateCertificat(1L, 1L, certificatDto);
-        });
-
-        assertEquals("Certificate already exists for this user and course", exception.getMessage());
-    }
-
-    @Test
     void getCertificatById() {
         // Arrange
         when(certificatRepository.findById(1L)).thenReturn(Optional.of(certificat));

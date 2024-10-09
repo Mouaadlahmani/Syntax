@@ -4,6 +4,7 @@ import { Lecon } from "../../../../classes/Lecon/lecon";
 import { Contenu } from "../../../../classes/Contenu/contenu";
 import { ContenuService } from "../../../../services/contenu/contenu.service";
 import { LeconService } from "../../../../services/lecon/lecon.service";
+import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-user-cours-details',
@@ -22,7 +23,8 @@ export class UserCoursDetailsComponent implements OnInit {
     private service: LeconService,
     private contenuService: ContenuService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -74,10 +76,6 @@ export class UserCoursDetailsComponent implements OnInit {
     this.loadContenuForLecon(this.leconId);
   }
 
-  /**
-   * Méthode pour charger les contenus d'une leçon en fonction de son ID
-   * @param leconId - ID de la leçon
-   */
   private loadContenuForLecon(leconId: number): void {
     this.contenuService.getContenuOfLecon(leconId).subscribe(
       data => {
@@ -88,5 +86,16 @@ export class UserCoursDetailsComponent implements OnInit {
         console.error("Erreur lors de la récupération des contenus :", error);
       }
     );
+  }
+  getSafeDescription(description: string): SafeHtml {
+    if (!description) return '';
+
+    // Replace spaces with non-breaking spaces and preserve line breaks
+    const formattedContent = description
+      .split('\n')
+      .map(line => line.replace(/ {2,}/g, match => '&nbsp;'.repeat(match.length))) // Replace multiple spaces with &nbsp;
+      .join('<br>'); // Use <br> for line breaks
+
+    return this.sanitizer.bypassSecurityTrustHtml(formattedContent);
   }
 }

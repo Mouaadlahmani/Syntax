@@ -1,6 +1,8 @@
 package com.mouad.syntax.service.impl;
 
 import com.mouad.syntax.dto.ContenuDto;
+import com.mouad.syntax.exeption.ContenuNotFoundException;
+import com.mouad.syntax.exeption.LeconNotFoundException;
 import com.mouad.syntax.mapper.ContenuMapper;
 import com.mouad.syntax.model.Contenu;
 import com.mouad.syntax.model.Lecon;
@@ -27,9 +29,8 @@ public class ContenuServiceImpl implements ContenuService {
 
     @Override
     public ContenuDto addContenu(Long id, ContenuDto contenuDto) {
-        Lecon lecon = leconRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("Lecon not found")
-        );
+        Lecon lecon = leconRepository.findById(id)
+                .orElseThrow(() -> new LeconNotFoundException("Leçon not found!"));
         Contenu contenu = contenuMapper.toEntity(contenuDto);
         contenu.setLecon(lecon);
         Contenu saved = contenuRepository.save(contenu);
@@ -38,18 +39,13 @@ public class ContenuServiceImpl implements ContenuService {
 
     @Override
     public ContenuDto editContenu(Long id, ContenuDto contenuDto) {
-        Optional<Contenu> contenu = contenuRepository.findById(id);
-        if (contenu.isPresent()) {
-            Contenu editedContenu = contenu.get();
-            editedContenu.setId(id);
-            editedContenu.setTitre(contenuDto.getTitre());
-            editedContenu.setLecon(contenuDto.getLecon());
-            editedContenu.setContent(contenuDto.getContenu());
-            Contenu saved = contenuRepository.save(editedContenu);
-            return contenuMapper.toDto(saved);
-        }
-
-        return null;
+        Contenu contenu = contenuRepository.findById(id)
+                .orElseThrow(() -> new ContenuNotFoundException("Contenu not found!"));
+        contenu.setTitre(contenuDto.getTitre());
+        contenu.setLecon(contenuDto.getLecon());
+        contenu.setDescription(contenuDto.getDescription());
+        Contenu saved = contenuRepository.save(contenu);
+        return contenuMapper.toDto(saved);
     }
 
     @Override
@@ -62,13 +58,17 @@ public class ContenuServiceImpl implements ContenuService {
 
     @Override
     public Optional<ContenuDto> contenuById(Long id) {
-        Optional<Contenu> contenu = contenuRepository.findById(id);
-        return contenu.map(contenuMapper::toDto);
+        Contenu contenu = contenuRepository.findById(id)
+                .orElseThrow(() -> new ContenuNotFoundException("Contenu not found!"));
+        return Optional.of(contenuMapper.toDto(contenu));
     }
 
     @Override
     public void deleteContenu(Long id) {
-            contenuRepository.deleteById(id);
+        if (!contenuRepository.existsById(id)) {
+            throw new ContenuNotFoundException("Contenu not found!");
+        }
+        contenuRepository.deleteById(id);
     }
 
     @Override

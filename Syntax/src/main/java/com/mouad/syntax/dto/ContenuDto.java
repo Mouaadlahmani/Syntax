@@ -7,6 +7,6 @@ import lombok.Data;
 public class ContenuDto {
     private Long id;
     private String titre;
-    private String contenu;
+    private String description;
     private Lecon lecon;
 }

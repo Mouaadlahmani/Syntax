@@ -1,6 +1,9 @@
 package com.mouad.syntax.service.impl;
 
 import com.mouad.syntax.dto.CertificatDto;
+import com.mouad.syntax.exeption.CertificateAlreadyExistsException;
+import com.mouad.syntax.exeption.CourseNotFoundException;
+import com.mouad.syntax.exeption.UserNotFoundException;
 import com.mouad.syntax.mapper.CertificatMapper;
 import com.mouad.syntax.model.Certificat;
 import com.mouad.syntax.model.Cours;
@@ -33,15 +36,15 @@ public class CertificatServiceImpl implements CertificatService {
     public CertificatDto generateCertificat(Long userId, Long coursId, CertificatDto certificatDto) {
         // Check if certificate already exists
         if (certificateExists(userId, coursId)) {
-            throw new IllegalStateException("Certificate already exists for this user and course");
+            throw new CertificateAlreadyExistsException("Certificate already exists for this user and course.");
         }
 
         Certificat certificat = certificatMapper.toEntity(certificatDto);
         Cours cours = coursRepository.findById(coursId)
-                .orElseThrow(() -> new IllegalArgumentException("Course not found"));
+                .orElseThrow(() -> new CourseNotFoundException("Course not found!"));
 
         Utilisateur utilisateur = (Utilisateur) personneRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found!"));
 
         certificat.setCourses(cours);
         certificat.setUtilisateur(utilisateur);

@@ -1,6 +1,7 @@
 package com.mouad.syntax.service.impl;
 
 import com.mouad.syntax.dto.QuizDto;
+import com.mouad.syntax.exeption.QuizNotFoundException;
 import com.mouad.syntax.mapper.QuizMapper;
 import com.mouad.syntax.model.Question;
 import com.mouad.syntax.dto.QuestionWrapper;
@@ -40,10 +41,9 @@ public class QuizServiceImpl implements QuizService {
     }
 
     public int calculateResult(Long id, List<Reponse> responses){
-        Optional<Quiz> optionalQuiz = quizRepository.findById(id);
+        Quiz quiz = quizRepository.findById(id)
+                .orElseThrow(() -> new QuizNotFoundException("Quiz not found!"));
 
-        if (optionalQuiz.isPresent()){
-            Quiz quiz = optionalQuiz.get();
             List<Question> questionList = quiz.getQuestions();
             int right = 0;
             int i = 0;
@@ -55,11 +55,6 @@ public class QuizServiceImpl implements QuizService {
                 i++;
             }
             return right;
-        }
-        else {
-            // Handle the case where the quiz is not found (e.g., throw an exception or return 0)
-            throw new NoSuchElementException("Quiz not found with ID: " + id);
-        }
     }
 
 

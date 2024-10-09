@@ -1,4 +1,3 @@
-/* course.component.css */
 :host {
   display: block;
   height: 100vh;
@@ -9,42 +8,50 @@
   height: 100%;
 }
 
-/* Sidebar */
+/* Sidebar Styles */
 .sidebar {
-  width: 20%;
-  background-color: #fff;
-  border-right: 2px solid #6B3FA0;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  position: fixed; /* Fix the sidebar */
-  height: 100%; /* Make it take the full height */
-  overflow-y: auto; /* Allow scrolling if the content overflows */
+  width: 20%; /* Set a fixed width for the sidebar */
+  background-color: #2E073F; /* Consistent background */
+  color: #ffffff; /* Text color for contrast */
+  padding: 20px; /* Padding for spacing */
+  border-right: none; /* Remove right border */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  position: fixed; /* Fixed position for the sidebar */
+  height: 100%; /* Full height */
+  overflow-y: auto; /* Enable scrolling if content overflows */
 }
 
+/* Sidebar Title */
 .sidebar h4 {
-  color: #333;
-  margin-bottom: 15px;
-  font-size: 1.4rem;
+  font-size: 1.5rem; /* Increased size for visibility */
+  color: #fff; /* White color for heading */
+  margin-bottom: 20px; /* Spacing below the heading */
+  font-weight: bold; /* Bold heading */
 }
 
+/* Sidebar List */
 .sidebar ul {
-  list-style-type: none;
-  padding: 0;
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
 }
 
+/* Sidebar List Items */
 .sidebar li {
-  cursor: pointer;
-  padding: 12px 15px;
-  border-bottom: 1px solid #e0e0e0;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  cursor: pointer; /* Change cursor to pointer */
+  padding: 12px 15px; /* Padding for list items */
+  margin-bottom: 10px; /* Space between items */
+  background-color: #3E1247; /* Background for list items */
+  border-radius: 6px; /* Rounded corners */
+  font-size: 1.1rem; /* Font size */
+  transition: all 0.3s ease; /* Smooth transition */
 }
 
-.sidebar li:hover, .sidebar li.active {
-  background-color: #6B3FA0;
-  color: white;
+/* Hover and Active States */
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #9C27B0; /* Highlight color for hover/active */
+  color: #ffffff; /* White text on hover/active */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow on hover/active */
 }
 
 /* Main Content */
@@ -53,33 +60,19 @@
   padding: 20px;
   margin-left: 20%; /* Add margin to the left for the sidebar */
   overflow-y: auto;
-  background-color: #F2F2F2;
+  background-color: #F2F2F2; /* Background for main content */
   height: 100vh; /* Make it take full height */
 }
 
 .content-box {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for content box */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding for content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for content box */
 }
 
-.course-title {
-  font-size: 1.8rem;
-  color: #6B3FA0;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-/* Styling for Contenu Title (h5) - No underline */
-.content-area h5 {
-  font-size: 1.4rem; /* Font size */
-  color: #4a2569; /* Dark gray for better readability */
-  margin-bottom: 10px; /* Space below the title */
-  /* Removed border-bottom for no underline effect */
-}
-
-/* Styling for Lecon Title (h3) */
-.content-area h3 {
+/* Lesson Title (h3) */
+.lesson-title {
   font-size: 1.8rem; /* Larger font size for emphasis */
   color: #2E073F; /* Darker shade for a stronger presence */
   margin-bottom: 20px; /* Space below the title */
@@ -89,22 +82,40 @@
   padding-bottom: 10px; /* Padding for better spacing */
 }
 
+/* Content Title (h5) */
+.content-title {
+  font-size: 1.4rem; /* Font size for content title */
+  color: #4A2569; /* Dark gray for better readability */
+  margin-bottom: 10px; /* Space below the title */
+}
+
+/* Content Description */
+.content-description {
+  margin-bottom: 20px; /* Space below the description */
+}
+
+/* No Lessons Message */
+.no-lessons {
+  font-size: 1.2rem; /* Font size for no lessons message */
+  color: #888; /* Gray color for less emphasis */
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    flex-direction: column; /* Stack elements vertically */
   }
 
   .sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 2px solid #6B3FA0;
+    width: 100%; /* Full width on small screens */
+    border-right: none; /* Remove right border */
+    border-bottom: 2px solid #6B3FA0; /* Add bottom border */
     position: relative; /* Change position to relative on small screens */
     height: auto; /* Auto height on mobile */
   }
 
   .main-content {
-    padding: 10px;
+    padding: 10px; /* Reduced padding on small screens */
     margin-left: 0; /* Reset margin on small screens */
   }
 }

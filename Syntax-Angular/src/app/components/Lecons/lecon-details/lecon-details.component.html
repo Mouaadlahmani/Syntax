@@ -1,4 +1,4 @@
-<!-- cours-questions.component.html -->
+<!-- lecon-details.component.html -->
 <div class="container">
   <h2 class="title">Available Courses</h2>
 
@@ -10,23 +10,17 @@
 
   <ul class="course-list">
     <li *ngFor="let contenu of content" class="course-item">
-      <!-- Display the course title -->
       <div class="course-info">
-        <h3>{{ contenu.titre }}</h3>
-        <p>{{ contenu.contenu }}</p>
+        <h3 class="course-title">{{ contenu.titre }}</h3>
+        <div class="course-description" [innerHTML]="getSafeDescription(contenu.description)"></div>
       </div>
 
-      <!-- Button container with View, Edit, and Delete buttons -->
       <div class="button-container">
-
-        <!-- Button to edit course -->
         <button class="edit-button" (click)="modifyContenu(contenu.id)">
-          Edit
+          <i class="fas fa-edit"></i> Edit
         </button>
-
-        <!-- Button to delete course -->
         <button class="delete-button" (click)="deleteContenu(contenu.id)">
-          Delete
+          <i class="fas fa-trash"></i> Delete
         </button>
       </div>
     </li>

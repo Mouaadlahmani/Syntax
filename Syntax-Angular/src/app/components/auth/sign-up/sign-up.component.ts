@@ -11,6 +11,9 @@ import {AuthService} from "../../../services/auth/auth.service";
 export class SignUpComponent implements OnInit{
 
   utilisateur: Utilisateur = new Utilisateur();
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
+  isLoading: boolean = false;
 
   constructor(private service: AuthService,
               private router: Router) {
@@ -20,17 +23,30 @@ export class SignUpComponent implements OnInit{
   }
 
   addUser(){
+    this.isLoading = true;
+    this.errorMessage = null;
+    this.successMessage = null;
+
     this.service.register(this.utilisateur).subscribe(
-      data=>{
-        this.router.navigate(['sign-in']);
+      data => {
+        this.successMessage = "Registration successful! Redirecting to login...";
+        setTimeout(() => {
+          this.router.navigate(['sign-in']);
+        }, 2000); // Redirect after 2 seconds
+      },
+      error => {
+        this.errorMessage = "Registration failed. Please try again.";
+        this.isLoading = false;
       }
-    )
+    );
   }
 
-  onSubmit(){
-    console.log(this.utilisateur.nom)
+  onSubmit() {
+    if (!this.utilisateur.nom || !this.utilisateur.prenom || !this.utilisateur.email || !this.utilisateur.password) {
+      this.errorMessage = "Please fill in all fields";
+      return;
+    }
     this.addUser();
-    this.router.navigate(['courses'])
   }
 
 }

@@ -1,6 +1,8 @@
 package com.mouad.syntax.service.impl;
 
 import com.mouad.syntax.dto.LeconDto;
+import com.mouad.syntax.exeption.CoursNotFoundException;
+import com.mouad.syntax.exeption.LeconNotFoundException;
 import com.mouad.syntax.mapper.LeconMapper;
 import com.mouad.syntax.model.Cours;
 import com.mouad.syntax.model.Lecon;
@@ -27,9 +29,8 @@ public class LeconServiceImpl implements LeconService {
 
     @Override
     public LeconDto ajouterLecon(Long id, LeconDto leconDto) {
-        Cours cours = coursRepository.findById(id).orElseThrow(
-                ()-> new RuntimeException("Cours Not Found")
-        );
+        Cours cours = coursRepository.findById(id)
+                .orElseThrow(() -> new CoursNotFoundException("Cours not found!"));
         Lecon lecon = leconMapper.toEntity(leconDto);
         lecon.setCourses(cours);
         Lecon saved = leconRepository.save(lecon);

@@ -96,3 +96,33 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.error-message {
+  display: flex;
+  align-items: center;
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.error-icon {
+  margin-right: 8px;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -24,9 +24,6 @@ export class AuthService {
     return this.httpClient.post(this.url + 'register/utilisateur', utilisateur)
   };
 
-  registerAdmin(registerRequest: any): Observable<Jwt>{
-    return this.httpClient.post<Jwt>(this.url + 'register/admin', registerRequest)
-  };
 
   getToken() : string | null{
     return localStorage.getItem('token');

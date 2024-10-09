@@ -89,6 +89,6 @@ export class GenerateCertificatComponent implements OnInit {
   }
 
   viewCertificates(): void {
-    this.router.navigate(['my-certificates']);
+    this.router.navigate(['syntax/my-certificates']);
   }
 }

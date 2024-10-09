@@ -48,12 +48,11 @@ class ContenuServiceImplTest {
         contenu.setId(1L);
         contenu.setLecon(lecon);
         contenu.setTitre("Sample Title");
-        contenu.setContent("Sample Content");
+        contenu.setDescription("Sample Content");
 
         contenuDto = new ContenuDto();
         contenuDto.setId(1L);
         contenuDto.setTitre("Sample Title");
-        contenuDto.setContenu("Sample Content");
         contenuDto.setLecon(lecon);
     }
 

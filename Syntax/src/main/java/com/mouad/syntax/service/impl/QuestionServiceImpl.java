@@ -1,6 +1,7 @@
 package com.mouad.syntax.service.impl;
 
 import com.mouad.syntax.dto.QuestionDto;
+import com.mouad.syntax.exeption.CoursNotFoundException;
 import com.mouad.syntax.mapper.QuestionMapper;
 import com.mouad.syntax.model.Cours;
 import com.mouad.syntax.model.Question;
@@ -28,7 +29,8 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public QuestionDto addQuestion(Long id, QuestionDto questionDto) {
         Question question = questionMapper.toEntity(questionDto);
-        Cours cours = coursRepository.findById(id).orElseThrow();
+        Cours cours = coursRepository.findById(id)
+                .orElseThrow(() -> new CoursNotFoundException("Cours not found!"));
         question.setCours(cours);
         Question saved = questionRepository.save(question);
         return questionMapper.toDto(saved);

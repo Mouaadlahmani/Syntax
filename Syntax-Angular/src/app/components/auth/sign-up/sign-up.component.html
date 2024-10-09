@@ -13,6 +13,14 @@
   <div class="form-wrapper">
     <div class="form-container">
       <h2>Sign Up</h2>
+      <div class="success-message" *ngIf="successMessage">
+        <mat-icon class="success-icon">check_circle</mat-icon>
+        <span>{{successMessage}}</span>
+      </div>
+      <div class="error-message" *ngIf="errorMessage">
+        <mat-icon class="error-icon">error_outline</mat-icon>
+        <span>{{errorMessage}}</span>
+      </div>
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
           <div class="name-fields">
@@ -34,7 +42,10 @@
           <label for="password">Password</label>
           <input [(ngModel)]="utilisateur.password" type="password" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn">Sign Up</button>
+        <button type="submit" class="btn" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Sign Up</span>
+          <span *ngIf="isLoading">Signing up...</span>
+        </button>
       </form>
       <p>Already have an account? <a [routerLink]="['/sign-in']">Sign In</a></p>
     </div>

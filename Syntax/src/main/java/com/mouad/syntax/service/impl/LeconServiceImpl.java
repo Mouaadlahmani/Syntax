@@ -42,7 +42,7 @@ public class LeconServiceImpl implements LeconService {
         List<Lecon> lecons = leconRepository.findAll();
         return lecons.stream()
                 .map(leconMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -77,6 +77,6 @@ public class LeconServiceImpl implements LeconService {
         List<Lecon> leconList = leconRepository.findByCoursesIdOrderByIdAsc(id);
         return leconList.stream()
                 .map(leconMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 }

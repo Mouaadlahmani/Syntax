@@ -32,7 +32,7 @@ public class CoursServiceImpl implements CoursService {
         List<Cours> coursList = coursRepository.findAllSortedById();
         return coursList.stream()
                 .map(coursMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override

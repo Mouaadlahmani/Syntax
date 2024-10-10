@@ -53,7 +53,7 @@ public class ContenuServiceImpl implements ContenuService {
         List<Contenu> contenus = contenuRepository.findAllSortedById();
         return contenus.stream()
                 .map(contenuMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -76,6 +76,6 @@ public class ContenuServiceImpl implements ContenuService {
         List<Contenu> contenuList = contenuRepository.findByLeconIdOrderByIdAsc(id);
         return contenuList.stream()
                 .map(contenuMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 }

@@ -65,7 +65,7 @@ public class CertificatServiceImpl implements CertificatService {
         List<Certificat> certificats = certificatRepository.findAll();
         return certificats.stream()
                 .map(certificatMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -73,7 +73,7 @@ public class CertificatServiceImpl implements CertificatService {
         List<Certificat> utilisateurCertificats = certificatRepository.findAllByUtilisateurId(id);
         return utilisateurCertificats.stream()
                 .map(certificatMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -81,7 +81,7 @@ public class CertificatServiceImpl implements CertificatService {
         List<Certificat> coursCertificats = certificatRepository.findAllByCoursesId(id);
         return coursCertificats.stream()
                 .map(certificatMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override

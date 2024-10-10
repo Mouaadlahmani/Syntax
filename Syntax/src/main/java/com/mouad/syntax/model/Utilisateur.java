@@ -13,5 +13,5 @@ public class Utilisateur extends Personne{
 
     @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL)
     @JsonIgnore
-    List<Certificat> certificats;
+    private List<Certificat> certificats;
 }

@@ -41,7 +41,7 @@ public class QuestionServiceImpl implements QuestionService {
         List<Question> questions = questionRepository.findAll();
         return questions.stream()
                 .map(questionMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -56,7 +56,7 @@ public class QuestionServiceImpl implements QuestionService {
         List<Question> questions = questionRepository.findByCours(cours);
         return questions.stream()
                 .map(questionMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override

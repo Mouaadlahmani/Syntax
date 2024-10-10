@@ -27,7 +27,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         List<Utilisateur> utilisateurs = utilisateurRepository.findAll();
         return utilisateurs.stream()
                 .map(utilisateurMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override

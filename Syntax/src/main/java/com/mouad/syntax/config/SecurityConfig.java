@@ -25,14 +25,13 @@ public class SecurityConfig {
                 .csrf( csrf -> csrf.disable()) // desactivation du CSRF pour tous les requetes http(GET-POST-PUT....)
                 // Configuration des autorisations des requêtes HTTP
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/auth/authenticate", "/api/auth/register/utilisateur", "/api/auth/register/admin").permitAll()
+                        .requestMatchers("/api/auth/authenticate", "/api/auth/register/utilisateur", "/api/auth/register/admin","/api/utilisateur/count","/api/quiz/count","/api/certificat/count","/api/cours/count","/api/cours/all").permitAll()
                         .requestMatchers("/api/admin/**", "/api/certificat/all","/api/certificat/cours-certificates/**","/api/contenu/add/**","/api/contenu/all","/api/contenu/edit/**",
                                 "/api/contenu/delete/**","/api/cours/add","/api/cours/edit/**","/api/cours/delete/**","/api/lecon/add/**","/api/lecon/edit/**","/api/lecon/delete/**",
                                 "/api/question/create/**","/api/question/all","/api/question/","/api/question/edit/**","/api/question/delete/**","/api/quiz/add","/api/quiz/delete/**").hasAuthority("ADMIN")
                         .requestMatchers("/api/certificat/generate/**","/api/certificat/my-certificates/**","/api/quiz/submit/**").hasAuthority("UTILISATEUR")
-                        .requestMatchers("/api/cours/all", "/api/question/course/","/api/quiz/num/**","/api/certificat/**","/api/contenu/**","/api/contenu/lecon/**",
-                                "/api/cours/all","/api/cours/**","/api/cours/question/**","/api/lecon/all","/api/lecon/**","/api/lecon/cours/**","/api/question/**","/api/question/course/**",
-                                "/api/quiz/all","/api/quiz/num/**","/api/certificat/check/**","/api/utilisateur/count","/api/quiz/count","/api/certificat/count","/api/cours/count").hasAnyAuthority("ADMIN", "UTILISATEUR")
+                        .requestMatchers("/api/cours/all", "/api/question/course/","/api/quiz/num/**","/api/certificat/**","/api/contenu/**","/api/contenu/lecon/**","/api/cours/**","/api/cours/question/**","/api/lecon/all","/api/lecon/**","/api/lecon/cours/**","/api/question/**","/api/question/course/**",
+                                "/api/quiz/all","/api/quiz/num/**","/api/certificat/check/**").hasAnyAuthority("ADMIN", "UTILISATEUR")
                         .anyRequest().authenticated()
 
 

@@ -68,8 +68,8 @@ public class QuestionServiceImpl implements QuestionService {
             question.setQuizzes(questionDto.getQuizzes());
             question.setQuestionTitle(questionDto.getQuestionTitle());
             question.setOption1(questionDto.getOption1());
-            question.setOption2(question.getOption2());
-            question.setOption3(question.getOption3());
+            question.setOption2(questionDto.getOption2());
+            question.setOption3(questionDto.getOption3());
             question.setDifficultyLevel(questionDto.getDifficultyLevel());
             question.setCours(questionDto.getCours());
             question.setRightAnswer(questionDto.getRightAnswer());

@@ -1,22 +1,60 @@
-<div class="container">
-  <h2 class="title">Available Courses</h2>
+<!-- courses-list.component.html -->
+<div class="courses-container">
+  <div class="header-section">
+    <div class="header-content">
+      <h1>Explore Our Courses</h1>
+      <p>Advance your career with our expert-led courses</p>
+    </div>
 
-  <!-- Barre de recherche -->
-  <div class="search-container">
-    <input type="text" placeholder="Search for a course..." [(ngModel)]="searchText" class="search-input">
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          placeholder="Search for courses..."
+          class="search-input"
+        >
+      </div>
+      <div class="filter-tags">
+        <button class="filter-tag active">All Courses</button>
+      </div>
+    </div>
   </div>
 
-  <ul class="course-list">
-    <li *ngFor="let course of filteredProjects" class="course-item">
-      <div class="course-info">
-        <h3>{{ course.titre }}</h3>
+  <!-- Course Grid -->
+  <div class="courses-grid">
+    <div *ngFor="let course of filteredProjects" class="course-card">
+      <div class="card-content">
+        <div class="course-info">
+          <div class="course-meta">
+            <span class="lessons">
+              <i class="fas fa-book-open"></i> {{course.lecons.length}} Lessons
+            </span>
+          </div>
+          <h3 class="course-title">{{ course.titre }}</h3>
+          <p class="course-description">{{ course.description }}</p>
+        </div>
+        <div class="card-footer">
+          <div class="course-stats">
+            <span class="stat-item">
+              <i class="fas fa-list-check"></i>
+              {{course.lecons.length}} Units
+            </span>
+          </div>
+          <button class="start-button" (click)="checkIfUserAuthenticated(); coursDetails(course.id)">
+            Start Learning
+          </button>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <div class="button-container">
-        <button class="view-button" (click)="coursDetails(course.id)">
-          Start Course
-        </button>
-      </div>
-    </li>
-  </ul>
+  <!-- No Results Message -->
+  <div *ngIf="filteredProjects.length === 0" class="no-results">
+    <i class="fas fa-search"></i>
+    <h3>No courses found</h3>
+    <p>Try adjusting your search criteria</p>
+  </div>
 </div>

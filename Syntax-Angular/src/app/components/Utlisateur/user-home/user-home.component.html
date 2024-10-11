@@ -1,51 +1,119 @@
 <!-- user-home.component.html -->
 <div class="dashboard-container">
-  <!-- Welcome Section -->
-  <div class="welcome-section">
-    <h1>Welcome Back, {{userName}}! 👋</h1>
-    <p>Track your progress and continue learning</p>
-  </div>
-  <!-- Progress Overview -->
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-icon">📚</div>
-      <div class="stat-content">
-        <h3>Available Courses</h3>
-        <div class="stat-numbers">{{coursesNumber}}</div>
-        <p>Total courses available for you</p>
-        <button [routerLink]="['/syntax/courses']" class="action-button">Browse Courses</button>
-      </div>
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome Back, {{userName}}! 👋</h1>
+      <p class="hero-subtitle">Your journey to mastery continues here</p>
     </div>
-
-    <div class="stat-card">
-      <div class="stat-icon">📝</div>
-      <div class="stat-content">
-        <h3>Available Quizzes</h3>
-        <div class="stat-numbers">{{quizzesNumber}}</div>
-        <p>Practice quizzes ready for you</p>
-        <button [routerLink]="['/syntax/quiz']" class="action-button">Take Quiz</button>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-value">{{coursesNumber}}+</span>
+        <span class="stat-label">Courses</span>
       </div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-icon">🎓</div>
-      <div class="stat-content">
-        <h3>Certificates</h3>
-        <div class="stat-numbers">{{certifesNumber}}</div>
-        <p>Certificates awarded to our users.</p>
-        <button [routerLink]="['/syntax/my-certificates']" class="action-button">View Certificates</button>
+      <div class="hero-stat">
+        <span class="stat-value">{{quizzesNumber}}+</span>
+        <span class="stat-label">Quizzes</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-value">{{certifesNumber}}+</span>
+        <span class="stat-label">Certificates</span>
       </div>
     </div>
   </div>
 
-  <!-- Overview Section -->
-  <div class="overview-section">
-    <h2>About Syntax</h2>
-    <p>
-      Syntax is a comprehensive learning platform designed to help developers enhance their skills through interactive courses, quizzes, and certifications. Our goal is to make learning seamless, enjoyable, and accessible for everyone, regardless of their experience level.
-    </p>
-    <p>
-      You can explore a variety of courses to deepen your knowledge, test your skills with quizzes, and earn certifications to validate your expertise. Get started by browsing through our available courses or take a quiz to assess your progress!
-    </p>
+  <!-- Features Grid -->
+  <div class="features-grid">
+    <div class="feature-card" [routerLink]="['/syntax/courses']">
+      <div class="feature-icon">
+        <i class="fas fa-book-open"></i>
+      </div>
+      <h3>Browse Courses</h3>
+      <p>Explore our extensive library of professional courses</p>
+      <span class="feature-link">View Courses →</span>
+    </div>
+
+    <div class="feature-card" [routerLink]="['/syntax/quiz']">
+      <div class="feature-icon">
+        <i class="fas fa-tasks"></i>
+      </div>
+      <h3>Practice Tests</h3>
+      <p>Test your knowledge with interactive quizzes</p>
+      <span class="feature-link">Start Practice →</span>
+    </div>
+
+    <div class="feature-card" [routerLink]="['/syntax/my-certificates']">
+      <div class="feature-icon">
+        <i class="fas fa-certificate"></i>
+      </div>
+      <h3>Certifications</h3>
+      <p>Earn recognized certificates in your field</p>
+      <span class="feature-link">View Certificates →</span>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <h3>Community</h3>
+      <p>Connect with other learners and experts</p>
+      <span class="feature-link">Join Discussion →</span>
+    </div>
+  </div>
+
+  <!-- Learning Path Section -->
+  <div class="learning-path">
+    <h2>Your Learning Path</h2>
+    <div class="path-progress">
+      <div class="progress-bar">
+        <div class="progress" style="width: 65%"></div>
+      </div>
+      <span class="progress-text">65% Complete</span>
+    </div>
+    <div class="recommended-courses">
+      <h3>Recommended Next Steps</h3>
+      <div class="course-cards">
+        <div class="course-card">
+          <img src="/api/placeholder/300/200" alt="Course thumbnail" />
+          <div class="course-info">
+            <h4>Advanced JavaScript</h4>
+            <p>Master modern JavaScript concepts</p>
+            <button class="course-button">Continue Learning</button>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="/api/placeholder/300/200" alt="Course thumbnail" />
+          <div class="course-info">
+            <h4>React Fundamentals</h4>
+            <p>Build modern web applications</p>
+            <button class="course-button">Start Course</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="about-section">
+    <div class="about-content">
+      <h2>About Syntax</h2>
+      <p>
+        Syntax is your gateway to professional development in the tech industry. Our platform combines expert-led courses, hands-on practice, and industry-recognized certifications to help you achieve your career goals.
+      </p>
+      <div class="about-features">
+        <div class="about-feature">
+          <i class="fas fa-check-circle"></i>
+          <span>Expert-led courses</span>
+        </div>
+        <div class="about-feature">
+          <i class="fas fa-check-circle"></i>
+          <span>Interactive learning</span>
+        </div>
+        <div class="about-feature">
+          <i class="fas fa-check-circle"></i>
+          <span>Industry certificates</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,12 @@
+app-nav-bar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000; /* Ensure the navbar is above other content */
+}
+
+.content {
+  margin-top: 60px; /* Adjust based on the height of your navbar */
+  padding: 20px;
+  flex: 1; /* Allows the content to take the remaining height */
+}

@@ -12,6 +12,7 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./my-certificates.component.css']
 })
 export class MyCertificatesComponent implements OnInit {
+  isMobile: boolean = false;
   myCertificates: Certificat[] = [];
   userId!: number | null;
 
@@ -22,6 +23,7 @@ export class MyCertificatesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isMobile = window.innerWidth <= 768;
     this.userId = this.authService.getCurrentUserId();
     this.getMyCertificates();
   }
@@ -35,6 +37,10 @@ export class MyCertificatesComponent implements OnInit {
   }
 
   async downloadCertificate(index: number) {
+    if (this.isMobile) {
+      alert('You cannot download the certificate from a mobile device. Please use a PC.');
+      return;
+    }
     try {
       const certificateElement = document.getElementsByClassName('certificate-container')[index];
 

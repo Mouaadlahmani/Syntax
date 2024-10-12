@@ -1,4 +1,5 @@
-<div class="course-container">
+<!-- courses.component.html -->
+<div class="quiz-container">
   <div class="header-section">
     <div class="header-content">
       <h1>Available Courses</h1>
@@ -6,35 +7,32 @@
     </div>
   </div>
 
-  <div class="create-course-container">
-    <button class="add-button" (click)="addCours()">
+  <div class="create-quiz-container">
+    <button class="create-quiz-button" (click)="addCours()">
       <i class="fas fa-plus"></i> Add New Course
     </button>
   </div>
 
-  <div class="course-grid">
-    <ul class="course-list">
-      <li *ngFor="let course of courses" class="course-card">
-        <div class="card-content">
-          <div class="course-info">
-            <h3 class="course-title">{{ course.titre }}</h3>
-            <p class="course-description">{{ course.description }}</p>
-          </div>
-          <div class="card-footer">
-            <div class="button-container">
-              <button class="view-button" (click)="coursDetails(course.id)">
-                <i class="fas fa-eye"></i> View Lecons
-              </button>
-              <button class="edit-button" (click)="modifyCours(course.id)">
-                <i class="fas fa-edit"></i> Edit
-              </button>
-              <button class="delete-button" (click)="deleteCours(course.id)">
-                <i class="fas fa-trash"></i> Delete
-              </button>
-            </div>
-          </div>
+  <div class="quiz-grid">
+    <div *ngFor="let course of courses" class="quiz-card">
+      <div class="card-content">
+        <div class="quiz-info">
+          <h3 class="quiz-title">{{ course.titre }}</h3>
+          <p class="quiz-description">{{ course.description }}</p>
         </div>
-      </li>
-    </ul>
+        <div class="card-footer">
+          <button class="view-button" (click)="coursDetails(course.id)">
+            <i class="fas fa-eye"></i> View Lecons
+          </button>
+          <button class="edit-button" (click)="modifyCours(course.id)">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="delete-button" (click)="deleteCours(course.id)">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

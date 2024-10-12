@@ -1,36 +1,37 @@
-<!-- cours-questions.component.html -->
-<div class="container">
-  <h2 class="title">Available Lecons</h2>
+<!-- lecons.component.html -->
+<div class="quiz-container">
+  <div class="header-section">
+    <div class="header-content">
+      <h1>Available Lecons</h1>
+      <p>View, edit, and manage your lecons</p>
+    </div>
+  </div>
 
-  <div class="button-container">
-    <button (click)="addLecon(cours.id)" type="button" class="add-button">
-      Add Lecon
+  <div class="create-quiz-container">
+    <button class="create-quiz-button" (click)="addLecon(cours.id)">
+      <i class="fas fa-plus"></i> Add Lecon
     </button>
   </div>
 
-  <ul class="course-list">
-    <li *ngFor="let lecon of Lecons" class="course-item">
-      <!-- Display the course title -->
-      <div class="course-info">
-        <h3>{{ lecon.titre }}</h3>
+  <div class="quiz-grid">
+    <div *ngFor="let lecon of Lecons" class="quiz-card">
+      <div class="card-content">
+        <div class="quiz-info">
+          <h3 class="quiz-title">{{ lecon.titre }}</h3>
+        </div>
+        <div class="card-footer">
+          <button class="view-button" (click)="LeconDetails(lecon.id)">
+            <i class="fas fa-eye"></i> View Contenu
+          </button>
+          <button class="edit-button" (click)="modifyLecon(lecon.id)">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="delete-button" (click)="deleteLecon(lecon.id)">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
       </div>
-
-      <div class="button-container">
-        <!-- Button to view course questions -->
-        <button class="view-button" (click)="LeconDetails(lecon.id)">
-          View Contenu
-        </button>
-
-        <!-- Button to edit course -->
-        <button class="edit-button" (click)="modifyLecon(lecon.id)">
-          Edit
-        </button>
-
-        <!-- Button to delete course -->
-        <button class="delete-button" (click)="deleteLecon(lecon.id)">
-          Delete
-        </button>
-      </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
+

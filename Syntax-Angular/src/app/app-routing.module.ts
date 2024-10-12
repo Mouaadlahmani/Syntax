@@ -87,6 +87,7 @@ const routes: Routes = [
   },
   {path:'utilisateurs',
     component:UsersComponent,
+    canActivate:[authGuardGuard],data:{role:'ADMIN'},
     children:[
       {path:'', component:DisplayUsersComponent, canActivate:[authGuardGuard],data:{role:'ADMIN'}},
     ]

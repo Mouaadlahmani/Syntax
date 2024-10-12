@@ -16,7 +16,7 @@
         <p class="description">Description: {{ certificate.courses.description }}</p>
 
         <div class="course-details">
-          <p>Course ID: {{ certificate.courses.titre }}</p>
+          <p>Course: {{ certificate.courses.titre }}</p>
           <p>Date of Completion: {{ certificate.dateObtention | date: 'MMMM d, y' }}</p>
         </div>
       </div>
@@ -37,5 +37,10 @@
         Download Certificate
       </button>
     </div>
+
+    <!-- Display a message if on mobile -->
+    <p *ngIf="isMobile" class="mobile-warning">
+     We are sorry you cannot download the certificate from a mobile device. Please use a Laptop.
+    </p>
   </div>
 </div>

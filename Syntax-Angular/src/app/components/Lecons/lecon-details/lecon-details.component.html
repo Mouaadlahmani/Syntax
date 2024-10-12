@@ -1,28 +1,35 @@
 <!-- lecon-details.component.html -->
-<div class="container">
-  <h2 class="title">Available Courses</h2>
+<div class="quiz-container">
+  <div class="header-section">
+    <div class="header-content">
+      <h1>Lecon Details</h1>
+      <p>View and manage content for this lecon</p>
+    </div>
+  </div>
 
-  <div class="button-container">
-    <button (click)="addContenu()" type="button" class="add-button">
-      Add Contenu
+  <div class="create-quiz-container">
+    <button class="create-quiz-button" (click)="addContenu()">
+      <i class="fas fa-plus"></i> Add Contenu
     </button>
   </div>
 
-  <ul class="course-list">
-    <li *ngFor="let contenu of content" class="course-item">
-      <div class="course-info">
-        <h3 class="course-title">{{ contenu.titre }}</h3>
-        <div class="course-description" [innerHTML]="getSafeDescription(contenu.description)"></div>
+  <div class="quiz-grid">
+    <div *ngFor="let contenu of content" class="quiz-card">
+      <div class="card-content">
+        <div class="quiz-info">
+          <h3 class="quiz-title">{{ contenu.titre }}</h3>
+          <div class="quiz-description" [innerHTML]="getSafeDescription(contenu.description)"></div>
+        </div>
+        <div class="card-footer">
+          <button class="edit-button" (click)="modifyContenu(contenu.id)">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="delete-button" (click)="deleteContenu(contenu.id)">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
       </div>
-
-      <div class="button-container">
-        <button class="edit-button" (click)="modifyContenu(contenu.id)">
-          <i class="fas fa-edit"></i> Edit
-        </button>
-        <button class="delete-button" (click)="deleteContenu(contenu.id)">
-          <i class="fas fa-trash"></i> Delete
-        </button>
-      </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
+

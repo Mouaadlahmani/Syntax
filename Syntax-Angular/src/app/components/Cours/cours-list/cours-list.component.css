@@ -1,11 +1,9 @@
-/* Course Container styles */
-.course-container {
+.quiz-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* Header Section styles */
 .header-section {
   text-align: center;
   margin-bottom: 48px;
@@ -24,13 +22,12 @@
   margin-bottom: 32px;
 }
 
-/* Create Course Button styles */
-.create-course-container {
+.create-quiz-container {
   text-align: right;
   margin-bottom: 24px;
 }
 
-.add-button {
+.create-quiz-button {
   padding: 12px 24px;
   background: linear-gradient(135deg, #4B146B, #6B3FA0);
   color: white;
@@ -41,20 +38,19 @@
   transition: all 0.3s ease;
 }
 
-.add-button:hover {
+.create-quiz-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(74, 10, 104, 0.2);
 }
 
-/* Course Grid styles */
-.course-grid {
-  display: flex;
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
   margin-bottom: 48px;
 }
 
-/* Course Card styles */
-.course-card {
-  display: flex;
+.quiz-card {
   background: white;
   border-radius: 16px;
   overflow: hidden;
@@ -62,7 +58,7 @@
   border: 1px solid #e0e0e0;
 }
 
-.course-card:hover {
+.quiz-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
@@ -74,8 +70,7 @@
   height: 100%;
 }
 
-/* Course Title styles */
-.course-title {
+.quiz-title {
   font-size: 1.25rem;
   color: #2E073F;
   margin-bottom: 12px;
@@ -83,8 +78,7 @@
   line-height: 1.4;
 }
 
-/* Course Description styles */
-.course-description {
+.quiz-description {
   color: #666;
   font-size: 0.875rem;
   line-height: 1.6;
@@ -92,7 +86,6 @@
   flex-grow: 1;
 }
 
-/* Card Footer styles */
 .card-footer {
   display: flex;
   justify-content: space-between;
@@ -102,13 +95,6 @@
   margin-top: auto;
 }
 
-/* Button Container styles */
-.button-container {
-  display: flex;
-  gap: 15px;
-}
-
-/* Common Button styles */
 button {
   padding: 10px 20px;
   color: white;
@@ -119,58 +105,62 @@ button {
   transition: all 0.3s ease;
 }
 
-/* View button styling */
 .view-button {
   background: linear-gradient(135deg, #2E073F, #4A0A68);
 }
 
-.view-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Edit button styling */
 .edit-button {
   background: linear-gradient(135deg, #6B3FA0, #8E5CC0);
 }
 
-.edit-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Delete button styling */
 .delete-button {
-  background: #B8001F;
+  background: linear-gradient(135deg, #B8001F, #D11D38);
 }
 
+.view-button:hover,
+.edit-button:hover,
 .delete-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
-  .add-button {
-    width: 100%;
+  .quiz-container {
+    padding: 20px;
   }
 
-  .course-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  .header-content h1 {
+    font-size: 2rem;
+  }
+
+  .quiz-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .create-quiz-button {
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .course-title {
+  .header-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .quiz-title {
     font-size: 1.1rem;
   }
 
-  .course-description {
+  .quiz-description {
     font-size: 0.75rem;
   }
 
   .card-footer {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
   }
 }

@@ -1,28 +1,32 @@
-<div class="users-container bg-white rounded-lg shadow-lg p-6 mx-auto mt-8 max-w-4xl">
-  <h2 class="text-2xl font-semibold text-[#2E073F] text-center mb-4">Liste des utilisateurs</h2>
+<div class="users-container bg-white/30 from-[#3b185f] to-[#1a0b3d] p-8 min-h-screen">
+  <div class="max-w-6xl mx-auto">
+    <h2 style="color: #2e073f" class="text-4xl font-extrabold text-white text-center mb-10 tracking-wide">Notre Communauté</h2>
 
-  <div *ngIf="utilisateurs.length === 0; else userList">
-    <p class="text-gray-600 text-center">Aucun utilisateur trouvé.</p>
+    <div  *ngIf="utilisateurs.length === 0" class="bg-white/10 rounded-xl shadow-lg p-8 text-center backdrop-blur-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white/60 mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+      <p class="text-xl text-white/70">Aucun utilisateur trouvé. Soyez le premier à rejoindre notre communauté!</p>
+    </div>
+
+    <div  *ngIf="utilisateurs.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+      <div *ngFor="let utilisateur of utilisateurs" class="bg-[#2a0f45] rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+        <div class="md:bg-white from-[#7d4ce0] to-[#6241a7] p-6">
+          <div class="flex items-center justify-center w-20 h-20 mx-auto bg-white rounded-full shadow-inner">
+            <img src="assets/images/user-profle.jpg" alt="User Profile" class="rounded-full object-cover h-20 w-20">
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold text-white mb-2">{{ utilisateur.prenom }} {{ utilisateur.nom }}</h3>
+          <p class="text-gray-300 mb-4">{{ utilisateur.email }}</p>
+          <div class="flex items-center text-sm text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            ID: {{ utilisateur.id }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <ng-template #userList>
-    <table class="users-table w-full table-auto border-collapse mt-6">
-      <thead class="bg-[#4a2569] text-white">
-      <tr>
-        <th class="px-6 py-4 text-left">ID</th>
-        <th class="px-6 py-4 text-left">Nom</th>
-        <th class="px-6 py-4 text-left">Prénom</th>
-        <th class="px-6 py-4 text-left">Email</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let utilisateur of utilisateurs" class="odd:bg-gray-50 even:bg-gray-100 hover:bg-gray-200">
-        <td class="px-6 py-4">{{ utilisateur.id }}</td>
-        <td class="px-6 py-4">{{ utilisateur.nom }}</td>
-        <td class="px-6 py-4">{{ utilisateur.prenom }}</td>
-        <td class="px-6 py-4">{{ utilisateur.email }}</td>
-      </tr>
-      </tbody>
-    </table>
-  </ng-template>
 </div>

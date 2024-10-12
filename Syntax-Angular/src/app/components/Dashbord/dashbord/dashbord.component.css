@@ -1,0 +1,55 @@
+/* Sidebar Styles */
+#default-sidebar {
+  background-color: #ffffff; /* White background */
+  border-right: 1px solid #e0e0e0; /* Subtle border on the right */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Sidebar links */
+ul.space-y-2 li button {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px; /* Adjusted padding for a more spacious look */
+  margin: 8px 0; /* Space between items */
+  border-radius: 8px; /* Rounded corners */
+  color: #333; /* Dark text color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effects */
+ul.space-y-2 li button:hover {
+  background-color: #f0f0f0; /* Light gray background on hover */
+  color: #2E073F; /* Darker text color on hover */
+}
+
+/* Active link style */
+ul.space-y-2 li button.active {
+  background-color: #2E073F; /* Dark background for active link */
+  color: #ffffff; /* White text color for active link */
+}
+
+/* Icons */
+ul.space-y-2 li button svg {
+  margin-right: 8px; /* Spacing between icon and text */
+  color: #2E073F; /* Match icon color with the theme */
+}
+
+/* Sidebar button styles */
+.inline-flex.items-center.p-2 {
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Sidebar title style */
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2E073F;
+  padding: 16px; /* Add padding to title */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  #default-sidebar {
+    width: 240px; /* Consistent width */
+  }
+}

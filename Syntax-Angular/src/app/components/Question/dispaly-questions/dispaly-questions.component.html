@@ -1,53 +1,219 @@
-<div class="container" style="margin-top: 2%">
-  <button (click)="addQuestion()" class="add-question-btn inline-flex items-center px-4 py-2 text-white bg-green-600 rounded-lg focus:outline-none focus:ring-4 hover:bg-green-700 transition duration-200">
+<div class="container">
+  <h2 class="title">Course Questions</h2>
+  <button (click)="addQuestion()" class="add-question-btn">
     Add Question
-    <svg class="w-5 h-5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path d="M12 4v16m8-8H4" />
     </svg>
   </button>
-  <!-- Check if the questions array is empty and display a message -->
+
   <div *ngIf="questions.length === 0" class="no-questions-message">
-    <p class="text-center text-gray-500 dark:text-gray-300 text-lg">No questions available for this course.</p>
+    <p>No questions available for this course.</p>
   </div>
 
   <div class="questions">
-  <div *ngFor="let question of questions" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 card dark:bg-gray-800 dark:border-gray-700">
-    <div class="p-6">
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Course Title</h3>
-      <p class="mb-4 text-sm text-gray-700 dark:text-gray-300">{{question.cours.titre}}</p>
+    <div *ngFor="let question of questions" class="card">
+      <div class="card-content">
+        <h3 class="card-title">{{question.cours.titre}}</h3>
+        <p class="question-title">{{question.questionTitle}}</p>
+        <ul class="options">
+          <li>Option 1: {{question.option1}}</li>
+          <li>Option 2: {{question.option2}}</li>
+          <li>Option 3: {{question.option3}}</li>
+        </ul>
+        <p class="right-answer">Right Answer: {{question.rightAnswer}}</p>
+        <p class="difficulty-level">Difficulty: {{question.difficultyLevel}}</p>
+      </div>
 
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Question</h3>
-      <p class="mb-4 text-sm text-gray-700 dark:text-gray-300">{{question.questionTitle}}</p>
-
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Options</h3>
-      <ul class="mb-4 list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
-        <li>Option 1: {{question.option1}}</li>
-        <li>Option 2: {{question.option2}}</li>
-        <li>Option 3: {{question.option3}}</li>
-      </ul>
-
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Right Answer</h3>
-      <p class="mb-4 text-sm text-green-600 dark:text-green-400">{{question.rightAnswer}}</p>
-
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Difficulty Level</h3>
-      <p class="text-sm text-blue-600 dark:text-blue-400">{{question.difficultyLevel}}</p>
-    </div>
-
-    <!-- Action Buttons -->
-    <div class="buttons p-4">
-      <button (click)="toModify(question.id)" class="edit-btn inline-flex items-center px-4 py-2 mr-2 text-sm font-medium text-white bg-blue-600 rounded-lg focus:outline-none focus:ring-4">
-        Edit
-        <svg class="w-5 h-5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path d="M4 21v-4m0 0L12 4l4 4-8 13H4zm8-13l-8 8v4h4l8-8m0 0l4 4-8 8" />
-        </svg>
-      </button>
-      <button (click)="delete(question.id)" class="delete-btn inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg focus:outline-none focus:ring-4">
-        Delete
-        <svg class="w-5 h-5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path d="M6 6h12m-9 6v6m6-6v6M4 6h16M9 6V4h6v2" />
-        </svg>
-      </button>
+      <div class="buttons">
+        <button (click)="toModify(question.id)" class="edit-btn">Edit</button>
+        <button (click)="delete(question.id)" class="delete-btn">Delete</button>
+      </div>
     </div>
   </div>
 </div>
-</div>
+
+<style>
+  .container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2E073F;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .add-question-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2E073F, #4A0A68);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+    margin-bottom: 1.5rem;
+  }
+
+  .add-question-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #4A0A68, #2E073F);
+  }
+
+  .add-question-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(46, 7, 63, 0.4);
+  }
+
+  .add-question-btn:active {
+    transform: translateY(0);
+  }
+
+
+  .questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent content overflow */
+    position: relative; /* Position for pseudo-element */
+  }
+
+  /* Card hover effect */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Adding a subtle gradient background on hover */
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: rgba(46, 7, 63, 0.05);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card:hover::after {
+    opacity: 1;
+  }
+
+  .card-content {
+    margin-bottom: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem; /* Increased size for prominence */
+    color: #2E073F;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .question-title {
+    margin: 0.5rem 0;
+    color: #555;
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .options {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0; /* Add margin for better spacing */
+  }
+
+  .options li {
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background 0.3s;
+  }
+
+  .options li:hover {
+    background: #e0e0e0; /* Lighten on hover */
+  }
+
+  .right-answer,
+  .difficulty-level {
+    font-weight: 500;
+    font-size: 0.9rem; /* Smaller font size for secondary info */
+  }
+
+  .right-answer {
+    color: #28a745; /* Green for right answer */
+  }
+
+  .difficulty-level {
+    color: #007bff; /* Blue for difficulty level */
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    background-color: #6B3FA0;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .edit-btn {
+    background-color: #6B3FA0;
+  }
+
+  .delete-btn {
+    background-color: #B8001F;
+  }
+
+  .edit-btn:hover {
+    background-color: #5a3482;
+    transform: translateY(-2px);
+  }
+
+  .delete-btn:hover {
+    background-color: #99001a;
+    transform: translateY(-2px);
+  }
+
+  .no-questions-message {
+    padding: 2rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+    border: 1px dashed #e5e7eb;
+    margin: 1rem 0;
+    text-align: center;
+  }
+</style>

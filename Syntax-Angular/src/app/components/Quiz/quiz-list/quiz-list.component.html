@@ -1,19 +1,34 @@
-<div class="quiz-list-container container">
-  <!-- Create Quiz Button at the Top -->
-  <div class="create-quiz-container">
-    <button class="create-quiz-button" (click)="createQuiz()">Create New Quiz</button>
+<div class="quiz-container">
+  <div class="header-section">
+    <div class="header-content">
+      <h1>Admin Quiz Management</h1>
+      <p>Create, view, and manage your quizzes</p>
+    </div>
+
+    </div>
   </div>
 
-  <h2 class="title">Quiz List</h2>
+  <div class="create-quiz-container">
+    <button class="create-quiz-button" (click)="createQuiz()">
+      <i class="fas fa-plus"></i> Create New Quiz
+    </button>
+  </div>
 
-  <ul class="quiz-list">
-    <li *ngFor="let quiz of quizList" class="quiz-card">
-      <h3>{{ quiz.titre }}</h3>
-      <p>Number of Questions: {{ quiz.questions.length || 0 }}</p>
-      <div class="buttons">
-      <button style="width: 30%;" class="view-button" (click)="Details(quiz.id)">Details</button>
-      <button style="width: 30%; background-color: #B8001F" class="delete-button" (click)="deleteQuiz(quiz.id)">Delete</button>
+  <div class="quiz-grid">
+    <div *ngFor="let quiz of quizList" class="quiz-card">
+      <div class="card-content">
+        <div class="quiz-info">
+          <h3 class="quiz-title">{{ quiz.titre }}</h3>
+          <p class="quiz-description">Number of Questions: {{ quiz.questions.length }}</p>
+        </div>
+        <div class="card-footer">
+          <button class="view-button" (click)="Details(quiz.id)">
+            <i class="fas fa-eye"></i> View Details
+          </button>
+          <button class="delete-button" (click)="deleteQuiz(quiz.id)">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
       </div>
-    </li>
-  </ul>
-</div>
+    </div>
+  </div>

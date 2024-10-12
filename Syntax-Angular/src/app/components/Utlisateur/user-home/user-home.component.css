@@ -14,6 +14,7 @@
   margin-bottom: 48px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(46, 7, 63, 0.2);
 }
 
 .hero-section::before {
@@ -29,63 +30,38 @@
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 16px;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
   opacity: 0.9;
   margin-bottom: 32px;
-}
-
-.search-box {
-  display: flex;
-  gap: 12px;
-  max-width: 500px;
-  margin-bottom: 32px;
-}
-
-.search-box input {
-  flex: 1;
-  padding: 16px;
-  border-radius: 12px;
-  border: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1rem;
-}
-
-.search-box input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.search-button {
-  padding: 16px 32px;
-  background: white;
-  color: #2E073F;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.search-button:hover {
-  background: #4A0A68;
-  color: white;
+  max-width: 600px;
 }
 
 .hero-stats {
   display: flex;
   gap: 48px;
+  margin-top: 48px;
 }
 
 .hero-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: rgba(255,255,255,0.1);
+  padding: 24px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.hero-stat:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.2);
 }
 
 .stat-value {
@@ -102,8 +78,8 @@
 /* Features Grid */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
   margin-bottom: 48px;
 }
 
@@ -114,6 +90,9 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .feature-card:hover {
@@ -146,110 +125,32 @@
 .feature-card p {
   color: #666;
   margin-bottom: 24px;
+  flex-grow: 1;
 }
 
 .feature-link {
   color: #4A0A68;
   font-weight: 600;
+  text-decoration: none;
+  position: relative;
 }
 
-/* Learning Path Section */
-.learning-path {
-  background: white;
-  border-radius: 24px;
-  padding: 48px;
-  margin-bottom: 48px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.learning-path h2 {
-  font-size: 2rem;
-  color: #2E073F;
-  margin-bottom: 32px;
-}
-
-.path-progress {
-  margin-bottom: 48px;
-}
-
-.progress-bar {
-  height: 8px;
-  background: #f0f0f0;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 12px;
-}
-
-.progress {
-  height: 100%;
-  background: linear-gradient(90deg, #2E073F, #4A0A68);
-  border-radius: 4px;
-}
-
-.progress-text {
-  color: #666;
-  font-weight: 500;
-}
-
-.recommended-courses h3 {
-  font-size: 1.5rem;
-  color: #2E073F;
-  margin-bottom: 24px;
-}
-
-.course-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.course-card {
-  background: #f8f9fa;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-}
-
-.course-card img {
+.feature-link::after {
+  content: '';
+  position: absolute;
   width: 100%;
-  height: 160px;
-  object-fit: cover;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #4A0A68;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
 }
 
-.course-info {
-  padding: 24px;
-}
-
-.course-info h4 {
-  font-size: 1.25rem;
-  color: #2E073F;
-  margin-bottom: 8px;
-}
-
-.course-info p {
-  color: #666;
-  margin-bottom: 16px;
-}
-
-.course-button {
-  background: linear-gradient(135deg, #2E073F, #4A0A68);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.course-button:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+.feature-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 /* About Section */
@@ -258,11 +159,13 @@
   border-radius: 24px;
   padding: 48px;
   color: white;
+  box-shadow: 0 10px 30px rgba(46, 7, 63, 0.2);
 }
 
 .about-content h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 24px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .about-content p {
@@ -270,6 +173,7 @@
   line-height: 1.6;
   opacity: 0.9;
   margin-bottom: 32px;
+  max-width: 800px;
 }
 
 .about-features {
@@ -282,15 +186,59 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  background: rgba(255,255,255,0.1);
+  padding: 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.about-feature:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
 }
 
 .about-feature i {
   color: #00ff88;
+  font-size: 1.2rem;
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
   .hero-section {
+    padding: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .hero-stat {
+    flex-basis: calc(50% - 12px);
+  }
+
+  .about-section {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section,
+  .about-section {
     padding: 32px;
   }
 
@@ -298,16 +246,53 @@
     font-size: 2rem;
   }
 
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
   .hero-stats {
     flex-direction: column;
-    gap: 24px;
+    align-items: stretch;
   }
 
-  .learning-path {
-    padding: 32px;
+  .hero-stat {
+    flex-basis: 100%;
   }
 
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .hero-section,
   .about-section {
-    padding: 32px;
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .feature-card,
+  .about-feature {
+    padding: 24px;
   }
 }

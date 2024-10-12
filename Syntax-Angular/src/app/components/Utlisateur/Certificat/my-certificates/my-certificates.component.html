@@ -1,20 +1,18 @@
 <div class="container">
   <div *ngFor="let certificate of myCertificates; let i = index" class="certificate-wrapper">
     <div class="certificate-container">
-      <!-- Certificate Header with Logo and Lines -->
       <div class="certificate-header">
         <div class="header-line"></div>
         <img src="assets/images/Syntax.png" alt="Logo" class="certificate-logo">
-        <h1>CERTIFICATE OF COMPLETION</h1>
+        <h1 class="certificate-title">Certificate of Completion</h1>
         <div class="header-line"></div>
       </div>
 
-      <!-- Certificate Body -->
       <div class="certificate-body">
-        <p>This certifies that</p>
-        <h2>{{ certificate.utilisateur.nom }} {{ certificate.utilisateur.prenom }}</h2>
-        <p>has successfully completed the online course:</p>
-        <h3>{{ certificate.courses.titre }}</h3>
+        <p class="certifies-text">This certifies that</p>
+        <h2 class="recipient-name">{{ certificate.utilisateur.nom }} {{ certificate.utilisateur.prenom }}</h2>
+        <p class="completion-text">has successfully completed the online course:</p>
+        <h3 class="course-title">{{ certificate.courses.titre }}</h3>
         <p class="description">Description: {{ certificate.courses.description }}</p>
 
         <div class="course-details">
@@ -23,7 +21,6 @@
         </div>
       </div>
 
-      <!-- Certificate Footer with Signature -->
       <div class="certificate-footer">
         <div class="footer-line"></div>
         <div class="signature">

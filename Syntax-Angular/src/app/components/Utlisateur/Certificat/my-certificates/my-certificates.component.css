@@ -17,6 +17,13 @@ body, html {
   gap: 2em;
 }
 
+/* Certificate Wrapper */
+.certificate-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Certificate Container */
 .certificate-container {
   background-color: #FFFFFF; /* White background for the certificate */
@@ -27,7 +34,6 @@ body, html {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-  position: relative;
 }
 
 /* Certificate Header Styling */
@@ -43,11 +49,12 @@ body, html {
   margin-bottom: 15px;
 }
 
-.certificate-header h1 {
+.certificate-title {
   font-size: 30px; /* Slightly larger font size */
   font-weight: bold;
   color: #2E073F; /* Dark color for header */
   margin: 10px 0;
+  text-transform: uppercase; /* Uppercase for emphasis */
 }
 
 /* Header and Footer Lines */
@@ -64,21 +71,21 @@ body, html {
   margin-top: 10px;
 }
 
-.certificate-body p {
+.certifies-text, .completion-text {
   font-size: 18px;
   color: #2E073F; /* Dark text */
   margin: 8px 0;
 }
 
-.certificate-body h2 {
-  font-size: 28px;
+.recipient-name {
+  font-size: 28px; /* Increased size for recipient's name */
   color: #2E073F; /* Dark color for recipient's name */
   font-weight: bold;
   margin: 10px 0;
 }
 
-.certificate-body h3 {
-  font-size: 22px;
+.course-title {
+  font-size: 22px; /* Slightly larger for course title */
   color: #2E073F; /* Dark color for course title */
   margin: 10px 0;
 }
@@ -134,18 +141,10 @@ body, html {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .download-button:hover {
   background-color: #1A0E26; /* Darker hover effect */
-}
-
-.description {
-  font-size: 14px;
-  color: #666; /* Grey text for description */
-  margin: 10px 0;
-  padding: 0 20px;
 }
 
 /* Print and PDF Optimization */

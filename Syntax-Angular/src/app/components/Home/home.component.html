@@ -1,119 +1,38 @@
-<style>
-  /* Existing styles remain unchanged */
-
-  /* Stats Dashboard Styling */
-  .stats-container {
-    padding: 4rem 3rem;
-    background: #fff;
-    margin: -5rem 0 0 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .stat-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(46, 7, 63, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(46, 7, 63, 0.1);
-  }
-
-  .stat-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(46, 7, 63, 0.15);
-  }
-
-  .stat-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1rem;
-    color: #2E073F;
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #2E073F;
-    margin: 0.5rem 0;
-    font-family: 'Roboto', Arial, sans-serif;
-  }
-
-  .stat-label {
-    color: #666;
-    font-size: 1.1rem;
-    font-weight: 500;
-  }
-
-  .section-title {
-    text-align: center;
-    color: #2E073F;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    font-weight: 600;
-  }
-
-  @media (max-width: 768px) {
-    .stats-container {
-      padding: 3rem 1.5rem;
-      margin-top: -3rem;
-    }
-
-    .stats-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-  }
-</style>
-
 <header>
-  <mat-toolbar color="primary">
+  <nav>
     <div class="logo">
-      <img src="assets/images/Syntax.png" alt="Syntax Logo" class="logo-img">
+      <a>
+        <img src="assets/images/Syntax.png" alt="Syntax Logo">
+      </a>
     </div>
-    <span class="spacer"></span>
-    <ul class="nav-list">
-      <!-- Add navigation links here if necessary -->
+    <ul>
+      <li><a routerLink="/sign-in" class="nav-button login-button">Login</a></li>
+      <li><a routerLink="/sign-up" class="nav-button register-button">Register</a></li>
     </ul>
-  </mat-toolbar>
+  </nav>
 </header>
 
 <main>
   <section class="hero">
     <div class="hero-content">
-      <h1>Plateforme Interactive pour Développeurs</h1>
-      <p>Explorez, apprenez et créez avec notre plateforme interactive.</p>
-      <a routerLink="sign-in" class="cta-button mat-raised-button mat-primary">Commencer</a>
+      <h1>Interactive Platform for Developers</h1>
+      <p>Explore, learn, and create with our interactive platform.</p>
+      <a routerLink="sign-in" class="cta-button mat-raised-button mat-primary">Get Started</a>
     </div>
     <div class="hero-image">
       <img src="assets/images/signIn-img.png" alt="Developers at Work">
     </div>
   </section>
 
-  <!-- Stats Dashboard Section -->
   <section class="stats-container">
-    <h2 class="section-title">Notre Impact en Chiffres</h2>
+    <h2 class="section-title">Our Impact in Numbers</h2>
     <div class="stats-grid">
       <div class="stat-card">
         <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
         <div class="stat-number">{{usersNumber}}</div>
-        <div class="stat-label">Apprenants Actifs</div>
+        <div class="stat-label">Learners</div>
       </div>
 
       <div class="stat-card">
@@ -121,7 +40,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
         </svg>
         <div class="stat-number">{{coursesNumber}}</div>
-        <div class="stat-label">Cours Disponibles</div>
+        <div class="stat-label">Available Courses</div>
       </div>
 
       <div class="stat-card">
@@ -129,7 +48,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
         </svg>
         <div class="stat-number">{{quizzesNumber}}</div>
-        <div class="stat-label">Quiz Interactifs</div>
+        <div class="stat-label">Interactive Quizzes</div>
       </div>
 
       <div class="stat-card">
@@ -137,7 +56,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
         </svg>
         <div class="stat-number">{{certifesNumber}}</div>
-        <div class="stat-label">Certifications Délivrées</div>
+        <div class="stat-label">Certifications Issued</div>
       </div>
     </div>
   </section>
@@ -147,6 +66,7 @@
 
 <footer>
   <mat-toolbar color="primary" class="footer">
-    <span>&copy; 2024 Syntax. Tous droits réservés.</span>
+    <span>&copy; 2024 Syntax. All rights reserved.</span>
   </mat-toolbar>
 </footer>
+

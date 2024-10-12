@@ -1,20 +1,18 @@
-/* cours-questions.component.css */
-
 .container {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 40px 20px;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
 .title {
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: #2E073F;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
+  text-align: center;
 }
 
 .course-list {
@@ -26,47 +24,79 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
-  margin: 15px 0;
-  border-radius: 8px;
-  background: linear-gradient(to right, #ececec, #f7f7f7);
-  border: 1px solid #ddd;
-  transition: transform 0.3s, background-color 0.3s;
+  padding: 24px;
+  margin-bottom: 24px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
 }
 
 .course-item:hover {
-  background: linear-gradient(to right, #f1f1f1, #f9f9f9);
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 .course-info h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 500;
-  color: #1f316f;
+  font-size: 1.25rem;
+  color: #2E073F;
+  margin: 0 0 8px;
+  font-weight: 600;
 }
 
 .course-info p {
-  margin: 5px 0 0;
-  font-size: 14px;
-  color: #555;
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
 }
 
 .view-button {
-  padding: 12px 25px;
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 1rem;
   font-weight: 500;
   color: #ffffff;
-  background-color: #2E073F;
+  background: linear-gradient(135deg, #2E073F, #4A0A68);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
 }
 
 .view-button:hover {
-  background-color: #2E073F;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 10, 104, 0.2);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .course-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .view-button {
+    margin-top: 16px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .course-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .course-info p {
+    font-size: 0.8rem;
+  }
 }

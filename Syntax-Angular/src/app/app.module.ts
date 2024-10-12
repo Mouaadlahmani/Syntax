@@ -53,6 +53,8 @@ import {MatIconModule} from "@angular/material/icon";
 import { AdminDashbordComponent } from './components/admin-dashbord/admin-dashbord.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { UserHomeComponent } from './components/Utlisateur/user-home/user-home.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import {BaseChartDirective} from "ng2-charts";
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +99,7 @@ import { UserHomeComponent } from './components/Utlisateur/user-home/user-home.c
     UtilisateurInfoComponent,
     AdminDashbordComponent,
     UserHomeComponent,
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,6 +115,7 @@ import { UserHomeComponent } from './components/Utlisateur/user-home/user-home.c
     MatCardModule,
     MatIconModule,
     MatGridListModule,
+    BaseChartDirective,
   ],
   providers: [
     {

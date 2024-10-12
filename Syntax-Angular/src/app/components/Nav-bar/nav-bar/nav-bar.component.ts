@@ -13,6 +13,7 @@ export class NavBarComponent implements OnInit{
   firstName!:string | null;
   lastName!:string | null;
   showNavButtons: boolean = true;
+  isNavbarOpen: boolean = false;
 
   constructor(private router: Router, private authService:AuthService) {
   }
@@ -39,6 +40,18 @@ export class NavBarComponent implements OnInit{
   logout(){
     localStorage.removeItem('token');
     this.router.navigate(['sign-in']);
+  }
+  toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
+  toHome(){
+    if(this.role==='ADMIN' || this.authService.getToken()){
+      this.router.navigate(['dashbord']);
+    }else if(this.role==='UTILISATEUR' || this.authService.getToken()){
+      this.router.navigate(['syntax/home']);
+    }else {
+      this.router.navigate([''])
+    }
   }
 
 }

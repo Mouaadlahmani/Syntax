@@ -10,3 +10,11 @@ app-nav-bar {
   padding: 20px;
   flex: 1; /* Allows the content to take the remaining height */
 }
+@media (max-width: 768px) {
+  .bg-gray-50{
+    width: 12%;
+  }
+  .app-nav-bar{
+    margin-top: -12%;
+  }
+}

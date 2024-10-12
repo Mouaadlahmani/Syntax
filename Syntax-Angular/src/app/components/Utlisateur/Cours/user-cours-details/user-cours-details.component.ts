@@ -53,6 +53,22 @@ export class UserCoursDetailsComponent implements OnInit {
     });
   }
 
+  isSidebarOpen: boolean = true;
+
+  toggleSidebar() {
+    if (window.innerWidth < 768) { // Only allow toggling for desktop view
+      this.isSidebarOpen = !this.isSidebarOpen;
+      const mainContent = document.querySelector('.main-content') as HTMLElement;
+
+      if (this.isSidebarOpen) {
+        mainContent.style.marginLeft = '250px';
+      } else {
+        mainContent.style.marginLeft = '0';
+      }
+    }
+  }
+
+
   /**
    * Méthode pour naviguer vers la liste des cours
    */

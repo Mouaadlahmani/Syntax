@@ -1,85 +1,105 @@
-/* Container styles */
-.container {
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 40px;
-  background: #f8f8fb;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  text-align: center;
+/* Course Container styles */
+.course-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* Title styles */
-.title {
-  font-size: 34px;
+/* Header Section styles */
+.header-section {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  color: #2E073F;
+  margin-bottom: 16px;
   font-weight: 700;
-  color: #2E073F; /* Primary color */
-  margin-bottom: 45px;
-  border-bottom: 3px solid #2E073F;
-  display: inline-block;
-  padding-bottom: 10px;
+}
+
+.header-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+/* Create Course Button styles */
+.create-course-container {
+  text-align: right;
+  margin-bottom: 24px;
 }
 
 .add-button {
+  padding: 12px 24px;
   background: linear-gradient(135deg, #4B146B, #6B3FA0);
-  padding: 15px 30px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
+  color: white;
   border: none;
-  border-radius: 30px; /* Fully rounded button */
+  border-radius: 8px;
+  font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  text-transform: uppercase; /* Uppercase text for a modern look */
-  margin-bottom: 20px; /* Space below the button */
 }
 
 .add-button:hover {
-  background: linear-gradient(135deg, #3e0d5e, #522d78);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  transform: translateY(-4px); /* Lift effect */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 10, 104, 0.2);
 }
 
-/* Course list styles */
-.course-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Course Grid styles */
+.course-grid {
+  display: flex;
+  margin-bottom: 48px;
 }
 
-/* Individual course item styles */
-.course-item {
+/* Course Card styles */
+.course-card {
+  display: flex;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Course Title styles */
+.course-title {
+  font-size: 1.25rem;
+  color: #2E073F;
+  margin-bottom: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Course Description styles */
+.course-description {
+  color: #666;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+/* Card Footer styles */
+.card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 40px;
-  margin: 20px 0;
-  border-radius: 12px;
-  background: linear-gradient(to right, #ececec, #f7f7f7); /* Soft gradient */
-  border: 1px solid #d4c2e0;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Course item hover effects */
-.course-item:hover {
-  background: linear-gradient(to right, #f1f1f1, #f9f9f9);
-  transform: translateY(-2px);
-}
-
-/* Course info styles */
-.course-info h3 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: #2E073F;
-}
-
-.course-info p {
-  margin: 8px 0 0;
-  font-size: 16px;
-  color: #6a6275;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: auto;
 }
 
 /* Button Container styles */
@@ -90,27 +110,23 @@
 
 /* Common Button styles */
 button {
-  padding: 15px 30px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
+  padding: 10px 20px;
+  color: white;
   border: none;
-  border-radius: 30px; /* Fully rounded buttons */
+  border-radius: 8px;
+  font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  text-transform: uppercase; /* Uppercase text for a modern look */
 }
 
 /* View button styling */
 .view-button {
-  background: linear-gradient(135deg, #2E073F, #4B146B);
+  background: linear-gradient(135deg, #2E073F, #4A0A68);
 }
 
 .view-button:hover {
-  background: linear-gradient(135deg, #25042f, #3e0d5e);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  transform: translateY(-4px); /* Lift effect */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Edit button styling */
@@ -119,64 +135,42 @@ button {
 }
 
 .edit-button:hover {
-  background: linear-gradient(135deg, #522d78, #7a48b0);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  transform: translateY(-4px); /* Lift effect */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Delete button styling */
 .delete-button {
-  background: linear-gradient(135deg, #B8001F, #D11D38);
+  background: #B8001F;
 }
 
 .delete-button:hover {
-  background: linear-gradient(135deg, #880018, #b7152f);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  transform: translateY(-4px); /* Lift effect */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* Responsive styles */
 @media (max-width: 768px) {
-  /* Adjust the button padding and font size on smaller screens */
-  button {
-    padding: 12px 20px;
-    font-size: 14px;
+  .add-button {
+    width: 100%;
   }
 
-  /* Modify the button container layout to be stacked vertically */
-  .button-container {
-    flex-direction: column;
-    gap: 10px; /* Reduced spacing between buttons */
-  }
-
-  /* Increase the container padding for better spacing */
-  .container {
-    padding: 30px;
+  .course-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
 @media (max-width: 480px) {
-  /* Further adjust button padding and font size for extra small screens */
-  button {
-    padding: 10px 15px;
-    font-size: 12px;
+  .course-title {
+    font-size: 1.1rem;
   }
 
-  /* Reduce the container's max-width and margin */
-  .container {
-    max-width: 95%;
-    margin: 20px auto;
-    padding: 20px;
+  .course-description {
+    font-size: 0.75rem;
   }
 
-  /* Change course item layout for better readability */
-  .course-item {
-    gap: 1em;
+  .card-footer {
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  /* Adjust title font size */
-  .title {
-    font-size: 28px;
+    align-items: flex-start;
   }
 }

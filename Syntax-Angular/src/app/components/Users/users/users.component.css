@@ -1,5 +1,105 @@
+/* Base Layout Styles */
+:host {
+  display: contents;
+}
+
+/* Sidebar Styling */
+.sidebar-container {
+  @apply w-64 border-r border-gray-200 dark:border-gray-700 overflow-y-auto;
+  height: calc(100vh - 90px); /* Adjust based on your navbar height */
+}
+
+/* Custom Scrollbar for Sidebar and Main Content */
+.sidebar-container, main {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.sidebar-container::-webkit-scrollbar,
+main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-container::-webkit-scrollbar-track,
+main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 20px;
+}
+
+/* Main Content Area Styling */
+main {
+  @apply relative;
+  height: calc(100vh - 90px); /* Adjust based on your navbar height */
+}
+
+/* Content Container */
+.content-container {
+  @apply h-full rounded-lg bg-white dark:bg-gray-800 shadow-sm;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar-container {
+    @apply w-56;
+  }
+}
+
 @media (max-width: 768px) {
-  .bg-gray-50{
-    width: 12%;
+  .sidebar-container {
+    @apply fixed left-0 w-64 -translate-x-full;
+    z-index: 40;
+  }
+
+  .sidebar-container.active {
+    @apply translate-x-0;
+  }
+
+  /* Add backdrop when sidebar is open */
+  .sidebar-backdrop {
+    @apply fixed inset-0 bg-gray-900 bg-opacity-50;
+    z-index: 30;
+  }
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  .bg-white {
+    @apply bg-gray-800;
+  }
+
+  .text-gray-700 {
+    @apply text-gray-300;
+  }
+}
+
+/* Animation Classes */
+.slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.slide-out {
+  animation: slideOut 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }

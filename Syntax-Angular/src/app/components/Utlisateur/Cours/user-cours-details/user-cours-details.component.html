@@ -1,10 +1,10 @@
 <div class="container">
-  <aside class="sidebar">
-    <h4>Leçons</h4>
+  <aside class="sidebar" [class.active]="isSidebarOpen">
+    <h4>Lessons</h4>
     <ul>
       <li
         *ngFor="let lecon of leconList"
-        (click)="selectLecon(lecon, lecon.id)"
+        (click)="selectLecon(lecon, lecon.id); toggleSidebar()"
         [class.active]="lecon === selectedLecon"
         [attr.aria-label]="lecon.titre">
         {{ lecon.titre }}
@@ -12,8 +12,8 @@
     </ul>
   </aside>
 
-
   <div class="main-content">
+    <button style="margin-top: 18%" class="sidebar-toggle" (click)="toggleSidebar()" [class.hidden]="isSidebarOpen">☰</button>
     <div class="content-box">
       <div class="content-area">
         <div *ngIf="selectedLecon; else noLessons">

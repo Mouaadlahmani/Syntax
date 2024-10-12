@@ -1,26 +1,33 @@
-.nav-list {
-  background-color: #2E073F; /* Background color for the entire list */
-  padding: 1rem; /* Add padding to the list */
-  border-radius: 0.375rem; /* Optional: Add rounded corners */
+.navbar {
+  background-color: #2E073F; /* Navbar background color */
 }
 
-.nav-item {
-  margin-bottom: 0.5rem; /* Optional: Add space between list items */
+.navbar ul {
+  display: flex; /* Align items in a row */
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
 }
 
-.nav-item:last-child {
-  margin-bottom: 0; /* Remove margin from the last item */
+.navbar li {
+  position: relative; /* Position for dropdown if needed */
 }
 
-.nav-link {
-  color: white; /* Text color for links */
-  padding: 0.5rem 1rem; /* Padding inside each link */
-  display: block; /* Make the entire list item clickable */
-  text-decoration: none; /* Remove underline from links */
+.navbar button {
+  color: white; /* Text color for buttons */
+  padding: 0.75rem 1.5rem; /* Add padding for buttons */
+  border: none; /* Remove border */
+  border-radius: 0.375rem; /* Rounded corners */
+  background-color: transparent; /* Transparent background */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  background-color: #2E073F; /* Darker background on hover */
-  border-radius: 0.375rem; /* Keep rounded corners on hover */
+.navbar button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent hover effect */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.navbar button:focus {
+  outline: none; /* Remove outline on focus */
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Add focus ring */
 }

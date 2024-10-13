@@ -29,7 +29,7 @@
 }
 
 .question-card {
-  background: linear-gradient(135deg, #f3e5f5, #f8f0ff); /* Softer gradient */
+  background: #2e073f; /* Softer gradient */
   border-radius: 15px;
   padding: 40px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
@@ -45,7 +45,7 @@
 .question-text {
   font-size: 28px;
   font-weight: 600;
-  color: #2E073F;
+  color: white;
   margin-bottom: 25px;
 }
 
@@ -60,7 +60,7 @@
   align-items: center;
   padding: 18px;
   border-radius: 12px;
-  background: #f8fafc; /* Light background for options */
+  background: #2e073f; /* Light background for options */
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -74,7 +74,7 @@
 }
 
 .radio-input:checked + .option-label {
-  background: linear-gradient(135deg, #d4c2e0, #e6d3e8);
+  background: #2e073f;
   border-color: #3b82f6;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
@@ -112,7 +112,7 @@
 
 .option-text {
   font-size: 20px;
-  color: #2E073F;
+  color: white;
 }
 
 .next-button,
@@ -154,7 +154,7 @@
 }
 
 .completion-card {
-  background: linear-gradient(135deg, #ffe4e1, #fff0f5); /* Soft pink gradient */
+  background: #2e073f; /* Soft pink gradient */
   border-radius: 15px;
   padding: 40px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);

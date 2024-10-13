@@ -31,7 +31,6 @@ import {QuizDetailsComponent} from "./components/Quiz/quiz-details/quiz-details.
 import {DisplayUsersComponent} from "./components/Users/display-users/display-users.component";
 import {UsersComponent} from "./components/Users/users/users.component";
 import {CoursQuestionsComponent} from "./components/Question/cours-questions/cours-questions.component";
-import {UtilisateurInfoComponent} from "./components/Utlisateur/utilisateur-info/utilisateur-info.component";
 import {AdminDashbordComponent} from "./components/admin-dashbord/admin-dashbord.component";
 import {UserHomeComponent} from "./components/Utlisateur/user-home/user-home.component";
 import {ForbiddenComponent} from "./components/forbidden/forbidden.component";
@@ -109,7 +108,6 @@ const routes: Routes = [
   },
   { path: 'syntax/quiz/:id', component: StartQuizComponent, canActivate:[authGuardGuard],data:{role:'UTILISATEUR'}},
   {path:'certificat/:userId/:coursId', component:GenerateCertificatComponent, canActivate:[authGuardGuard],data:{role:'UTILISATEUR'}},
-  {path:'settings/:id', component:UtilisateurInfoComponent, canActivate:[authGuardGuard]},
   {path:'unauthorized', component:ForbiddenComponent}
 
 

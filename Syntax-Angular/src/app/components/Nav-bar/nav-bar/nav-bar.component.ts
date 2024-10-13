@@ -45,9 +45,9 @@ export class NavBarComponent implements OnInit{
     this.isNavbarOpen = !this.isNavbarOpen;
   }
   toHome(){
-    if(this.role==='ADMIN' || this.authService.getToken()){
+    if(this.role==='ADMIN'){
       this.router.navigate(['dashbord']);
-    }else if(this.role==='UTILISATEUR' || this.authService.getToken()){
+    }else if(this.role==='UTILISATEUR'){
       this.router.navigate(['syntax/home']);
     }else {
       this.router.navigate([''])

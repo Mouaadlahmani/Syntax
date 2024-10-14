@@ -68,10 +68,6 @@ export class StartQuizComponent implements OnInit {
     });
   }
 
-  startQuiz(): void {
-    this.showStartModal = false; // Hide the modal and show the quiz
-  }
-
   next(): void {
     const currentQuestion = this.quizQuestions[this.currentQuestionIndex];
 
@@ -107,10 +103,17 @@ export class StartQuizComponent implements OnInit {
   onSubmit(): void {
     this.service.submitQuiz(this.id, this.responseList).subscribe(
       data => {
-        if (data>=2){
-          this.score = data;
-          console.log('Résultat du quiz soumis avec succès : ', data);
-          this.router.navigate(['certificat', this.userId, this.courseId])
+        this.score = data;
+        console.log('Résultat du quiz soumis avec succès : ', data);
+
+        // Calculate the passing threshold (80% of total questions)
+        const passingThreshold = Math.ceil(this.quizQuestions.length * 0.8);
+
+        if (this.score >= passingThreshold) {
+          console.log('Quiz passed! Score is higher than 80%');
+          this.router.navigate(['certificat', this.userId, this.courseId]);
+        } else {
+          console.log('Quiz not passed. Score is lower than 80%');
         }
       },
       error => {
